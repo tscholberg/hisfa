@@ -1,0 +1,77 @@
+
+// https://www.lucidchart.com/invitations/accept/1b3fd70a-7022-43a8-bd09-a26a3f306bf6
+
+
+CREATE TABLE `NotificationUsers` (
+  `id` <type>,
+  `userid` <type>,
+  `notificationid` <type>
+);
+
+CREATE TABLE `PrimeSilo` (
+  `id` <type>,
+  `numberSilo` <type>,
+  `typeFoam` <type>,
+  `capacity` <type>
+);
+
+CREATE TABLE `Permissions` (
+  `id` <type>,
+  `permissionlevel` <type>,
+  `permissionfunctions` <type>
+);
+
+CREATE TABLE `typeFoam` (
+  `id` <type>,
+  `name` <type>,
+  `property` <type>
+);
+
+CREATE TABLE `Block` (
+  `id` <type>,
+  `width` <type>,
+  `height` <type>,
+  `depth` <type>,
+  `quality` <type>,
+  `typeFoam` <type>,
+  `isInStock` <type>,
+  `location` <type>
+);
+
+CREATE TABLE `User` (
+  `id` <type>,
+  `name` <type>,
+  `role` <type>,
+  `password` <type>,
+  `profle_picture` <type>,
+  `permission_level` <type>
+);
+
+CREATE TABLE `Notifications` (
+  `id` <type>,
+  `notificationdescrption` <type>
+);
+
+CREATE TABLE `heightBlock` (
+  `id` <type>,
+  `height` <type>
+);
+
+CREATE TABLE `userPermissions` (
+  `id` <type>,
+  `userid` <type>,
+  `permissionid` <type>
+);
+
+CREATE TABLE `WasteSilo` (
+  `id` <type>,
+  `numberSilo` <type>,
+  `typeFoam` <type>,
+  `capacity` <type>
+);
+
+CREATE TABLE `Location` (
+  `id` <type>,
+  `locationName` <type>
+);
+
