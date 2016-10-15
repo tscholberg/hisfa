@@ -11,9 +11,9 @@ class typeFoam_seeder extends Seeder
      */
     public function run()
     {
-        DB::table('typeFoam')->insert([
-            'name' => str_random(3),
-            'property' => str_random(10),
-        ]);
+//        DB::table('typeFoam')->insert([
+//            'name' => str_random(3),
+//            'property' => str_random(10),
+//        ]);
     }
 }

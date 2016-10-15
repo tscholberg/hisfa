@@ -11,10 +11,10 @@ class wasteSilo_seeder extends Seeder
      */
     public function run()
     {
-        DB::table('wasteSilo')->insert([
-            'name' => str_random(1),
-            'float' => 0.75,
-            'typeFoam_id' => 1,
-        ]);
+//        DB::table('wasteSilo')->insert([
+//            'name' => str_random(1),
+//            'float' => 0.75,
+//            'typeFoam_id' => 1,
+//        ]);
     }
 }
