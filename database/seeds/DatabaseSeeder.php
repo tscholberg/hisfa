@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(UserTableSeeder::class);
-        $this->call(typeFoam_seeder::class);
-        $this->call(wasteSilo_seeder::class);
+        $this->call(TypeFoamSeeder::class);
+        $this->call(ResourceSeeder::class);
+
     }
 }
