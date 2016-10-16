@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         $this->call(TypeFoamSeeder::class);
         $this->call(ResourceSeeder::class);
-
+        $this->call(SiloSeeder::class);
+        $this->call(BlockSeeder::class);
     }
 }
