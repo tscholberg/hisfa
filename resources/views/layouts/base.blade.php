@@ -74,7 +74,6 @@
 		</div><!-- ./sidebar -->
 		<div class="col-xs-12 col-sm-10 col-sm-offset-2 content">
 			<div class="container">
-				<h1>Onze app content komt hier</h1>
 				@yield('content')
 			</div><!-- ./container -->
 		</div><!-- ./content -->

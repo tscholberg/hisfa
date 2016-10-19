@@ -17,3 +17,8 @@ Route::get('/', function () {
 Route::get('/base', function(){
 	return view('layouts/base');
 });
+Route::get('/foam', 'typeFoamController@index');
+Route::get('/foam/{id}/delete', 'typeFoamController@destroy');
+
+Route::get('/foam/add', 'typeFoamController@create');
+Route::post('/foam/add', 'typeFoamController@store');
