@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreatePrimeSiloTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('primeSilo', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('avatar')->default('default.jpg');
-            $table->string('password');
-            $table->boolean('admin')->default(false);
-            $table->rememberToken();
             $table->timestamps();
+            $table->string('name');
+            $table->float('capacity');
+            $table->integer('resource_id')->unsigned();
+            $table->foreign('resource_id')->references('id')->on('resource');
         });
     }
 
@@ -32,6 +30,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::dropIfExists('primeSilo');
     }
 }
