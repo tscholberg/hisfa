@@ -9,7 +9,7 @@
 			<li>
 				{{ $foam->name }} 
 				<span>
-					<a href="/foam/{{$foam->id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+					<a href="{{ action('typeFoamController@edit', $foam->id) }}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
 					<a href="{{ action('typeFoamController@destroy', $foam->id) }}"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 				</span>
 			</li>

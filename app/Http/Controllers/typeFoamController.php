@@ -66,7 +66,8 @@ class typeFoamController extends Controller
      */
     public function edit($id)
     {
-        //
+        $typeFoam = \App\typeFoam::findOrFail($id);
+        return view('foam.edit', compact('typeFoam'));
     }
 
     /**
@@ -78,7 +79,11 @@ class typeFoamController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $typeFoam = \App\typeFoam::findOrFail($id);
+        $typeFoam->name = $request->input('name');
+        $typeFoam->save();
+
+        return redirect()->action('typeFoamController@index');
     }
 
     /**

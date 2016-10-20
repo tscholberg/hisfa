@@ -17,6 +17,7 @@ class CreateTypeFoamTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('property')->default('property text');
+            $table->timestamps();
         });
     }
 
