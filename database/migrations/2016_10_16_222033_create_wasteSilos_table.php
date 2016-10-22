@@ -15,11 +15,12 @@ class CreateWasteSilosTable extends Migration
     {
         Schema::create('wasteSilo', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->string('name');
             $table->float('capacity');
             $table->integer('resource_id')->unsigned();
             $table->foreign('resource_id')->references('id')->on('resource');
+            $table->timestamps();
+
         });
     }
 

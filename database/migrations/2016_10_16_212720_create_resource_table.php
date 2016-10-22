@@ -18,6 +18,7 @@ class CreateResourceTable extends Migration
             $table->string('name');
             $table->string('image')->default('default_resource.jpg');
             $table->string('property')->default('property text');
+            $table->timestamps();
         });
     }
 

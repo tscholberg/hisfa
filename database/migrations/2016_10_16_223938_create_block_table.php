@@ -15,10 +15,10 @@ class CreateBlockTable extends Migration
     {
         Schema::create('block', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
             $table->integer('height');
             $table->integer('typeFoam_id')->unsigned();
             $table->foreign('typeFoam_id')->references('id')->on('typeFoam');
+            $table->timestamps();
         });
     }
 
