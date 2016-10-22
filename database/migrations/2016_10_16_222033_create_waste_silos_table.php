@@ -13,12 +13,12 @@ class CreateWasteSilosTable extends Migration
      */
     public function up()
     {
-        Schema::create('wasteSilo', function (Blueprint $table) {
+        Schema::create('waste_silos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->float('capacity');
             $table->integer('resource_id')->unsigned();
-            $table->foreign('resource_id')->references('id')->on('resource');
+            $table->foreign('resource_id')->references('id')->on('resources');
             $table->timestamps();
 
         });
@@ -31,6 +31,6 @@ class CreateWasteSilosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wasteSilo');
+        Schema::dropIfExists('waste_silos');
     }
 }

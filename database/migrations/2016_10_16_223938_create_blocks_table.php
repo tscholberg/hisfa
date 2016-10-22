@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTypeFoamTable extends Migration
+class CreateBlocksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateTypeFoamTable extends Migration
      */
     public function up()
     {
-        Schema::create('typeFoam', function (Blueprint $table) {
+        Schema::create('blocks', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('property')->default('property text');
+            $table->integer('height');
+            $table->integer('units');
+            $table->integer('typefoam_id')->unsigned();
+            $table->foreign('typefoam_id')->references('id')->on('typefoams');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ class CreateTypeFoamTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('typeFoam');
+        Schema::dropIfExists('blocks');
     }
 }
