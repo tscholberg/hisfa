@@ -16,6 +16,7 @@ class CreateBlocksTable extends Migration
         Schema::create('blocks', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('height');
+            $table->integer('length');
             $table->integer('units');
             $table->integer('typefoam_id')->unsigned();
             $table->foreign('typefoam_id')->references('id')->on('typefoams');
