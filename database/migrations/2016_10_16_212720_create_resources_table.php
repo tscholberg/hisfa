@@ -16,9 +16,8 @@ class CreateResourcesTable extends Migration
         Schema::create('resources', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            /*$table->string('image')->default('default_resource.jpg');*/
-            /*$table->string('property')->default('property text');*/
-            /*$table->timestamps();*/
+            $table->string('image')->default('default.png');
+            $table->timestamps();
         });
     }
 
