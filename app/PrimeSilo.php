@@ -6,8 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class PrimeSilo extends Model
 {
-    public function resource()
-    {
-        return $this->belongsTo('App\Resource');
+    public $table = "primeSilo";
+
+    public function getCapacityPercentAttribute() {
+        return $this->capacity * 100;
     }
 }

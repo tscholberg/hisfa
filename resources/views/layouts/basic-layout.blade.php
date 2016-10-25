@@ -39,7 +39,9 @@
                     </a>
                 </li>
                 <li class="dropdown ">
-                    <a href="/prime-silos" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="/primesilos">
+                        {{--<a href="/primesilos" class="dropdown-toggle" data-toggle="dropdown">--}}
+
                         <div class="icon">
                             <i class="fa fa-bolt" aria-hidden="true"></i>
                         </div>
@@ -47,7 +49,9 @@
                     </a>
                 </li>
                 <li class="dropdown">
-                    <a href="/waste-silos" class="dropdown-toggle" data-toggle="dropdown">
+                    <a href="/wastesilos">
+                        {{--<a href="/wastesilos" class="dropdown-toggle" data-toggle="dropdown">--}}
+
                         <div class="icon">
                             <i class="fa fa-recycle" aria-hidden="true"></i>
                         </div>

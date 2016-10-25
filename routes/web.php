@@ -17,11 +17,10 @@ Route::get('/', function () {
 
 // Primesilos
 Route::get('/primesilos', 'PrimeSiloController@index');
-//Route::get('/primesilos/create', 'PrimeSilosController@create');
-//Route::post('/primesilos/create/store', 'PrimeSilosController@addprimesilo');
-//Route::delete('/primesilos/edit/deleted', 'PrimeSilosController@deleteprime');
+Route::post('/primesilos/create', 'PrimeSiloController@addPrimeSilo');
+Route::delete('/primesilos/delete', 'PrimeSiloController@deletePrimeSilo');
 //
 //// Wastesilos
-//Route::get('/wastesilos', 'WasteSilosController@index');
-//Route::get('/wastesilos/edit', 'WasteSilosController@edit');
-//Route::put('/wastesilos/edit/edited', 'WasteSilosController@editwaste');
+Route::get('/wastesilos', 'WasteSiloController@index');
+Route::post('/wastesilos/create', 'WasteSiloController@addWasteSilo');
+Route::delete('/wastesilos/delete', 'WasteSiloController@deleteWasteSilo');
