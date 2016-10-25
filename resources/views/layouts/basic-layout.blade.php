@@ -3,6 +3,7 @@
 <head>
     @yield('page-title')
     @extends('layouts.basic-style')
+
 </head>
 <body>
 <div class="app app-default">
