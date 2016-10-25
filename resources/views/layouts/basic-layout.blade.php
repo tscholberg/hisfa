@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
     @yield('page-title')
-    @extends('layouts.basic-style')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
 </head>
 <body>
@@ -10,7 +15,7 @@
 
     <aside class="app-sidebar" id="sidebar">
         <div class="sidebar-header">
-            <a class="sidebar-brand" href="#"><span class="highlight">Hisfa</span> Admin</a>
+            <a class="sidebar-brand" href="/"><span class="highlight">Hisfa</span> Admin</a>
             <button type="button" class="sidebar-toggle">
                 <i class="fa fa-times"></i>
             </button>
@@ -69,7 +74,7 @@
                         </li>
                         <li>
                             <button type="button" class="navbar-toggle">
-                                <img class="profile-img" src="img/profile-pictures/dafault.png">
+                                <img class="profile-img" src="img/profile-pictures/default.png">
                             </button>
                         </li>
                     </ul>
@@ -88,7 +93,7 @@
                                 <ul>
                                     <li class="dropdown-header">Notifications</li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/notifications/id">
                                             <span class="badge badge-danger pull-right">1</span>
                                             <div class="message">
                                                 <div class="content">
@@ -100,13 +105,13 @@
                                     </li>
 
                                     <li class="dropdown-footer">
-                                        <a href="#">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                        <a href="/notifications">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="dropdown profile">
-                            <a href="/html/pages/profile.html" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="/profile" class="dropdown-toggle" data-toggle="dropdown">
                                 <img class="profile-img" src="img/profile-pictures/default.png">
                                 <div class="title">Profile</div>
                             </a>
@@ -116,12 +121,12 @@
                                 </div>
                                 <ul class="action">
                                     <li>
-                                        <a href="#">
+                                        <a href="/profile">
                                             Profile settings
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="/logout">
                                             Logout
                                         </a>
                                     </li>
