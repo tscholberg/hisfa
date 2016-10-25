@@ -74,7 +74,7 @@
                         </li>
                         <li>
                             <button type="button" class="navbar-toggle">
-                                <img class="profile-img" src="img/profile-pictures/default.png">
+                                <a href="/profile"><img class="profile-img" src="img/profile-pictures/default.png"></a>
                             </button>
                         </li>
                     </ul>
