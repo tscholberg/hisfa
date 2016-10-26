@@ -11,7 +11,7 @@ class ResourceSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('resource')->insert([
+        DB::table('resources')->insert([
             ['name' => 'f21MB-n'],
             ['name' => 'RF23W-n'],
             ['name' => 'KSE-20'],

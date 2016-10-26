@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateResourceTable extends Migration
+class CreateTypeFoamsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateResourceTable extends Migration
      */
     public function up()
     {
-        Schema::create('resource', function (Blueprint $table) {
+        Schema::create('typefoams', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('image')->default('default_resource.jpg');
-            $table->string('property')->default('property text');
+            $table->string('foamtype');
         });
     }
 
@@ -28,6 +26,6 @@ class CreateResourceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resource');
+        Schema::dropIfExists('typefoams');
     }
 }

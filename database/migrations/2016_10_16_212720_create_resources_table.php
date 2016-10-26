@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlockTable extends Migration
+class CreateResourcesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateBlockTable extends Migration
      */
     public function up()
     {
-        Schema::create('block', function (Blueprint $table) {
+        Schema::create('resources', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('property')->default('property text');
+            $table->string('image')->default('default.png');
             $table->timestamps();
-            $table->integer('height');
-            $table->integer('typeFoam_id')->unsigned();
-            $table->foreign('typeFoam_id')->references('id')->on('typeFoam');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateBlockTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('block');
+        Schema::dropIfExists('resources');
     }
 }

@@ -11,12 +11,27 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        //gebruikers admin en tom toevoegen
+
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@hisfa.be',
-            'password' => bcrypt('hisfa'),
-            'admin' => true,
-            'remember_token' => str_random(10)
+            array(
+                'name' => 'admin',
+                'email' => 'admin@hisfa.be',
+                'password' => bcrypt('admin'),
+                'avatar' => 'default.png',
+                'admin' => true,
+                'remember_token' => str_random(10)
+            ),
+
+            array(
+                'name' => 'tom',
+                'email' => 'tom@hisfa.be',
+                'password' => bcrypt('tom'),
+                'avatar' => 'default.png',
+                'admin' => true,
+                'remember_token' => str_random(10)
+            ),
+
         ]);
     }
 }
