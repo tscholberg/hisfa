@@ -25,3 +25,13 @@ Route::post('/foam/add', 'typeFoamController@store');
 
 Route::get('/foam/{id}/edit', 'typeFoamController@edit');
 Route::post('/foam/{id}/edit', 'typeFoamController@update');
+
+// Primesilos
+Route::get('/primesilos', 'PrimeSiloController@index');
+Route::post('/primesilos/create', 'PrimeSiloController@addPrimeSilo');
+Route::delete('/primesilos/delete', 'PrimeSiloController@deletePrimeSilo');
+
+//// Wastesilos
+Route::get('/wastesilos', 'WasteSiloController@index');
+Route::post('/wastesilos/create', 'WasteSiloController@addWasteSilo');
+Route::delete('/wastesilos/delete', 'WasteSiloController@deleteWasteSilo');
