@@ -35,3 +35,6 @@ Route::delete('/primesilos/delete', 'PrimeSiloController@deletePrimeSilo');
 Route::get('/wastesilos', 'WasteSiloController@index');
 Route::post('/wastesilos/create', 'WasteSiloController@addWasteSilo');
 Route::delete('/wastesilos/delete', 'WasteSiloController@deleteWasteSilo');
+
+//// Blocks
+Route::get('/blocks/add', 'BlockController@index');
