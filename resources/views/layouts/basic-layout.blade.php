@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
 </head>
@@ -63,7 +65,6 @@
     </aside>
 
     <div class="app-container">
-
         <nav class="navbar navbar-default" id="navbar">
             <div class="container-fluid">
                 <div class="navbar-collapse collapse in">
@@ -141,11 +142,16 @@
                 </div>
             </div>
         </nav>
-
-        <!-- Hier komt pagina inhoud -->
-        @yield('app-content')
-
+        
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Hier komt pagina inhoud -->
+                @yield('app-content')
+            </div>
+        </div>
     </div>
+
+
 </div>
 @extends('layouts.end-body-scripts')
 </body>

@@ -1,0 +1,32 @@
+.navbar 					{padding: 0;}
+.navbar .container-fluid 	{padding: 0;}
+.app-title 					{padding: 10px 15px;}
+.card 						{margin-bottom: 35px;}
+.card-green-light:hover .highlight,
+.card-green-light:hover p{
+	color: #fff !important;
+}
+.silo-view{
+	display: flex;
+	padding: 0;
+	list-style-type: none;
+}
+.silo-view li{	
+	padding-top: 20px;
+	padding-bottom: 20px;
+	text-align: center;
+	border-right: 1px solid #ccc;
+}
+
+.silo-view li:last-child 		{border-right: none;}
+.silo-view .volume 				{font-size: 2.5em;}
+.silo-view .silo 				{font-size: 1.5em;}
+.prime li						{width: 16.66%;}
+.waste li 						{width: 33.33%;}
+
+.foam-type-home th:first-child,
+.foam-type-home td:first-child,
+.foam-type-home th:nth-child(2),
+.foam-type-home td:nth-child(2),
+.foam-type-home th:nth-child(3),
+.foam-type-home td:nth-child(3) {width: 10%;}

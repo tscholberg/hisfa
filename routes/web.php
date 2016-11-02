@@ -11,12 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/base', function(){
-	return view('layouts/base');
-});
+Route::get('/', 'homeController@index');
+
 Route::get('/foam', 'typeFoamController@index');
 Route::get('/foam/{id}/delete', 'typeFoamController@destroy');
 

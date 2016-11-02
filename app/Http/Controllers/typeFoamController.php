@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
 
 class typeFoamController extends Controller
@@ -13,11 +12,9 @@ class typeFoamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(){
         $typeFoams = \App\typeFoam::all();
         $data['typeFoams'] = $typeFoams;
-
         return view('foam.index', $data);
     }
 
@@ -26,11 +23,9 @@ class typeFoamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create(){
         $typeFoam = \App\typeFoam::All();
         $data['typeFoam'] = $typeFoam;
-
         return view('foam.create', $data);
     }
 
