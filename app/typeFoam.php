@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class typeFoam extends Model
 {
-    public $table = 'typeFoam';
+    public $table = 'typefoams';
     protected $fillable = ['name', '', ''];
 }

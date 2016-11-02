@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class WasteSilo extends Model
 {
-    public $table = "wasteSilo";
+    public $table = "waste_silos";
 
     public function getCapacityPercentAttribute() {
         return $this->capacity * 100;
