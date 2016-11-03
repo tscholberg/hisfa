@@ -6,6 +6,37 @@
 
 
 @section('app-content')
+    <div class="col-xs-12">
+		<div class="card card-mini">
+			<div class="card-header">
+				<div class="card-title">Blocks</div>
+				<ul class="card-action">
+					<li><a href="/blocks">Types in stock</a></li>
+				</ul>
+			</div>
+			<div class="card-body no-padding table-responsive">
+				<table class="table card-table table-hover table-striped foam-type-home">
+				<thead>
+					<tr>
+						<th>Height</th>
+						<th>Lenght</th>
+                        <th>Units</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($blocks as $block)
+						<tr>
+							<td>{{ $block->units }}</td>
+							<td>{{ $block->height }}</td>
+							<td>{{ $block->length }}</td>
+						</tr>
+					@endforeach
+				</tbody>
+				</table>
+			</div>
+		</div>
+	</div><!-- ./END BLOCKS VIEW -->
+
 	<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
 		<a href="/primesilos" class="card card-banner card-green-light">
 			<div class="card-body app-heading">
@@ -81,6 +112,5 @@
 				</table>
 			</div>
 		</div>
-	</div>
-
+	</div><!-- ./END FOAM TYPES VIEW -->
 @stop

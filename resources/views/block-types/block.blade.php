@@ -2,10 +2,17 @@
 
 @section('app-content')
 
-@foreach($blocks as $block)
+    <h1>Blocks</h1>
 
-<p>{{ $block->height }}</p>
+    @foreach($blocks as $block)
 
-@endforeach
+        <div class="block">
+            <h3>Units: {{ $block->units }}</h3>
+            <h3>Height: {{ $block->height }}</h3>
+            <h3>Length: {{ $block->length }}</h3>
+            <br>
+        </div>
+
+    @endforeach
 
 @endsection

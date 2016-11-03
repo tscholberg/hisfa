@@ -1,8 +1,11 @@
 @extends('layouts/basic-layout')
 
 @section('app-content')
+   
     <h1>Waste Silo's</h1>
+    
     @foreach($wastesilos as $key=>$wastesilo)
+        
         <div class="silo" id="silo{{ $wastesilo->id }}">
             <h2 class="">{{ $wastesilo->name }}</h2>
             <h3>{{ $wastesilo->capacity_percent }} %</h3>
@@ -12,7 +15,7 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <input type="submit" name="deleteSilo" value="Delete {{$wastesilo->name}}">
             </form>
-            </br>
+            <br>
         </div>
 
     @endforeach
