@@ -6,6 +6,6 @@
 </head>
 <body>
     @yield('app-content')
-    @extends('layouts.end-body-scripts')
+    @include('layouts.end-body-scripts')
 </body>
 </html>
