@@ -1,5 +1,7 @@
 @extends('layouts.empty-layout')
-
+@section('page-title')
+    <title>Reset password</title>
+@stop
 @section('app-content')
     <div class="app app-default">
 
@@ -67,7 +69,7 @@
 
 
                                 <div class="text-center">
-                                    <input type="submit" class="btn btn-success btn-submit" value="Login">
+                                    <input type="submit" class="btn btn-success btn-submit" value="Reset password">
                                 </div>
 
 
