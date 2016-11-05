@@ -1,17 +1,19 @@
-@extends('layouts.app')
+@extends('layouts.basic-layout')
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dashboard</div>
+@section('page-title')
+    <title>Welkom</title>
+@stop
 
-                <div class="panel-body">
-                    You are logged in!
+@section('app-content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        You are logged in!
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+@stop

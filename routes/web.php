@@ -11,34 +11,13 @@
 |
 */
 
-
-//login
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
-/*Route::get('/', function(){
-    return redirect()->route('login');
-});*/
-/*Route::get('/login', 'LoginController@__construct');
-
-//logout
-Route::get('/logout', 'LogoutController@index');
-
-//password
-Route::get('/password/reset', 'ResetController@index');
-*/
-
+Auth::routes();
 Route::get('/', 'homeController@index');
 
 
-//dashboard and home
-Route::get('/dashboard', 'homeController@index');
-Route::get('/home', 'homeController@index');
 
 
-
-
+/*Login validatie nog niet van toepassing op onderstaande routes*/
 
 
 Route::get('/foam', 'typeFoamController@index');
@@ -64,6 +43,3 @@ Route::delete('/wastesilos/delete', 'WasteSiloController@deleteWasteSilo');
 Route::get('/blocks', 'BlockController@index');
 
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');

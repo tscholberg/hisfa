@@ -1,15 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Flat Admin V.3 - Free flat-design bootstrap administrator templates</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="css/custom.css">
-    <link rel="stylesheet" type="text/css" href="css/responsive.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <title>Login</title>
+    @include('layouts.basic-style')
 
 </head>
 <body>
@@ -61,8 +54,7 @@
 
 </div>
 
-<script type="text/javascript" src="../assets/js/vendor.js"></script>
-<script type="text/javascript" src="../assets/js/app.js"></script>
+@include('layouts.end-body-scripts')
 
 </body>
 </html>
