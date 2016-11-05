@@ -1,7 +1,7 @@
 @extends('layouts.empty-layout')
 
 @section('page-title')
-    <title>Service unavailable</title>
+    <title>Page not found</title>
 @stop
 
 
@@ -14,11 +14,15 @@
                     <div class="app-block">
                         <div class="app-form">
                             <div class="form-header">
-                                <div class="app-brand"><span class="highlight">Service unavailalbe</span></div>
+                                <div class="app-brand"><span class="highlight">Page not found</span></div>
                             </div>
 
                             <div class="text-center">
-                                Unfortunately, the hisfa application is not accessible at the moment. We apologize for the inconvenience.
+                                Unfortunately, the requested page does not exist.
+                            </div>
+
+                            <div class="form-footer">
+                                <a href="/dashboard">Return to the dashboard</a>
                             </div>
                         </div>
                     </div>
