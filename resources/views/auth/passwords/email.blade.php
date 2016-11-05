@@ -10,7 +10,7 @@
             <div class="flex-center">
                 <div class="app-header"></div>
                 <div class="app-body">
-                    
+
                     <div class="app-block">
                         <div class="app-form">
                             <div class="form-header">
