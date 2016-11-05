@@ -1,12 +1,12 @@
 @extends('layouts.basic-layout')
 
 @section('page-title')
-    <title>Dashboard - Hisfa</title>
+	<title>Dashboard - Hisfa</title>
 @stop
 
 
 @section('app-content')
-    <div class="col-xs-12">
+	<div class="col-xs-12">
 		<div class="card card-mini">
 			<div class="card-header">
 				<div class="card-title">Blocks</div>
@@ -16,14 +16,14 @@
 			</div>
 			<div class="card-body no-padding table-responsive">
 				<table class="table card-table table-hover table-striped foam-type-home">
-				<thead>
+					<thead>
 					<tr>
 						<th>Height</th>
 						<th>Lenght</th>
-                        <th>Units</th>
+						<th>Units</th>
 					</tr>
-				</thead>
-				<tbody>
+					</thead>
+					<tbody>
 					@foreach($blocks as $block)
 						<tr>
 							<td>{{ $block->units }}</td>
@@ -31,7 +31,7 @@
 							<td>{{ $block->length }}</td>
 						</tr>
 					@endforeach
-				</tbody>
+					</tbody>
 				</table>
 			</div>
 		</div>
@@ -87,15 +87,15 @@
 			</div>
 			<div class="card-body no-padding table-responsive">
 				<table class="table card-table table-hover table-striped foam-type-home">
-				<thead>
+					<thead>
 					<tr>
 						<th>Status</th>
 						<th>Type</th>
 						<th>Amount</th>
 						<th>Available sizes</th>
 					</tr>
-				</thead>
-				<tbody>
+					</thead>
+					<tbody>
 					@foreach($typeFoams as $foam)
 						<tr>
 							<td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>In stock</span></span></td>
@@ -108,7 +108,7 @@
 							-->
 						</tr>
 					@endforeach
-				</tbody>
+					</tbody>
 				</table>
 			</div>
 		</div>

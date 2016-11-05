@@ -30,3 +30,7 @@
 .foam-type-home td:nth-child(2),
 .foam-type-home th:nth-child(3),
 .foam-type-home td:nth-child(3) {width: 10%;}
+
+.form-footer{
+	margin-top: 10px;
+}

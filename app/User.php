@@ -25,5 +25,6 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+        //remember token wordt gebruikt om token per gebruiker te stokeren voor remember me optie in de applicatie.
     ];
 }

@@ -2,6 +2,10 @@
 
 return [
 
+    //this is the configuration file for the authentication part build in into Laravel
+    //guards: beapelen hoe users geauthenticeerd worden voor elke request (bv: session guard maakt gebruik van sessie en cookies
+    //providers: hoe gebruikers data van permantente opslag  halen. Bv: eloquent en database query builder.
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults

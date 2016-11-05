@@ -34,7 +34,7 @@
 					<img src="https://randomuser.me/api/portraits/men/64.jpg" alt="user profile">
 				</div><!-- ./user-pic -->
 				<div class="user-info">
-					<b>Frederick Coleman</b>
+					<b>Tom x</b>
 					<span>Manager</span>
 				</div><!-- ./user-info -->
 			</div><!-- ./user -->
