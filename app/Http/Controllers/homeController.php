@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //view home.blade.php returnen bij succesvolle login
-        return view('home');
+        $data = [];
+        return view('dashboard', $data);
     }
 }

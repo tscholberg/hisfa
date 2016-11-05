@@ -1,8 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Inladen na successvolle login -->
-
     @include("layouts.basic-style")
 
     <!-- CSRF Token -->
@@ -77,7 +76,6 @@
         @yield('app-content')
     </div>
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
+
 </body>
 </html>

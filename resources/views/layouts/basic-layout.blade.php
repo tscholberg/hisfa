@@ -114,7 +114,7 @@
                             </a>
                             <div class="dropdown-menu">
                                 <div class="profile-info">
-                                    <h4 class="username">Tom</h4>
+                                    <h4 class="username">{{ Auth::user()->name }}</h4>
                                 </div>
                                 <ul class="action">
                                     <li>

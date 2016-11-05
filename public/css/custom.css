@@ -34,3 +34,12 @@
 .form-footer{
 	margin-top: 10px;
 }
+
+.username:first-letter{
+	text-transform: uppercase;
+}
+
+.help-block{
+	margin-bottom: 20px;
+	color: #A94442;
+}

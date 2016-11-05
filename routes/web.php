@@ -11,8 +11,12 @@
 |
 */
 
-Auth::routes();
+
 Route::get('/', 'homeController@index');
+Route::get('/dashboard', 'homeController@index');
+
+//account
+//Route::get('/password/reset', 'ResetPasswordController@index');
 
 
 
@@ -43,3 +47,5 @@ Route::delete('/wastesilos/delete', 'WasteSiloController@deleteWasteSilo');
 Route::get('/blocks', 'BlockController@index');
 
 
+
+Auth::routes();
