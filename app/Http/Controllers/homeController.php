@@ -24,7 +24,19 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data = [];
+
+        $blocks = \App\Block::all();
+        $data['blocks'] = $blocks;
+
+        $primesilos = \App\PrimeSilo::all();
+        $data['primesilos'] = $primesilos;
+
+        $wastesilos = \App\WasteSilo::all();
+        $data['wastesilos'] = $wastesilos;
+
+        $typeFoams = \App\typeFoam::all();
+        $data['typeFoams'] = $typeFoams;
+
         return view('dashboard', $data);
     }
 }

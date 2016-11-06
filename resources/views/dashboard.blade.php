@@ -24,13 +24,13 @@ Dashboard
                     </tr>
                     </thead>
                     <tbody>
-                    <!--foreach($blocks as $block)
+                    @foreach($blocks as $block)
                         <tr>
-                            <td>$block->units</td>
-                            <td>$block->height</td>
-                            <td>$block->length</td>
+                            <td>{{ $block->units }}</td>
+                            <td>{{ $block->height }}</td>
+                            <td>{{ $block->length }}</td>
                         </tr>
-                    endforeach-->
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -44,12 +44,12 @@ Dashboard
                     <div class="title"><span class="highlight">Prime Silo's</span></div>
                     <div class="description">
                         <ul class="silo-view prime">
-                            <!--foreach($primesilos as $key=>$primesilo)
+                            @foreach($primesilos as $key=>$primesilo)
                                 <li>
-                                    <p class="volume">$primesilo->capacity_percent %</p>
-                                    <p class="silo">$primesilo->name</p>
+                                    <p class="volume">{{ $primesilo->capacity_percent }} %</p>
+                                    <p class="silo">{{ $primesilo->name }}</p>
                                 </li>
-                            endforeach-->
+                            @endforeach
                         </ul>
                     </div><!-- ./description -->
                 </div>
@@ -64,12 +64,12 @@ Dashboard
                     <div class="title"><span class="highlight">Waste Silo's</span></div>
                     <div class="description">
                         <ul class="silo-view waste">
-                            <!--foreach($wastesilos as $key=>$wastesilo)
+                            @foreach($wastesilos as $key=>$wastesilo)
                                 <li>
-                                    <p class="volume">$wastesilo->capacity_percent %</p>
-                                    <p class="silo">$wastesilo->name </p>
+                                    <p class="volume">{{  $wastesilo->capacity_percent }} %</p>
+                                    <p class="silo">{{ $wastesilo->name }} </p>
                                 </li>
-                            endforeach-->
+                            @endforeach
                         </ul>
                     </div><!-- ./description -->
                 </div>
@@ -96,10 +96,10 @@ Dashboard
                     </tr>
                     </thead>
                     <tbody>
-                    <!--foreach($typeFoams as $foam)
+                    @foreach($typeFoams as $foam)
                         <tr>
                             <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>In stock</span></span></td>
-                            <td>$foam->name</td>
+                            <td>{{ $foam->name }}</td>
                             <td class="right">10</td>
                             <td>8, 8, 8, 4, 4, 4, 3</td>
                             <!--
@@ -107,7 +107,7 @@ Dashboard
                         <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Not available</span></span></td>
                             -->
                         <!--</tr>
-                    endforeach-->
+                    @endforeach
                     </tbody>
                 </table>
             </div>
