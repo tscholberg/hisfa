@@ -26,7 +26,7 @@ class UserTableSeeder extends Seeder
             array(
                 'name' => 'Tom',
                 'email' => 'tom@changeme.hisfa',
-                'password' => bcrypt('tom'),
+                'password' => bcrypt('hisfa'),
                 'avatar' => 'default.png',
                 'admin' => true,
                 'remember_token' => str_random(10)
