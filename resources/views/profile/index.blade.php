@@ -1,11 +1,11 @@
 @extends('layouts.basic-layout')
 
 @section('page-title')
-    Profile
+    Profile settings
 @stop
 
 @section('app-title')
-    Profile
+    Profile settings
 @stop
 
 @section('app-content')
@@ -40,32 +40,29 @@
                 </div>
 
 
-                @if ($errors->has('password'))
+                @if(session()->has('error'))
                     <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
+                        <strong>{{ session()->get('error') }}</strong>
                     </span>
                 @endif
-                @if ($errors->has('password_confirmation'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('password_confirmation') }}</strong>
+                @if(session()->has('success'))
+                    <span class="help-block success">
+                        <strong>{{ session()->get('success') }}</strong>
                     </span>
                 @endif
-
 
                 <form action="{{ url('/profile/change-password') }}" method="POST" role="form">
 
                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
 
 
-
-                    <div class="input-group-inapp input-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <div class="input-group-inapp input-group">
                             <span class="input-group-addon" id="basic-addon2">
                                 <i class="fa fa-key" aria-hidden="true"></i>
                             </span>
-                        <input type="password" id="current-password" name="current-password1" class="form-control"
-                               placeholder="Current password" required>
+                        <input type="password" id="current-password" name="current-password" class="form-control"
+                               placeholder="Current password" required autofocus>
                     </div>
-
 
 
                     <div class="input-group-inapp input-group">
@@ -77,7 +74,7 @@
                     </div>
 
 
-                    <div class="input-group-inapp input-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
+                    <div class="input-group-inapp input-group">
                             <span class="input-group-addon" id="basic-addon3">
                                 <i class="fa fa-key" aria-hidden="true"></i>
                             </span>
@@ -104,8 +101,8 @@
             <div class="section col-xs-12 col-md-7">
                 <div class="section-title"><i class="icon fa fa-envelope-o" aria-hidden="true"></i> Email preferences
                 </div>
-                    Email me when prime silos are 90% full<br>
-                    Email me when waste silos are 90% full
+                Email me when prime silos are 90% full<br>
+                Email me when waste silos are 90% full
 
             </div>
 

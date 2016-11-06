@@ -51,3 +51,7 @@
 .input-group-inapp{
 	max-width: 450px !important;
 }
+
+.help-block.success{
+	color: #2ab27b !important;
+}

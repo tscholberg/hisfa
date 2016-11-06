@@ -4,6 +4,10 @@
     Prime silos
 @stop
 
+@section('app-title')
+    App page title
+@stop
+
 @section('app-content')
     
     <h1>Prime Silo's</h1>
