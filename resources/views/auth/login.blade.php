@@ -55,6 +55,9 @@
                                     </div>
 
                                 </form>
+                                <div class="form-footer">
+                                    <a href="{{ url('/password/reset') }}">I forgot my password</a>
+                                </div>
 
 
                         </div>
@@ -89,5 +92,9 @@
         </div>
 
     </form>
+
+    <div class="form-footer">
+        <a href="{{ url('/password/reset') }}">I forgot my password</a>
+    </div>
 
 @stop
