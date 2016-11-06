@@ -1,5 +1,9 @@
 @extends('layouts.basic-layout')
 
+@section('page-title')
+    Blocks
+@stop
+
 @section('app-content')
 
     <h1>Blocks</h1>

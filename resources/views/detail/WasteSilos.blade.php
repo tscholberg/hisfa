@@ -1,5 +1,9 @@
 @extends('layouts.basic-layout')
 
+@section('page-title')
+    Waste silos
+@stop
+
 @section('app-content')
    
     <h1>Waste Silo's</h1>

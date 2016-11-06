@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @yield('page-title')
+    <title>@yield('page-title')</title>
     @include('layouts.basic-style')
 </head>
 <body>
@@ -9,7 +9,7 @@
 
     <aside class="app-sidebar" id="sidebar">
         <div class="sidebar-header">
-            <a class="sidebar-brand" href="/"><span class="highlight">Hisfa</span> Admin</a>
+            <a class="sidebar-brand" href="/dashboard"><span class="highlight">Hisfa</span> Admin</a>
             <button type="button" class="sidebar-toggle">
                 <i class="fa fa-times"></i>
             </button>
@@ -17,7 +17,7 @@
         <div class="sidebar-menu">
             <ul class="sidebar-nav">
                 <li class="active">
-                    <a href="/">
+                    <a href="/dashboard">
                         <div class="icon">
                             <i class="fa fa-tasks" aria-hidden="true"></i>
                         </div>
@@ -67,16 +67,16 @@
                             </button>
                         </li>
                         <li class="logo">
-                            <a class="navbar-brand" href="/"><span class="highlight">Hisfa</span> admin</a>
+                            <a class="navbar-brand" href="/dashboard"><span class="highlight">Hisfa</span> admin</a>
                         </li>
                         <li>
                             <button type="button" class="navbar-toggle">
-                                <a href="/profile"><img class="profile-img" src="img/profile-pictures/default.png"></a>
+                                <a href="/profile"><img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}"></a>
                             </button>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="navbar-title">Dashboard</li>
+                        <li class="navbar-title">@yield('app-title')</li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
@@ -109,7 +109,7 @@
                         </li>
                         <li class="dropdown profile">
                             <a href="/profile" class="dropdown-toggle" data-toggle="dropdown">
-                                <img class="profile-img" src="img/profile-pictures/default.png">
+                                <img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}">
                                 <div class="title">Profile</div>
                             </a>
                             <div class="dropdown-menu">
@@ -141,7 +141,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="row">
             <div class="col-lg-12">
                 <!-- Hier komt pagina inhoud -->

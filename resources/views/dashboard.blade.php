@@ -1,7 +1,7 @@
 @extends('layouts.basic-layout')
 
 @section('page-title')
-    <title>Dashboard</title>
+Dashboard
 @stop
 
 

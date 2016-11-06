@@ -1,7 +1,7 @@
 @extends('layouts.empty-layout')
 
 @section('page-title')
-    <title>Page not found</title>
+Page not found
 @stop
 
 

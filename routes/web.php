@@ -24,6 +24,10 @@ Auth::routes();
 Route::get('/', 'homeController@index');
 Route::get('/dashboard', 'homeController@index');
 
+// Profile
+Route::get('/profile', ['middleware' => 'auth', 'uses' => 'ProfileController@index']);
+Route::post('/profile/change-password', 'ProfileController@changePassword');
+
 // Foam
 Route::get('/foam', ['middleware' => 'auth', 'uses' => 'typeFoamController@index']);
 Route::get('/foam/{id}/delete', ['middleware' => 'auth', 'uses' => 'typeFoamController@destroy']);

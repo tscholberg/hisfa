@@ -1,7 +1,7 @@
 @extends('layouts.empty-layout')
 
 @section('page-title')
-    <title>Login</title>
+Register
 @stop
 
 

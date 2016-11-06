@@ -1,5 +1,9 @@
 @extends('layouts.basic-layout')
 
+@section('page-title')
+    Prime silos
+@stop
+
 @section('app-content')
     
     <h1>Prime Silo's</h1>

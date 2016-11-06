@@ -1,7 +1,7 @@
 @extends('layouts.empty-layout')
 
 @section('page-title')
-    <title>Service unavailable</title>
+Service unavailable
 @stop
 
 

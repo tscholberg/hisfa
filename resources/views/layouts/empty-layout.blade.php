@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    @yield('page-title')
+    <title>@yield('page-title')</title>
     @include('layouts.basic-style')
 </head>
 <body>

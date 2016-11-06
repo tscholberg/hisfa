@@ -43,3 +43,11 @@
 	margin-bottom: 20px;
 	color: #A94442;
 }
+
+.navbar-title{
+	font-weight: 600 !important;
+}
+
+.input-group-inapp{
+	max-width: 450px !important;
+}

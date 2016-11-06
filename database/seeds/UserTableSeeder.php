@@ -15,8 +15,8 @@ class UserTableSeeder extends Seeder
 
         DB::table('users')->insert([
             array(
-                'name' => 'admin',
-                'email' => 'admin@hisfa.be',
+                'name' => 'Admin',
+                'email' => 'admin@changeme.hisfa',
                 'password' => bcrypt('admin'),
                 'avatar' => 'default.png',
                 'admin' => true,
@@ -24,8 +24,8 @@ class UserTableSeeder extends Seeder
             ),
 
             array(
-                'name' => 'tom',
-                'email' => 'tom@hisfa.be',
+                'name' => 'Tom',
+                'email' => 'tom@changeme.hisfa',
                 'password' => bcrypt('tom'),
                 'avatar' => 'default.png',
                 'admin' => true,
