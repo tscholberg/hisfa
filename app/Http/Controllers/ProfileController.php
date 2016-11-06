@@ -9,7 +9,7 @@ use Hash;
 use App\Quotation;
 use Illuminate\Support\Facades\Auth;
 use Validator;
-
+use Image;
 
 class ProfileController extends Controller
 {
@@ -19,26 +19,13 @@ class ProfileController extends Controller
         $this->middleware('auth');
     }
 
+
     public function index()
     {
         return view('profile/index');
     }
 
 
-
-    public function updateProfilePicture(){
-        if($_POST['filePicture']){
-            $user = Auth::user();
-            $extension = Input::file('filePicture')->getClientOriginalExtension();
-            $fileName = $user->id . '.' . $extension;
-            $imagePath = '/img/profile-pictures/' . $fileName;
-            $user->avatar = $imagePath;
-            $user->save();
-            return redirect('profile')->with('success-avatar', 'You profile picture is changed!');
-        }else{
-            return redirect('profile')->with('error-avatar', 'Profile picture is not changed.');
-        }
-    }
 
     public function updatePassword()
     {
@@ -60,6 +47,39 @@ class ProfileController extends Controller
 
         } else {
             return redirect('profile')->with('error-password', 'Password is not changed. Your new password does not match.');
+        }
+    }
+
+
+    public function deleteProfilePicture()
+    {
+        $user = Auth::user();
+        $avatar = $user->avatar;
+        $default = "default.png";
+        $path = "/img/profile-pictures/" . $avatar;
+        if($avatar !== $default){
+            @unlink(public_path($path));
+        }
+        return true;
+
+    }
+
+    public function updateProfilePicture(Request $request){
+
+        if($request->hasFile('avatar')){
+            $user = Auth::user();
+            $avatar = $request->file('avatar');
+            $filename = $user->id . '.' . $avatar->getClientOriginalExtension();
+            if($this->deleteProfilePicture()){
+                Image::make($avatar)->fit(300, 300)->save(public_path('/img/profile-pictures/' . $filename ) );
+                $user->avatar = $filename;
+                $user->save();
+                return redirect('profile')->with('success-avatar', 'Your profile picture is changed!');
+            }else{
+                return redirect('profile')->with('error-avatar', 'Your profile picture isn\'t changed due to an error.');
+            }
+        }else{
+            return redirect('profile')->with('error-avatar', 'Your profile picture isn\'t changed.');
         }
     }
 

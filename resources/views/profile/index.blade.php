@@ -20,7 +20,7 @@
 
         <!-- Change profile picture -->
         <div class="app-heading">
-            <div class="section col-xs-12 col-md-7">
+            <div class="section col-xs-12">
                 <div class="section-title">
                     <i class="icon fa fa-user" aria-hidden="true"></i>
                     Change profile picture
@@ -35,20 +35,19 @@
                         <strong>{{ session()->get('success-avatar') }}</strong>
                     </span>
                 @endif
-                <form action="{{ url('/profile/update-profile-picture') }}" method="POST">
-                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
-                    <img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}">
-                    <input type="file" accept="image/x-png, image/jpeg, image/jpg" name="filePicture" id="filePicture">
-                    <input type="submit" class="btn btn-success btn-submit" value="Upload new picture">
+                <form action="{{ url('/profile/update-profile-picture') }}" method="POST" enctype="multipart/form-data">
+                    <img class="profile-img profile-img-profile" src="/img/profile-pictures/{{ Auth::user()->avatar }}">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg, image/jpg" class="upload-file">
+                    <input type="submit" class="btn btn-success btn-submit" value="Change profile picture">
                 </form>
             </div>
-            <div class="col-md-5"></div>
         </div>
 
 
         <!-- Change password-->
         <div class="app-heading">
-            <div class="section col-xs-12 col-md-7">
+            <div class="section col-xs-12">
                 <div class="section-title">
                     <i class="icon fa fa-key" aria-hidden="true"></i>
                     Change password
@@ -107,13 +106,12 @@
 
             </div>
 
-            <div class="col-md-5"></div>
         </div>
 
 
         <!-- Change email preferences -->
         <div class="app-heading">
-            <div class="section col-xs-12 col-md-7">
+            <div class="section col-xs-12">
                 <form action="">
                     <div class="section-title"><i class="icon fa fa-envelope-o" aria-hidden="true"></i> Email
                         preferences
@@ -142,7 +140,6 @@
 
             </div>
 
-            <div class="col-md-5"></div>
 
         </div>
 

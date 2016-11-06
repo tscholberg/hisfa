@@ -86,3 +86,12 @@
 .btn-submit{
     margin-top: 10px;
 }
+
+.upload-file{
+    margin: 15px 0 10px 0;
+}
+
+.profile-img-profile{
+    width: 100px !important;
+    height: 100px !important;
+}
