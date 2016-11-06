@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Input;
 
 class PrimeSiloController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         $primesilos = \App\PrimeSilo::All();
