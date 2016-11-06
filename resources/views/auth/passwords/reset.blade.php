@@ -1,6 +1,6 @@
 @extends('layouts.empty-layout')
 @section('page-title')
-    <title>Reset password</title>
+    Reset password
 @stop
 @section('app-content')
     <div class="app app-default">

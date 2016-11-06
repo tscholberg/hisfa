@@ -118,13 +118,20 @@
                     <div class="section-title"><i class="icon fa fa-envelope-o" aria-hidden="true"></i> Email
                         preferences
                     </div>
-                    <div class="input-group-inapp input-group">
-                        Email me when prime silos are 90% full
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkboxPrimeFull">
+                        <label for="checkboxPrimeFull">
+                            Email me when prime silos are 90% full
+                        </label>
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkboxWasteFull">
+                        <label for="checkboxWasteFull">
+                            Email me when waste silos are 90% full
+                        </label>
+                    </div>
 
-                    </div>
-                    <div class="input-group-inapp input-group">
-                        Email me when waste silos are 90% full
-                    </div>
+
 
                     <div>
                         <input type="submit" class="btn btn-success btn-submit" value="Update preferences">

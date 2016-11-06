@@ -1,10 +1,7 @@
 @extends('layouts.empty-layout')
-
 @section('page-title')
-Login
+    Reset password
 @stop
-
-
 @section('app-content')
     <div class="app app-default">
 
@@ -16,7 +13,7 @@ Login
                     <div class="app-block">
                         <div class="app-form">
                             <div class="form-header">
-                                <div class="app-brand"><span class="highlight">Hisfa</span> login</div>
+                                <div class="app-brand"><span class="highlight">Hisfa</span> Login</div>
                             </div>
 
 
@@ -33,7 +30,7 @@ Login
                             @endif
 
 
-                            <form action="{{ url('/login') }}" method="POST" role="form">
+                            <form action="{{ url('/login') }}" method="POST">
                                 {{ csrf_field() }}
 
                                 <div class="input-group{{ $errors->has('email') ? ' has-error' : '' }}">
@@ -41,20 +38,19 @@ Login
                                     <span class="input-group-addon" id="basic-addonuser">
                                         <i class="fa fa-envelope" aria-hidden="true"></i>
                                     </span>
-                                    <input type="email" id="email" name="email" class="form-control" aria-describedby="basic-addon1" value="{{ old('email') }}" placeholder="Email address" required autofocus>
+                                    <input type="email" id="email" name="email" class="form-control"
+                                           value="{{ old('email') }}" placeholder="Email address" required autofocus>
 
                                 </div>
-
 
 
                                 <div class="input-group{{ $errors->has('password') ? ' has-error' : '' }}">
                                     <span class="input-group-addon" id="basic-addon2">
                                         <i class="fa fa-key" aria-hidden="true"></i>
                                     </span>
-                                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" aria-describedby="basic-addon2" required>
-
+                                    <input type="password" id="password" name="password" class="form-control"
+                                           placeholder="Password" required>
                                 </div>
-
 
 
                                 <div class="text-center">
@@ -74,3 +70,5 @@ Login
         </div>
     </div>
 @stop
+
+

@@ -10352,15 +10352,15 @@ hljs.initHighlightingOnLoad();
 // hljs.initLineNumbersOnLoad();
 
 },{}],"/Users/tui2tone/Documents/workspace/tui2tone/templates/flat-admin-bootstrap-templates/src/elements/dropdown/sidebar.js":[function(require,module,exports){
-// let dropdownMenu;                                    
+// let dropdownMenu;
 // $('.dropdown[data-placement="body"]').on('show.bs.dropdown', (e) => {
 //   dropdownMenu = $(e.target).find('.dropdown-menu');
-//   $('body').append(dropdownMenu.detach());         
-//   dropdownMenu.css('display', 'block');            
-// });                                                  
-// $('.dropdown[data-placement="body"]').on('hide.bs.dropdown', (e) => {       
-//   $(e.target).append(dropdownMenu.detach());       
-//   dropdownMenu.hide();                             
+//   $('body').append(dropdownMenu.detach());
+//   dropdownMenu.css('display', 'block');
+// });
+// $('.dropdown[data-placement="body"]').on('hide.bs.dropdown', (e) => {
+//   $(e.target).append(dropdownMenu.detach());
+//   dropdownMenu.hide();
 // });
 "use strict";
 

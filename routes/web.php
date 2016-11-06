@@ -17,9 +17,6 @@
  *
  * */
 
-// Login, reset account, ...
-Auth::routes();
-
 // Dashboard
 Route::get('/', 'homeController@index');
 Route::get('/dashboard', 'homeController@index');
@@ -50,4 +47,6 @@ Route::delete('/wastesilos/delete', ['middleware' => 'auth', 'uses' =>'WasteSilo
 // Blocks
 Route::get('/blocks', ['middleware' => 'auth', 'uses' => 'BlockController@index']);
 
+// Login, reset account, ...
+Auth::routes();
 
