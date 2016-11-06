@@ -1,57 +1,84 @@
-.navbar 					{padding: 0;}
-.navbar .container-fluid 	{padding: 0;}
-.app-title 					{padding: 10px 15px;}
-.card 						{margin-bottom: 35px;}
-.card-green-light:hover .highlight,
-.card-green-light:hover p{
-	color: #fff !important;
-}
-.silo-view{
-	display: flex;
-	padding: 0;
-	list-style-type: none;
-}
-.silo-view li{	
-	padding-top: 20px;
-	padding-bottom: 20px;
-	text-align: center;
-	border-right: 1px solid #ccc;
+.navbar-collapse{
+    overflow: hidden !important;
 }
 
-.silo-view li:last-child 		{border-right: none;}
-.silo-view .volume 				{font-size: 2.5em;}
-.silo-view .silo 				{font-size: 1.5em;}
-.prime li						{width: 16.66%;}
-.waste li 						{width: 33.33%;}
+.navbar-title h1 {
+    padding: 0;
+    margin: 0 0 0 -15px;
+}
+
+.app-title {
+    padding: 10px 15px;
+}
+
+.card {
+    margin-bottom: 35px;
+}
+
+.card-green-light:hover .highlight,
+.card-green-light:hover p {
+    color: #fff !important;
+}
+
+.silo-view {
+    display: flex;
+    padding: 0;
+    list-style-type: none;
+}
+
+.silo-view li {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+
+.silo-view li:last-child {
+    border-right: none;
+}
+
+.silo-view .volume {
+    font-size: 2.5em;
+}
+
+.silo-view .silo {
+    font-size: 1.5em;
+}
+
+.prime li {
+    width: 16.66%;
+}
+
+.waste li {
+    width: 33.33%;
+}
 
 .foam-type-home th:first-child,
 .foam-type-home td:first-child,
 .foam-type-home th:nth-child(2),
 .foam-type-home td:nth-child(2),
 .foam-type-home th:nth-child(3),
-.foam-type-home td:nth-child(3) {width: 10%;}
-
-.form-footer{
-	margin-top: 20px;
+.foam-type-home td:nth-child(3) {
+    width: 10%;
 }
 
-.username:first-letter{
-	text-transform: uppercase;
+.form-footer {
+    margin-top: 20px;
 }
 
-.help-block{
-	margin-bottom: 20px;
-	color: #A94442;
+.username:first-letter {
+    text-transform: uppercase;
 }
 
-.navbar-title{
-	font-weight: 600 !important;
+.help-block {
+    margin-bottom: 20px;
+    color: #A94442;
 }
 
-.input-group-inapp{
-	max-width: 450px !important;
+.input-group-inapp {
+    max-width: 450px !important;
 }
 
-.help-block.success{
-	color: #2ab27b !important;
+.help-block.success {
+    color: #2ab27b !important;
 }

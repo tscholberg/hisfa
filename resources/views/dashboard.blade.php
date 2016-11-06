@@ -1,11 +1,34 @@
 @extends('layouts.basic-layout')
 
 @section('page-title')
-Dashboard
+    Dashboard
 @stop
 
+@section('app-title')
+    Dashboard
+@stop
 
 @section('app-content')
+
+    <!-- Quick edit action -->
+    <!--<div class="btn-floating" id="help-actions">
+        <div class="btn-bg"></div>
+        <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
+            <i class="icon fa fa-pencil"></i>
+            <span class="help-text">Shortcut</span>
+        </button>
+        <div class="toggle-content">
+            <ul class="actions">
+                <li><a href="#">Manage stock</a></li>
+                <li><a href="#">Manage users</a></li>
+                <li><a href="#">Issues</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </div>-->
+
+
+    <!-- Blocks -->
     <div class="col-xs-12">
         <div class="card card-mini">
             <div class="card-header">
@@ -37,6 +60,51 @@ Dashboard
         </div>
     </div><!-- ./END BLOCKS VIEW -->
 
+
+    <!-- Current m3 stock -->
+    <!--<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <a class="card card-banner card-green-light">
+            <div class="card-body">
+                <i class="icon fa fa-cubes fa-4x"></i>
+                <div class="content">
+                    <div class="title">Foam in stock</div>
+                    <div class="value">420<span class="sign">m³</span></div>
+                </div>
+            </div>
+        </a>
+
+    </div>-->
+
+    <!-- Current m3 stock -->
+    <!--<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <a class="card card-banner card-green-light">
+            <div class="card-body">
+                <i class="icon fa fa-cubes fa-4x"></i>
+                <div class="content">
+                    <div class="title">Foam in stock</div>
+                    <div class="value">420<span class="sign">m³</span></div>
+                </div>
+            </div>
+        </a>
+
+    </div>-->
+
+    <!-- Manage users (if admin) -->
+    <!--<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+        <a class="card card-banner card-yellow-light">
+            <div class="card-body">
+                <i class="icon fa fa-users fa-4x"></i>
+                <div class="content">
+                    <div class="title">Manage users</div>
+                    <div class="value"><span class="sign"></span>50</div>
+                </div>
+            </div>
+        </a>
+
+    </div>-->
+
+
+    <!-- Prime silos -->
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <a href="/primesilos" class="card card-banner card-green-light">
             <div class="card-body app-heading">
@@ -57,6 +125,8 @@ Dashboard
         </a>
     </div><!-- ./END PRIME SILO VIEW -->
 
+
+    <!-- Waste silos -->
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
         <a href="/wastesilos" class="card card-banner card-green-light">
             <div class="card-body app-heading">
@@ -77,6 +147,8 @@ Dashboard
         </a>
     </div><!-- ./END WASTE SILO VIEW -->
 
+
+    <!-- Foam types -->
     <div class="col-xs-12">
         <div class="card card-mini">
             <div class="card-header">
@@ -98,7 +170,9 @@ Dashboard
                     <tbody>
                     @foreach($typeFoams as $foam)
                         <tr>
-                            <td><span class="badge badge-success badge-icon"><i class="fa fa-check" aria-hidden="true"></i><span>In stock</span></span></td>
+                            <td><span class="badge badge-success badge-icon"><i class="fa fa-check"
+                                                                                aria-hidden="true"></i><span>In stock</span></span>
+                            </td>
                             <td>{{ $foam->name }}</td>
                             <td class="right">10</td>
                             <td>8, 8, 8, 4, 4, 4, 3</td>
@@ -106,7 +180,7 @@ Dashboard
                             <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Running out</span></span></td>
                         <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Not available</span></span></td>
                             -->
-                        <!--</tr>
+                        </tr>
                     @endforeach
                     </tbody>
                 </table>

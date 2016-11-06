@@ -9,7 +9,7 @@
 
     <aside class="app-sidebar" id="sidebar">
         <div class="sidebar-header">
-            <a class="sidebar-brand" href="/dashboard"><span class="highlight">Hisfa</span> Admin</a>
+            <a class="sidebar-brand" href="/dashboard"><span class="highlight">Hisfa</span> panel</a>
             <button type="button" class="sidebar-toggle">
                 <i class="fa fa-times"></i>
             </button>
@@ -58,6 +58,8 @@
 
     <div class="app-container">
         <nav class="navbar navbar-default" id="navbar">
+
+
             <div class="container-fluid">
                 <div class="navbar-collapse collapse in">
                     <ul class="nav navbar-nav navbar-mobile">
@@ -71,19 +73,19 @@
                         </li>
                         <li>
                             <button type="button" class="navbar-toggle">
-                                <a href="/profile"><img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}"></a>
+                                <img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}">
                             </button>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="navbar-title">@yield('app-title')</li>
+                        <li class="navbar-title"><h1>@yield('app-title')</h1></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
                         <li class="dropdown notification warning">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <div class="icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
-                                <div class="title">System notifications</div>
+                                <div class="title">Notifications</div>
                                 <div class="count">1</div>
                             </a>
                             <div class="dropdown-menu">
@@ -108,9 +110,9 @@
                             </div>
                         </li>
                         <li class="dropdown profile">
-                            <a href="/profile" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="/profile">
                                 <img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}">
-                                <div class="title">Profile</div>
+                                <div class="title">Profile settings</div>
                             </a>
                             <div class="dropdown-menu">
                                 <div class="profile-info">
@@ -152,6 +154,6 @@
 
 
 </div>
-@extends('layouts.end-body-scripts')
+@include('layouts.end-body-scripts')
 </body>
 </html>

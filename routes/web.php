@@ -26,7 +26,8 @@ Route::get('/dashboard', 'homeController@index');
 
 // Profile
 Route::get('/profile', ['middleware' => 'auth', 'uses' => 'ProfileController@index']);
-Route::post('/profile/change-password', 'ProfileController@changePassword');
+Route::post('/profile/update-password', 'ProfileController@updatePassword');
+Route::post('/profile/update-profile-picture', 'ProfileController@updateProfilePicture');
 
 // Foam
 Route::get('/foam', ['middleware' => 'auth', 'uses' => 'typeFoamController@index']);

@@ -25,7 +25,22 @@
                     <i class="icon fa fa-user" aria-hidden="true"></i>
                     Change profile picture
                 </div>
-                <img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}">
+                @if(session()->has('error-avatar'))
+                    <span class="help-block">
+                        <strong>{{ session()->get('error-avatar') }}</strong>
+                    </span>
+                @endif
+                @if(session()->has('success-avatar'))
+                    <span class="help-block success">
+                        <strong>{{ session()->get('success-avatar') }}</strong>
+                    </span>
+                @endif
+                <form action="{{ url('/profile/update-profile-picture') }}" method="POST">
+                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                    <img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}">
+                    <input type="file" accept="image/x-png, image/jpeg, image/jpg" name="filePicture" id="filePicture">
+                    <input type="submit" class="btn btn-success btn-submit" value="Upload new picture">
+                </form>
             </div>
             <div class="col-md-5"></div>
         </div>
@@ -40,18 +55,18 @@
                 </div>
 
 
-                @if(session()->has('error'))
+                @if(session()->has('error-password'))
                     <span class="help-block">
-                        <strong>{{ session()->get('error') }}</strong>
+                        <strong>{{ session()->get('error-password') }}</strong>
                     </span>
                 @endif
-                @if(session()->has('success'))
+                @if(session()->has('success-password'))
                     <span class="help-block success">
-                        <strong>{{ session()->get('success') }}</strong>
+                        <strong>{{ session()->get('success-password') }}</strong>
                     </span>
                 @endif
 
-                <form action="{{ url('/profile/change-password') }}" method="POST" role="form">
+                <form action="{{ url('/profile/update-password') }}" method="POST">
 
                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
 
@@ -99,10 +114,24 @@
         <!-- Change email preferences -->
         <div class="app-heading">
             <div class="section col-xs-12 col-md-7">
-                <div class="section-title"><i class="icon fa fa-envelope-o" aria-hidden="true"></i> Email preferences
-                </div>
-                Email me when prime silos are 90% full<br>
-                Email me when waste silos are 90% full
+                <form action="">
+                    <div class="section-title"><i class="icon fa fa-envelope-o" aria-hidden="true"></i> Email
+                        preferences
+                    </div>
+                    <div class="input-group-inapp input-group">
+                        Email me when prime silos are 90% full
+
+                    </div>
+                    <div class="input-group-inapp input-group">
+                        Email me when waste silos are 90% full
+                    </div>
+
+                    <div>
+                        <input type="submit" class="btn btn-success btn-submit" value="Update preferences">
+                    </div>
+
+
+                </form>
 
             </div>
 
