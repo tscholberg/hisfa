@@ -9,6 +9,7 @@ use App\Block;
 
 class BlockController extends Controller
 {
+
     public function index()
     {
         $blocks = Block::all();
