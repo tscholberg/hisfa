@@ -12,8 +12,8 @@
     <div class="card">
         <div class="card-body app-heading">
             <div class="app-title">
-                <div class="title"><span class="highlight">{{ Auth::user()->name }}</span></div>
-                <div class="description">{{ Auth::user()->admin == 1 ? 'Admin' : 'Standard user' }}</div>
+                <div class="title"><span class="highlight">{{ $user->name }}</span></div>
+                <div class="description">{{ $user->admin == 1 ? 'Admin' : 'Standard user' }}</div>
             </div>
         </div>
 
