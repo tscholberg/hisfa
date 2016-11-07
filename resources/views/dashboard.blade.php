@@ -18,10 +18,10 @@
         </button>
         <div class="toggle-content">
             <ul class="actions">
-                <li><a href="#">Manage stock</a></li>
+                <!--<li><a href="#">Manage stock</a></li>-->
                 <li><a href="/users">Manage users</a></li>
-                <li><a href="#">Manage prime silos</a></li>
-                <li><a href="#">Manage waste silos</a></li>
+                <!--<li><a href="#">Manage prime silos</a></li>
+                <li><a href="#">Manage waste silos</a></li>-->
             </ul>
         </div>
     </div>
