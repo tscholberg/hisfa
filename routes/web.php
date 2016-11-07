@@ -20,6 +20,7 @@ Route::get('/dashboard', 'homeController@index');
 Route::get('/profile', 'ProfileController@index');
 Route::post('/profile/update-password', 'ProfileController@updatePassword');
 Route::post('/profile/update-profile-picture', 'ProfileController@updateProfilePicture');
+Route::post('/profile/update-email', 'ProfileController@updateEmailPreferences');
 
 // Foam
 Route::get('/foam', 'typeFoamController@index');

@@ -75,12 +75,13 @@
     color: #A94442;
 }
 
+/*.alert-profile,*/
 .input-group-inapp {
-    max-width: 450px !important;
+    max-width: 500px !important;
 }
 
 .help-block.success {
-    color: #2ab27b !important;
+    color: #0f7933 !important;
 }
 
 .btn-submit{
@@ -94,4 +95,21 @@
 .profile-img-profile{
     width: 100px !important;
     height: 100px !important;
+}
+
+.label-profile{
+    margin: 0 0 10px 0 !important;
+    font-weight: 600;
+}
+
+.label-profile-notifications{
+    margin: 0 0 15px 0 !important;
+}
+
+.input-group-mail{
+    margin: 0 0 20px 0 !important;
+}
+
+.btn-email-preferences{
+    margin: 10px 0 0 0;
 }

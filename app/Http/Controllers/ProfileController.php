@@ -8,6 +8,7 @@ use DB;
 use Hash;
 use App\Quotation;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Validator;
 use Image;
 
@@ -81,9 +82,25 @@ class ProfileController extends Controller
                 return redirect('profile')->with('error-avatar', 'Your profile picture isn\'t changed due to an error.');
             }
         }else{
-            return redirect('profile')->with('error-avatar', 'Your profile picture isn\'t changed.');
+            return redirect('profile')->with('error-avatar', 'You have to choose a profile picture on your device before you can update your avatar.');
         }
     }
 
 
+    public function updateEmailPreferences(Request $request){
+        $this->updateEmailAddress($request);
+        $this->updateEmailNotifications($request);
+        return redirect('profile')->with('success-email', 'Your email preferences have been changed!');
+    }
+
+    public function updateEmailAddress($request){
+        $user = Auth::user();
+        $emailAddress = $request->input('email');
+        $user->email = $emailAddress;
+        $user->save();
+    }
+
+    public function updateEmailNotifications($request){
+
+    }
 }
