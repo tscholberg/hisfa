@@ -9,9 +9,8 @@
 @stop
 
 @section('app-content')
-
     <!-- Quick edit action -->
-    <!--<div class="btn-floating" id="help-actions">
+    <div class="btn-floating" id="help-actions">
         <div class="btn-bg"></div>
         <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
             <i class="icon fa fa-pencil"></i>
@@ -20,12 +19,12 @@
         <div class="toggle-content">
             <ul class="actions">
                 <li><a href="#">Manage stock</a></li>
-                <li><a href="#">Manage users</a></li>
-                <li><a href="#">Issues</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="/users">Manage users</a></li>
+                <li><a href="#">Manage prime silos</a></li>
+                <li><a href="#">Manage waste silos</a></li>
             </ul>
         </div>
-    </div>-->
+    </div>
 
 
     <!-- Blocks -->

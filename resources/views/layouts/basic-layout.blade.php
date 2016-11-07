@@ -9,7 +9,7 @@
 
     <aside class="app-sidebar" id="sidebar">
         <div class="sidebar-header">
-            <a class="sidebar-brand" href="/dashboard"><span class="highlight">Hisfa</span> production</a>
+            <a class="sidebar-brand" href="/dashboard"><span class="highlight">Hisfa</span> platform</a>
             <button type="button" class="sidebar-toggle">
                 <i class="fa fa-times"></i>
             </button>
@@ -69,7 +69,7 @@
                             </button>
                         </li>
                         <li class="logo">
-                            <a class="navbar-brand" href="/dashboard"><span class="highlight">Hisfa</span> production</a>
+                            <a class="navbar-brand" href="/dashboard"><span class="highlight">Hisfa</span> platform</a>
                         </li>
                         <li>
                             <button type="button" class="navbar-toggle">

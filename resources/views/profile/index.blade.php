@@ -9,35 +9,37 @@
 @stop
 
 @section('app-content')
-    <div class="card">
-        <div class="card-body app-heading">
-            <div class="app-title">
-                <div class="title"><span class="highlight">{{ $user->name }}</span></div>
-                <div class="description">{{ $user->admin == 1 ? 'Admin' : 'Standard user' }}</div>
+    <div class="col-xs-12">
+        <div class="card">
+            <div class="card-body app-heading">
+                <div class="app-title">
+                    <div class="title"><span class="highlight">{{ $user->name }}</span></div>
+                    <div class="description">{{ $user->admin == 1 ? 'Admin' : 'Standard user' }}</div>
+                </div>
             </div>
-        </div>
 
 
-        <!-- Change profile picture -->
-        <div class="app-heading">
-            <div class="section col-xs-12">
+            <!-- Change profile picture -->
+            <div class="app-heading">
+                <div class="section col-xs-12">
 
 
-                @if(session()->has('error-avatar'))
-                    <span class="help-block alert alert-danger alert-profile">
+                    @if(session()->has('error-avatar'))
+                        <span class="help-block alert alert-danger alert-profile">
 
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 
                         <strong>{{ session()->get('error-avatar') }}</strong>
                     </span>
-                @endif
-                @if(session()->has('success-avatar'))
-                    <span class="help-block success alert alert-success alert-profile">
-                                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    @endif
+                    @if(session()->has('success-avatar'))
+                        <span class="help-block success alert alert-success alert-profile">
+                                                    <a href="#" class="close" data-dismiss="alert"
+                                                       aria-label="close">&times;</a>
 
                         <strong>{{ session()->get('success-avatar') }}</strong>
                     </span>
-                @endif
+                    @endif
                     @if(session()->has('error-password'))
                         <span class="help-block alert alert-danger alert-profile">
 
@@ -48,7 +50,8 @@
                     @endif
                     @if(session()->has('success-password'))
                         <span class="help-block success alert alert-success alert-profile">
-                                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                    <a href="#" class="close" data-dismiss="alert"
+                                                       aria-label="close">&times;</a>
                         <strong>{{ session()->get('success-password') }}</strong>
                     </span>
                     @endif
@@ -59,118 +62,117 @@
                     </span>
                     @endif
 
-                <div class="section-title">
-                    <i class="icon fa fa-user" aria-hidden="true"></i>
-                    Change profile picture
-                </div>
+                    <div class="section-title">
+                        <i class="icon fa fa-user" aria-hidden="true"></i>
+                        Change profile picture
+                    </div>
 
-                <form action="{{ url('/profile/update-profile-picture') }}" method="POST" enctype="multipart/form-data">
-                    <img class="profile-img profile-img-profile" src="/img/profile-pictures/{{ Auth::user()->avatar }}">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg, image/jpg" class="upload-file">
-                    <input type="submit" class="btn btn-success btn-submit" value="Change profile picture">
-                </form>
+                    <form action="{{ url('/profile/update-profile-picture') }}" method="POST"
+                          enctype="multipart/form-data">
+                        <img class="profile-img profile-img-profile"
+                             src="/img/profile-pictures/{{ Auth::user()->avatar }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg, image/jpg"
+                               class="upload-file">
+                        <input type="submit" class="btn btn-success btn-submit" value="Change profile picture">
+                    </form>
+                </div>
             </div>
-        </div>
 
 
-        <!-- Change password-->
-        <div class="app-heading">
-            <div class="section col-xs-12">
-                <div class="section-title">
-                    <i class="icon fa fa-key" aria-hidden="true"></i>
-                    Change password
-                </div>
-
-
-
-
-                <form action="{{ url('/profile/update-password') }}" method="POST">
-
-                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
-
-
-                    <div class="input-group-inapp input-group">
-                            <span class="input-group-addon" id="basic-addon2">
-                                <i class="fa fa-key" aria-hidden="true"></i>
-                            </span>
-                        <input type="password" id="current-password" name="current-password" class="form-control"
-                               placeholder="Current password" required autofocus>
+            <!-- Change password-->
+            <div class="app-heading">
+                <div class="section col-xs-12">
+                    <div class="section-title">
+                        <i class="icon fa fa-key" aria-hidden="true"></i>
+                        Change password
                     </div>
 
 
-                    <div class="input-group-inapp input-group">
+                    <form action="{{ url('/profile/update-password') }}" method="POST">
+
+                        <input name="_token" type="hidden" value="{{ csrf_token() }}">
+
+
+                        <div class="input-group-inapp input-group">
                             <span class="input-group-addon" id="basic-addon2">
                                 <i class="fa fa-key" aria-hidden="true"></i>
                             </span>
-                        <input type="password" id="new-password1" name="new-password1" class="form-control"
-                               placeholder="New password" required>
-                    </div>
+                            <input type="password" id="current-password" name="current-password" class="form-control"
+                                   placeholder="Current password" required autofocus>
+                        </div>
 
 
-                    <div class="input-group-inapp input-group">
+                        <div class="input-group-inapp input-group">
+                            <span class="input-group-addon" id="basic-addon2">
+                                <i class="fa fa-key" aria-hidden="true"></i>
+                            </span>
+                            <input type="password" id="new-password1" name="new-password1" class="form-control"
+                                   placeholder="New password" required>
+                        </div>
+
+
+                        <div class="input-group-inapp input-group">
                             <span class="input-group-addon" id="basic-addon3">
                                 <i class="fa fa-key" aria-hidden="true"></i>
                             </span>
-                        <input type="password" id="new-password2" name="new-password2" class="form-control"
-                               placeholder="Confirm new password" required>
-                    </div>
-
+                            <input type="password" id="new-password2" name="new-password2" class="form-control"
+                                   placeholder="Confirm new password" required>
+                        </div>
 
 
                         <input type="submit" class="btn btn-success btn-submit" value="Change my password">
 
 
+                    </form>
 
-                </form>
+                </div>
 
             </div>
 
-        </div>
+
+            <!-- Change email preferences -->
+            <div class="app-heading">
+                <div class="section col-xs-12">
+                    <form action="{{ url('/profile/update-email') }}" method="POST">
+                        <input name="_token" type="hidden" value="{{ csrf_token() }}">
+
+                        <div class="section-title"><i class="icon fa fa-envelope-o" aria-hidden="true"></i> Email
+                            settings
+                        </div>
 
 
-        <!-- Change email preferences -->
-        <div class="app-heading">
-            <div class="section col-xs-12">
-                <form action="{{ url('/profile/update-email') }}" method="POST">
-                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
-
-                    <div class="section-title"><i class="icon fa fa-envelope-o" aria-hidden="true"></i> Email
-                        settings
-                    </div>
-
-
-
-                    <div class="label-profile">Email address:</div>
-                    <div class="input-group-inapp input-group input-group-mail">
+                        <div class="label-profile">Email address:</div>
+                        <div class="input-group-inapp input-group input-group-mail">
                             <span class="input-group-addon" id="basic-addon2">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                             </span>
-                        <input type="email" id="email" name="email" class="form-control " placeholder="Email address" value="{{ $user->email }}">
-                    </div>
+                            <input type="email" id="email" name="email" class="form-control "
+                                   placeholder="Email address" value="{{ $user->email }}">
+                        </div>
 
-                    <div class="label-profile label-profile-notifications">Email notifications I want to receive:</div>
-                    <div class="checkbox">
-                        <input type="checkbox" id="checkboxPrimeFull">
-                        <label for="checkboxPrimeFull">
-                            Send me an email when prime silos are 90% full
-                        </label>
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" id="checkboxWasteFull">
-                        <label for="checkboxWasteFull">
-                            Send me an email when waste silos are 90% full
-                        </label>
-                    </div>
+                        <div class="label-profile label-profile-notifications">Email notifications I want to receive:
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="checkboxPrimeFull">
+                            <label for="checkboxPrimeFull">
+                                Send me an email when prime silos are 90% full
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <input type="checkbox" id="checkboxWasteFull">
+                            <label for="checkboxWasteFull">
+                                Send me an email when waste silos are 90% full
+                            </label>
+                        </div>
 
-                        <input type="submit" class="btn btn-success btn-submit btn-email-preferences" value="Update email settings">
+                        <input type="submit" class="btn btn-success btn-submit btn-email-preferences"
+                               value="Update email settings">
 
-                </form>
+                    </form>
 
+                </div>
             </div>
-
-
         </div>
-
     </div>
 @stop
