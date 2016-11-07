@@ -73,12 +73,12 @@
                         </li>
                         <li>
                             <button type="button" class="navbar-toggle">
-                                <img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}">
+                                <img class="profile-img" src="/img/profile-pictures/{{ Auth::user()->avatar }}">
                             </button>
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="navbar-title"><h1>@yield('app-title')</h1></li>
+                        <li class="navbar-title">@yield('app-title')</li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
@@ -111,7 +111,7 @@
                         </li>
                         <li class="dropdown profile">
                             <a href="/profile">
-                                <img class="profile-img" src="img/profile-pictures/{{ Auth::user()->avatar }}">
+                                <img class="profile-img" src="/img/profile-pictures/{{ Auth::user()->avatar }}">
                                 <div class="title">Profile settings</div>
                             </a>
                             <div class="dropdown-menu">

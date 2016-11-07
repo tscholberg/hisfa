@@ -100,7 +100,7 @@
             </div>
         </a>
 
-    </div>-->
+    </div>
 
 
     <!-- Prime silos -->
@@ -145,6 +145,9 @@
             </div>
         </a>
     </div><!-- ./END WASTE SILO VIEW -->
+
+
+
 
 
     <!-- Foam types -->

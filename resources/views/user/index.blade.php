@@ -11,10 +11,10 @@
 @section('app-content')
 
     <!-- Quick edit action -->
-    <a href="/users/add">
+    <a href="/users/create">
         <div class="btn-floating" id="help-actions">
             <div class="btn-bg"></div>
-            <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
+            <button type="button" class="btn btn-default btn-toggle">
                 <i class="icon fa fa-plus"></i>
                 <span class="help-text">Add new user</span>
             </button>
@@ -40,14 +40,14 @@
                     <tbody>
                     @foreach($users as $user)
                         <tr>
-                            <td>
-                                <img class="hidden-xs hidden-sm" src="/img/profile-pictures/{{$user->avatar}}" style="width: 25px; height: 25px; border-radius: 100%">&nbsp;
+                            <td scope="row">
+                                <img class="hidden-xs hidden-sm avatar-mini" src="/img/profile-pictures/{{$user->avatar}}">&nbsp;
                                 <span>{{ $user->name }} @if(Auth::user()->id == $user->id) (me) @endif</span>
                             </td>
                             <td class="hidden-xs hidden-sm"><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
                             <td class="hidden-xs">{{ $user->admin == 1 ? 'Admin' : 'Standard user' }}</td>
                             <td><a href="/users/{{$user->id}}/edit" class="btn-sm btn-success"><i class="icon fa fa-pencil" aria-hidden="true"></i><span class="hidden-xs">&nbsp;Edit user</span></a></td>
-                            <td><a href="/users/{{$user->id}}/delete" class="btn-sm btn-danger"><i class="icon fa fa-trash" aria-hidden="true"></i><span class="hidden-xs">&nbsp;Delete user</span></a></td>
+                            <td>@if($user->id != 1) <a href="/users/{{$user->id}}/delete" class="btn-sm btn-danger"><i class="icon fa fa-trash" aria-hidden="true"></i><span class="hidden-xs">&nbsp;Delete user</span></a> @endif</td>
                         </tr>
                     @endforeach
                     </tbody>
