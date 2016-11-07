@@ -6,11 +6,11 @@
 
 @section('app-title')
     Manage users
-@stop
+    @stop
 
-@section('app-content')
+    @section('app-content')
 
-    <!-- Quick edit action -->
+            <!-- Quick edit action -->
     <a href="/users/create">
         <div class="btn-floating" id="help-actions">
             <div class="btn-bg"></div>
@@ -21,7 +21,18 @@
         </div>
     </a>
 
+    @if(session()->has('success-userdelete'))
+        <div class="col-xs-12">
+            <span class="help-block success alert alert-success alert-profile">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>{{ session()->get('success-userdelete') }}</strong>
+            </span>
+        </div>
+
+    @endif
+
     <div class="col-xs-12">
+
         <div class="card">
             <div class="card-header">
                 List of Hisfa users
@@ -41,13 +52,19 @@
                     @foreach($users as $user)
                         <tr>
                             <td scope="row">
-                                <img class="hidden-xs hidden-sm avatar-mini" src="/img/profile-pictures/{{$user->avatar}}">&nbsp;
+                                <img class="hidden-xs hidden-sm avatar-mini"
+                                     src="/img/profile-pictures/{{$user->avatar}}">&nbsp;
                                 <span>{{ $user->name }} @if(Auth::user()->id == $user->id) (me) @endif</span>
                             </td>
                             <td class="hidden-xs hidden-sm"><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
                             <td class="hidden-xs">{{ $user->admin == 1 ? 'Admin' : 'Standard user' }}</td>
-                            <td><a href="/users/{{$user->id}}/edit" class="btn-sm btn-success"><i class="icon fa fa-pencil" aria-hidden="true"></i><span class="hidden-xs">&nbsp;Edit user</span></a></td>
-                            <td>@if($user->id != 1) <a href="#" class="btn-sm btn-danger btn-delete" data-id="{{$user->id}}" data-name="{{$user->name}}"><i class="icon fa fa-trash" aria-hidden="true"></i><span class="hidden-xs">&nbsp;Delete user</span></a> @endif</td>
+                            <td><a href="/users/{{$user->id}}/edit" class="btn-sm btn-success"><i
+                                            class="icon fa fa-pencil" aria-hidden="true"></i><span class="hidden-xs">&nbsp;Edit user</span></a>
+                            </td>
+                            <td>@if($user->id != 1) <a href="#" class="btn-sm btn-danger btn-delete"
+                                                       data-id="{{$user->id}}" data-name="{{$user->name}}"><i
+                                            class="icon fa fa-trash" aria-hidden="true"></i><span class="hidden-xs">&nbsp;Delete user</span></a> @endif
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -55,12 +72,12 @@
             </div>
         </div>
     </div>
-@stop
+    @stop
 
-@section('custom-scripts')
-        <!-- Delete confirm bootbox -->
+    @section('custom-scripts')
+            <!-- Delete confirm bootbox -->
     <script>
-        $(document).on("click", ".btn-delete", function(e) {
+        $(document).on("click", ".btn-delete", function (e) {
             var id_value = $(this).attr('data-id');
             var name_value = $(this).attr('data-name');
             bootbox.confirm({
@@ -76,7 +93,7 @@
                     }
                 },
                 callback: function (result) {
-                    if(result){
+                    if (result) {
                         window.location = "/users/" + id_value + "/delete";
                     }
                 }

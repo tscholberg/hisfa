@@ -25,7 +25,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $data = ["user" => $user];
-        return view('profile/index', $data);
+        return view('profile.index', $data);
     }
 
 
