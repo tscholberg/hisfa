@@ -42,7 +42,7 @@
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th class="hidden-xs hidden-sm">Email</th>
+                        <th class="hidden-xs hidden-sm hidden-md">Email</th>
                         <th class="hidden-xs">Role</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -56,14 +56,14 @@
                                      src="/img/profile-pictures/{{$user->avatar}}">&nbsp;
                                 <span>{{ $user->name }} @if(Auth::user()->id == $user->id) (me) @endif</span>
                             </td>
-                            <td class="hidden-xs hidden-sm"><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
+                            <td class="hidden-xs hidden-sm hidden-md"><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
                             <td class="hidden-xs">{{ $user->admin == 1 ? 'Admin' : 'Standard user' }}</td>
                             <td><a href="/users/{{$user->id}}/edit" class="btn-sm btn-success"><i
-                                            class="icon fa fa-pencil" aria-hidden="true"></i><span class="hidden-xs">&nbsp;Edit user</span></a>
+                                            class="icon fa fa-pencil" aria-hidden="true"></i><span class="hidden-xs hidden-sm">&nbsp;&nbsp;Edit user</span></a>
                             </td>
                             <td>@if($user->id != 1) <a href="#" class="btn-sm btn-danger btn-delete"
                                                        data-id="{{$user->id}}" data-name="{{$user->name}}"><i
-                                            class="icon fa fa-trash" aria-hidden="true"></i><span class="hidden-xs">&nbsp;Delete user</span></a> @endif
+                                            class="icon fa fa-trash" aria-hidden="true"></i><span class="hidden-xs hidden-sm">&nbsp;&nbsp;Delete user</span></a> @endif
                             </td>
                         </tr>
                     @endforeach

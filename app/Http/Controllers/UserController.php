@@ -21,12 +21,8 @@ class UserController extends Controller
         return view('user.create');
     }
 
-    public function detail($id){
-        return view('user.detail');
-    }
-
     public function update($id){
-
+        return view('user.edit');
     }
 
     public function delete($id){
