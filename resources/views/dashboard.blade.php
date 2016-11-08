@@ -116,7 +116,13 @@
                         <ul class="silo-view prime">
                             @foreach($primesilos as $key=>$primesilo)
                                 <li>
-                                    <p class="volume">{{ $primesilo->capacity_percent }} %</p>
+                                    <div class="full-bar" >
+                                        <div class="silo-bar-percent"
+                                             style=" height: {{ $primesilo->capacity_percent }}%; ">
+                                        </div>
+                                    </div>
+                                    <p class="volume">{{ $primesilo->resource->name }}</p>
+                                    <p class="silo">{{ $primesilo->capacity_percent }} %</p>
                                     <p class="silo">{{ $primesilo->name }}</p>
                                 </li>
                             @endforeach
@@ -138,8 +144,14 @@
                         <ul class="silo-view waste">
                             @foreach($wastesilos as $key=>$wastesilo)
                                 <li>
-                                    <p class="volume">{{  $wastesilo->capacity_percent }} %</p>
-                                    <p class="silo">{{ $wastesilo->name }} </p>
+                                    <div class="full-bar" >
+                                        <div class="silo-bar-percent"
+                                             style=" height: {{ $wastesilo->capacity_percent }}%; ">
+                                        </div>
+                                    </div>
+                                    <p class="volume">{{ $wastesilo->resource->name }}</p>
+                                    <p class="silo">{{ $wastesilo->capacity_percent }} %</p>
+                                    <p class="silo">{{ $wastesilo->name }}</p>
                                 </li>
                             @endforeach
                         </ul>
@@ -175,7 +187,7 @@
                             <td><span class="badge badge-success badge-icon"><i class="fa fa-check"
                                                                                 aria-hidden="true"></i><span>In stock</span></span>
                             </td>
-                            <td>{{ $foam->name }}</td>
+                            <td>{{ $foam->foamtype }}</td>
                             <td class="right">10</td>
                             <td>8, 8, 8, 4, 4, 4, 3</td>
                             <!--
