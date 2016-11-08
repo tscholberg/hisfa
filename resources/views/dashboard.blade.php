@@ -42,7 +42,8 @@
                     <thead>
                     <tr>
                         <th>Height</th>
-                        <th>Lenght</th>
+                        <th>Type</th>
+                        <th>Length</th>
                         <th>Units</th>
                     </tr>
                     </thead>
@@ -50,6 +51,7 @@
                     @foreach($blocks as $block)
                         <tr>
                             <td>{{ $block->units }}</td>
+                            <td>{{ $block->typefoam->foamtype }}</td>
                             <td>{{ $block->height }}</td>
                             <td>{{ $block->length }}</td>
                         </tr>

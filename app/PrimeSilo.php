@@ -11,4 +11,9 @@ class PrimeSilo extends Model
     public function getCapacityPercentAttribute() {
         return $this->capacity * 100;
     }
+
+    public function resource()
+    {
+        return $this->belongsTo('App\Resource');
+    }
 }

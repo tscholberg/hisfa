@@ -8,4 +8,8 @@ class typeFoam extends Model
 {
     public $table = 'typefoams';
     protected $fillable = ['name', '', ''];
+
+    public function blocks(){
+        return $this->hasMany('App\Block');
+    }
 }
