@@ -21,11 +21,11 @@
         </div>
     </a>
 
-    @if(session()->has('success-userdelete'))
+    @if(session()->has('success'))
         <div class="col-xs-12">
             <span class="help-block success alert alert-success alert-profile">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>{{ session()->get('success-userdelete') }}</strong>
+                <strong>{{ session()->get('success') }}</strong>
             </span>
         </div>
 

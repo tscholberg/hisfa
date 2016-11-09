@@ -128,6 +128,22 @@
     margin: 0 10px 0 20px !important;
 }
 
+.form-footer input{
+    margin-right: 12px !important;
+}
+
+.group-elements-title{
+    padding: 10px 0 10px 0;
+    font-weight: 600;
+}
+
+.vet{
+    font-weight: bold !important;
+}
+
+.feedback-title{
+    margin-bottom: 10px !important;
+}
 
 @media only screen and (min-width:1920px){
     .app{

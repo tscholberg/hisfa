@@ -25,41 +25,18 @@
                 <div class="section col-xs-12">
 
 
-                    @if(session()->has('success-email'))
+                    @if(session()->has('success'))
                         <span class="help-block success alert alert-success alert-profile">
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <strong>{{ session()->get('success-email') }}</strong>
+                        <strong>{{ session()->get('success') }}</strong>
                     </span>
                     @endif
-                    @if(session()->has('error-password'))
+                    @if(session()->has('error'))
                         <span class="help-block alert alert-danger alert-profile">
 
                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 
-                        <strong>{{ session()->get('error-password') }}</strong>
-                    </span>
-                    @endif
-                    @if(session()->has('success-password'))
-                        <span class="help-block success alert alert-success alert-profile">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-                        <strong>{{ session()->get('success-password') }}</strong>
-                    </span>
-                    @endif
-                    @if(session()->has('error-avatar'))
-                        <span class="help-block alert alert-danger alert-profile">
-
-                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-
-                        <strong>{{ session()->get('error-avatar') }}</strong>
-                    </span>
-                    @endif
-                    @if(session()->has('success-avatar'))
-                        <span class="help-block success alert alert-success alert-profile">
-                                                    <a href="#" class="close" data-dismiss="alert"
-                                                       aria-label="close">&times;</a>
-
-                        <strong>{{ session()->get('success-avatar') }}</strong>
+                        <strong>{{ session()->get('error') }}</strong>
                     </span>
                     @endif
 
@@ -111,7 +88,7 @@
                 <div class="section col-xs-12">
 
                     <div class="section-title">
-                        <i class="icon fa fa-user" aria-hidden="true"></i>
+                        <i class="icon fa fa-file-picture-o" aria-hidden="true"></i>
                         Change profile picture
                     </div>
 
@@ -146,6 +123,7 @@
                             </span>
                             <input type="password" id="current-password" name="current-password" class="form-control"
                                    placeholder="Current password" required>
+
                         </div>
 
 

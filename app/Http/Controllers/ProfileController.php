@@ -43,13 +43,13 @@ class ProfileController extends Controller
             if (Hash::check($oldPasswordInput, $user->password)) {
                 $user->password = bcrypt($_POST['new-password1']);
                 $user->save();
-                return redirect('profile')->with('success-password', 'Your password is changed!');
+                return redirect('profile')->with('success', 'Your password is changed!');
             } else {
-                return redirect('profile')->with('error-password', 'Password is not changed. Your current password is not correct.');
+                return redirect('profile')->with('error', 'Password is not changed. Your current password is not correct.');
             }
 
         } else {
-            return redirect('profile')->with('error-password', 'Password is not changed. Your new password does not match.');
+            return redirect('profile')->with('error', 'Password is not changed. Your new password does not match.');
         }
     }
 
@@ -77,12 +77,12 @@ class ProfileController extends Controller
                 Image::make($avatar)->fit(300, 300)->save(public_path('/img/profile-pictures/' . $filename ) );
                 $user->avatar = $filename;
                 $user->save();
-                return redirect('profile')->with('success-avatar', 'Your profile picture is changed!');
+                return redirect('profile')->with('success', 'Your profile picture is changed!');
             }else{
-                return redirect('profile')->with('error-avatar', 'Your profile picture isn\'t changed due to an error.');
+                return redirect('profile')->with('error', 'Your profile picture isn\'t changed due to an error.');
             }
         }else{
-            return redirect('profile')->with('error-avatar', 'You have to choose a profile picture on your device before you can update your avatar.');
+            return redirect('profile')->with('error', 'You have to choose a profile picture on your device before you can update your avatar.');
         }
     }
 
@@ -90,7 +90,7 @@ class ProfileController extends Controller
     public function updateEmailPreferences(Request $request){
         $this->updateEmailAddress($request);
         $this->updateEmailNotifications($request);
-        return redirect('profile')->with('success-email', 'Your email preferences have been changed!');
+        return redirect('profile')->with('success', 'Your email preferences have been changed!');
     }
 
     public function updateEmailAddress($request){

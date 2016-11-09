@@ -15,9 +15,8 @@ class CreateEmailPreferencesTable extends Migration
     {
         Schema::create('email_preferences', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->int('user_id')->unique();
-            $table->boolean('primesilofull')->default(false);
-            $table->boolean('wastesilofull')->default(false);
+            $table->boolean('prime_silo_almost_full')->default(false);
+            $table->boolean('waste_silo_almost_full')->default(false);
         });
     }
 
