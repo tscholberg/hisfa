@@ -32,6 +32,15 @@ class UserTableSeeder extends Seeder
                 'remember_token' => str_random(10)
             ),
 
+            array(
+                'name' => 'Arno',
+                'email' => 'arnodedecker@telenet.be',
+                'password' => bcrypt('arno'),
+                'avatar' => 'default.png',
+                'admin' => true,
+                'remember_token' => str_random(10)
+            ),
+
         ]);
     }
 }

@@ -9,4 +9,4 @@
 		<input type="submit" name="save" value="toevoegen">
 	</form>
 	
-@endsection
+@stop
