@@ -151,3 +151,41 @@
 .btn-email-preferences{
     margin: 10px 0 0 0;
 }
+
+.avatar-mini{
+    width: 25px !important;
+    height: 25px !important;
+    -webkit-border-radius: 100% !important;
+    -moz-border-radius: 100% !important;
+    -ms-border-radius: 100% !important;
+    -o-border-radius: 100% !important;
+    border-radius: 100% !important;
+}
+
+.profile-img{
+    margin: 0 10px 0 20px !important;
+}
+
+.form-footer input{
+    margin-right: 12px !important;
+}
+
+.group-elements-title{
+    padding: 10px 0 10px 0;
+    font-weight: 600;
+}
+
+.vet{
+    font-weight: bold !important;
+}
+
+.feedback-title{
+    margin-bottom: 10px !important;
+}
+
+@media only screen and (min-width:1920px){
+    .app{
+        width: 1920px !important;
+        margin: 0 auto !important;
+    }
+}

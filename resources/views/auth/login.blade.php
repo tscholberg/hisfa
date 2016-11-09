@@ -29,8 +29,8 @@
                                 <span class="help-block">
                                     <strong>{{ $errors->first('password') }}</strong>
                                 </span>
-                            @endif
-                                    <!-- Hier komt normaal login stuk, maar om een of andere gekke reden werkt dat niet-->
+                                @endif
+                                        <!-- Hier komt normaal login stuk, maar om een of andere gekke reden werkt dat niet-->
                                 <form action="{{ url('/login') }}" method="POST">
                                     {{ csrf_field() }}
 
