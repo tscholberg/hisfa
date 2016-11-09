@@ -46,7 +46,7 @@
                         </div>
 
 
-                        <div class="input-group-inapp input-group">
+                        <div class="input-group-inapp input-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <span class="input-group-addon">
                                 <i class="fa fa-user" aria-hidden="true"></i>
                             </span>
@@ -55,7 +55,7 @@
                         </div>
 
 
-                        <div class="input-group-inapp input-group input-group-mail">
+                        <div class="input-group-inapp input-group input-group-mail{{ $errors->has('email') ? ' has-error' : '' }}">
                             <span class="input-group-addon" id="basic-addon2">
                                 <i class="fa fa-envelope-o" aria-hidden="true"></i>
                             </span>
@@ -64,7 +64,7 @@
                         </div>
 
 
-                        <div class="input-group-inapp input-group">
+                        <div class="input-group-inapp input-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <span class="input-group-addon" id="basic-addon2">
                                 <i class="fa fa-key" aria-hidden="true"></i>
                             </span>
@@ -73,7 +73,7 @@
                         </div>
 
 
-                        <div class="input-group-inapp input-group">
+                        <div class="input-group-inapp input-group{{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                             <span class="input-group-addon" id="basic-addon3">
                                 <i class="fa fa-key" aria-hidden="true"></i>
                             </span>
@@ -89,7 +89,7 @@
 
                 <!-- Profile picture -->
                 <div class="app-heading">
-                    <div class="section col-xs-12">
+                    <div class="section col-xs-12 {{ $errors->has('avatar') ? ' has-error' : '' }}">
                         <div class="section-title">
                             <i class="icon fa fa-file-picture-o" aria-hidden="true"></i>
                             Profile picture

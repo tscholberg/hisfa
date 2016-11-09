@@ -57,7 +57,7 @@
                                 <span>{{ $user->name }} @if(Auth::user()->id == $user->id) (me) @endif</span>
                             </td>
                             <td class="hidden-xs hidden-sm hidden-md"><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
-                            <td class="hidden-xs">{{ $user->admin == 1 ? 'Admin' : 'Standard user' }}</td>
+                            <td class="hidden-xs">Hier komt user rol</td>
                             <td><a href="/users/{{$user->id}}/edit" class="btn-sm btn-success"><i
                                             class="icon fa fa-pencil" aria-hidden="true"></i><span class="hidden-xs hidden-sm">&nbsp;&nbsp;Edit user</span></a>
                             </td>

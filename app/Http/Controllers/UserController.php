@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use DB;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Hash;
+use App\Quotation;
+use Validator;
+use Image;
 
 class UserController extends Controller
 {
@@ -32,24 +36,32 @@ class UserController extends Controller
 
         // Alle items are validated
         $user = new User;
-        $user->name = $request->name;
+        $user->name = ucwords($request->name);
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
 
-        if(!empty($request->avatar)){
-            $user->avatar = $request->avatar;
-            $avatar = $request->file('avatar');
-            //id opnieuw ophalen
+        if($request->avatar != ""){
+            $avatar = $request->avatar;
             $filename = $user->id . '.' . $avatar->getClientOriginalExtension();
-            Image::make($request->avatar)->fit(300, 300)->save(public_path('/img/profile-pictures/' . $filename ) );
-            $request->avatar->move(public_path('/img/profile-pictures'), $filename);
+            Image::make($avatar)->fit(300, 300)->save(public_path('/img/profile-pictures/' . $filename ) );
+            $user->avatar = $filename;
+            /*if($this->deleteProfilePicture()){
+                Image::make($avatar)->fit(300, 300)->save(public_path('/img/profile-pictures/' . $filename ) );
+                $user->avatar = $filename;
+                $user->save();
+                return redirect('profile')->with('success', 'Your profile picture is changed!');
+            }else{
+                return redirect('profile')->with('error', 'Your profile picture isn\'t changed due to an error.');
+            }*/
         }
 
-
+        $name = ucwords($request->name);
         $user->save();
-        return redirect('/users')->with('success', 'The new user is created!');
+        return redirect('/users')->with('success', 'Gebruiker ' . $name . ' is aangemaakt!');
 
     }
+
+
 
     public function update($id){
         $profiledata = DB::table('users')->where('id', '=', $id)->first();
