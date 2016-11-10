@@ -41,7 +41,6 @@
                 </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <input type="hidden" name="block_id" value="id">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <button type="submit" class="btn btn-default" name="add">Add Type</button>
                     </div>
@@ -50,7 +49,7 @@
         </div>
     </div>
 
-    @foreach($blocks as $block)
+    @foreach($blocks as $key=>$block)
         <div class="col-xs-4">
             <div class="card card-mini">
                 <div class="card-header">

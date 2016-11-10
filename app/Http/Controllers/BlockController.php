@@ -25,7 +25,7 @@ class BlockController extends Controller
     public function add()
     {
         $block = new Block;
-        $block->id = Input::get('block_id');
+        $block->typefoam_id = '1';
         $block->typefoam->foamtype = Input::get('block_name');
         $block->height = Input::get('block_height');
         $block->length = Input::get('block_length');

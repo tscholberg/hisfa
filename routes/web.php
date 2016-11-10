@@ -42,8 +42,8 @@ Route::delete('/wastesilos/delete', 'WasteSiloController@deleteWasteSilo');
 
 // Blocks
 Route::get('/blocks', 'BlockController@index');
-Route::post('/blocks/{id}/add', 'BlockController@add');
-Route::post('/blocks/delete', 'BlockController@delete');
+Route::post('/blocks/add', 'BlockController@add');
+Route::delete('/blocks/delete', 'BlockController@delete');
 
 // Login, reset account, ...
 Auth::routes();
