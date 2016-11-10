@@ -10200,7 +10200,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var timeout = null;
 
 (0, _jquery2.default)(".app-login form").on("submit", function (e) {
-  e.preventDefault();
+  //e.preventDefault();
 
   (0, _jquery2.default)(".app-login .app-container").addClass("__loading");
 
