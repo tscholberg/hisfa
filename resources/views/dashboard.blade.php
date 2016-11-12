@@ -27,6 +27,93 @@
         </div>
     </div>-->
 
+    <!-- prime silo's -->
+    <div class="col-xs-12 col-sm-8">
+        <div class="primes">
+            <h2>Prime silo's</h2>
+            @foreach($primesilos as $key=>$primesilo)
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <a class="card card-banner card-green-light">
+                        <div class="card-body">
+                            <img class="silo-img" src="img/silo-grey.svg">
+                            <div class="content">
+                                <div class="title">{{ $primesilo->resource->name }}</div>
+                                <div class="value">{{ $primesilo->capacity_percent }}<span class="sign"> %</span></div>
+                            </div>
+                            <!-- <p class="silo">{{ $primesilo->name }}</p> -->
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+            <div class="clearfix"></div>
+        </div>
+        <div class="waste">
+            <h2>Waste silo's</h2>
+            <!-- Waste silo -->
+            @foreach($wastesilos as $key=>$wastesilo)
+                <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <a class="card card-banner card-yellow-light">
+                        <div class="card-body">
+                            <img class="silo-img" src="img/silo-grey.svg">
+                            <div class="content">
+                                <div class="title">{{ $wastesilo->resource->name }}</div>
+                                <div class="value">{{ $wastesilo->capacity_percent }}<span class="sign"> %</span></div>
+                            </div>
+                            <!-- <p class="silo">{{ $primesilo->name }}</p> -->
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+            <div class="clearfix"></div>
+        </div><!-- ./waste -->
+    </div><!-- ./primes -->
+
+    <!-- resources -->
+    <div class="col-xs-12 col-sm-4 resources">
+        <h2>Waste silo's</h2>
+        <div class="col-xs-12">
+            <a class="card card-banner card-green-light">
+                <div class="card-body">
+                    <div class="resource-img" style="background: url('img/resource01.jpg') no-repeat;">
+                    </div>
+                    <div class="content">
+                        <div class="title">f21MB-n</div>
+                        <div class="value">3<span class="sign"> ton</span></div>
+                    </div>
+                    <!-- <p class="silo">{{ $primesilo->name }}</p> -->
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-6">
+            <a class="card card-banner card-green-light resource-card">
+                <div class="card-body">
+                    <div class="resource-img" style="background: url('img/resource01.jpg') no-repeat;">
+                    </div>
+                    <div class="content">
+                        <div class="title">RF23W-N</div>
+                        <div class="value">8<span class="sign"> ton</span></div>
+                    </div>
+                    <!-- <p class="silo">{{ $primesilo->name }}</p> -->
+                </div>
+            </a>
+        </div>
+        <div class="col-xs-6">
+            <a class="card card-banner card-green-light resource-card">
+                <div class="card-body">
+                    <div class="resource-img" style="background: url('img/resource01.jpg') no-repeat;">
+                    </div>
+                    <div class="content">
+                        <div class="title">KSE-20</div>
+                        <div class="value">5.5<span class="sign"> ton</span></div>
+                    </div>
+                    <!-- <p class="silo">{{ $primesilo->name }}</p> -->
+                </div>
+            </a>
+        </div>
+    </div><!-- ./resources -->
+
+
+
 
     <!-- Blocks -->
     <div class="col-xs-12">
@@ -106,7 +193,7 @@
     </div>-->
 
 
-    <!-- Prime silos -->
+    <!-- Prime silos 
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
         <a href="/primesilos" class="card card-banner card-green-light">
             <div class="card-body app-heading">
@@ -127,11 +214,11 @@
                                 </li>
                             @endforeach
                         </ul>
-                    </div><!-- ./description -->
+                    </div>
                 </div>
             </div>
         </a>
-    </div><!-- ./END PRIME SILO VIEW -->
+    </div> END PRIME SILO VIEW -->
 
 
     <!-- Waste silos -->
