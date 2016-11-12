@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\typeFoam;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Block;
@@ -22,22 +23,29 @@ class BlockController extends Controller
         return view('blocks/index')->with('blocks', $blocks);
     }
 
-    public function add()
+    /*public function addType()
     {
-        $block = new Block;
-        $block->typefoam_id = '1';
-        $block->typefoam->foamtype = Input::get('block_name');
-        $block->height = Input::get('block_height');
-        $block->length = Input::get('block_length');
-        $block->units = Input::get('block_units');
-        $block->save();
+        $type = new typeFoam();
+        $type->foamtype = Input::get('block_name');
+        $type->save();
 
         return redirect('blocks');
     }
 
-    public function delete()
+    public function deleteType()
     {
         \App\Block::findOrFail(Input::get('block_id'))->delete();
+
+        return redirect('blocks');
+    }*/
+
+    public function addBlock()
+    {
+        $block = new Block();
+        $block->heigth = Input::get('block_height');
+        $block->length = Input::get('block_length');
+        $block->units = Input::get('block_units');
+        \App\Block::findOrFail(Input::get('block_id'))->save();
 
         return redirect('blocks');
     }
