@@ -70,7 +70,7 @@
 
     <!-- resources -->
     <div class="col-xs-12 col-sm-4 resources">
-        <h2>Waste silo's</h2>
+        <h2>Resources</h2>
         <div class="col-xs-12">
             <a class="card card-banner card-green-light">
                 <div class="card-body">
