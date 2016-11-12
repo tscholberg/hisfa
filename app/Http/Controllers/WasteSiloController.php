@@ -41,4 +41,16 @@ class WasteSiloController extends Controller
 
         return redirect('wastesilos');
     }
+
+    public function updateCapacityWasteSilo()
+    {
+        $silo = \App\WasteSilo::findOrFail(Input::get('silo_id'));
+        $capacity = Input::get('silo_capacity');
+
+        $silo->capacity = $capacity / 100;
+        if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 ){
+            $silo->save();
+        }
+        return redirect('wastesilos');
+    }
 }

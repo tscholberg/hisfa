@@ -13,7 +13,7 @@
 
         <!-- Prime silos -->
     <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
-        <a href="/primesilos" class="card card-banner card-green-light">
+        <a class="card card-banner card-green-light">
             <div class="card-body app-heading">
                 <div class="app-title">
                     <div class="title"><span class="highlight">Waste Silo's</span></div>
@@ -27,6 +27,14 @@
                                         </div>
                                     </div>
                                     <p class="volume">{{ $wastesilo->capacity_percent }} %</p>
+                                    <form enctype="multipart/form-data" action="/wastesilos/updatecapacity" method="POST">
+                                        <input type="text" name="silo_capacity" value="{{ $wastesilo->capacity_percent }}"">
+                                        <input type="hidden" name="silo_id" value="{{ $wastesilo->id }}">
+                                        <input type="hidden" name="_method" value="PUT">
+                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                        <input type="submit" name="updateSilo" value="Update {{$wastesilo->name}}">
+
+                                    </form>
                                     <p class="silo">{{ $wastesilo->name }}</p>
                                     <form enctype="multipart/form-data" action="/wastesilos/delete" method="POST">
                                         <input type="hidden" name="silo_id" value="{{ $wastesilo->id }}">

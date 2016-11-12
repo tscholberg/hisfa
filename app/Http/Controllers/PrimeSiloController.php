@@ -18,6 +18,9 @@ class PrimeSiloController extends Controller
     public function index()
     {
         $primesilos = \App\PrimeSilo::All();
+        $resources = \App\Resource::All();
+
+        $data['resources'] = $resources;
         $data['primesilos'] = $primesilos;
         return view('detail/PrimeSilos', $data);
 
@@ -35,9 +38,27 @@ class PrimeSiloController extends Controller
         return redirect('primesilos');
     }
 
-    public function deletePrimeSilo(){
+    public function deletePrimeSilo()
+    {
         \App\PrimeSilo::findOrFail(Input::get('silo_id'))->delete();
 
         return redirect('primesilos');
     }
+
+    public function updateCapacityPrimeSilo()
+    {
+        $silo = \App\PrimeSilo::findOrFail(Input::get('silo_id'));
+        $capacity = Input::get('silo_capacity');
+        $resource_id = Input::get('resource_id');
+
+        $silo->resource_id = $resource_id;
+
+        $silo->capacity = $capacity / 100;
+            if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 ){
+                $silo->save();
+            }
+        return redirect('primesilos');
+    }
+
+
 }

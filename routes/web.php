@@ -34,11 +34,16 @@ Route::post('/foam/{id}/edit', 'typeFoamController@update');
 Route::get('/primesilos', 'PrimeSiloController@index');
 Route::post('/primesilos/create', 'PrimeSiloController@addPrimeSilo');
 Route::delete('/primesilos/delete', 'PrimeSiloController@deletePrimeSilo');
+Route::put('/primesilos/updatecapacity', 'PrimeSiloController@updateCapacityPrimeSilo');
+Route::put('/primesilos/updateresource', 'PrimeSiloController@updateResourcePrimeSilo');
+
 
 // Wastesilos
 Route::get('/wastesilos', 'WasteSiloController@index');
 Route::post('/wastesilos/create', 'WasteSiloController@addWasteSilo');
 Route::delete('/wastesilos/delete', 'WasteSiloController@deleteWasteSilo');
+Route::put('/wastesilos/updatecapacity', 'WasteSiloController@updateCapacityWasteSilo');
+
 
 // Blocks
 Route::get('/blocks', 'BlockController@index');
