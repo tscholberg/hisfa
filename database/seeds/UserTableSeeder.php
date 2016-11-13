@@ -47,16 +47,6 @@ class UserTableSeeder extends Seeder
                 'manage_prime_silos' => true,
                 'manage_users' => true,
             ),
-
-            array(
-                'name' => 'Arno',
-                'email' => 'arnodedecker@telenet.be',
-                'password' => bcrypt('arno'),
-                'avatar' => 'default.png',
-                'admin' => true,
-                'remember_token' => str_random(10)
-            ),
-
         ]);
     }
 }

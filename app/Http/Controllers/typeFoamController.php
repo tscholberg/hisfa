@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\typeFoam;
+use App\Block;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
