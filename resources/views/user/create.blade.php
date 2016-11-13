@@ -33,7 +33,7 @@
                 </div>
             @endif
 
-            <form action="{{ url('/users/store') }}" method="POST">
+            <form action="{{ url('/users/store') }}" method="POST" enctype="multipart/form-data">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
 
                 <!-- Default info -->
@@ -96,7 +96,7 @@
                         </div>
 
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg, image/jpg" enctype="multipart/form-data"
+                        <input type="file" name="avatar" id="avatar" name="avatar" accept="image/png, image/jpeg, image/jpg"
                                class="upload-file">
                     </div>
                 </div>

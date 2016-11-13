@@ -28,12 +28,15 @@ class UserController extends Controller
         return view('user.create');
     }
 
+
     public function store(Request $request){
+
         $this->validate($request, [
             'name' => 'required|Min:2',
             'email' => 'required|unique:users,email|email',
-            'password' => 'required|confirmed',
+            'password' => 'required|confirmed|min:6',
             'password_confirmation' => 'required',
+            'avatar' => 'mimes:jpeg,jpg,png',
         ]);
 
         // Alle items are validated
@@ -43,8 +46,16 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
 
 
-        //permissions
+        // add avatar
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $filename = date('Y-m-d-H-i-s')."." . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->fit(300, 300)->save(public_path('img/profile-pictures/' . $filename));
+            $user->avatar = $filename;
+        }
 
+
+        //permissions
         if(isset($request->checkboxViewStock) && $request->checkboxViewStock == "on"){
             $user->view_stock = true;
         }
@@ -90,12 +101,11 @@ class UserController extends Controller
         }
 
 
-        $name = ucwords($request->name);
+        $name = $user->name;
         $user->save();
         return redirect('/users')->with('success', 'User ' . $name . ' is created and can now access the Hisfa platform!');
 
     }
-
 
 
     public function update($id){
@@ -114,9 +124,5 @@ class UserController extends Controller
         return redirect('/users')->with('success', 'The user is deleted!');;
     }
 
-
-    public function updatePermissions(){
-
-    }
 
 }
