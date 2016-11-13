@@ -114,4 +114,9 @@ class UserController extends Controller
         return redirect('/users')->with('success', 'The user is deleted!');;
     }
 
+
+    public function updatePermissions(){
+
+    }
+
 }
