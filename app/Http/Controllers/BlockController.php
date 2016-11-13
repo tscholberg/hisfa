@@ -23,29 +23,14 @@ class BlockController extends Controller
         return view('blocks/index')->with('blocks', $blocks);
     }
 
-    /*public function addType()
-    {
-        $type = new typeFoam();
-        $type->foamtype = Input::get('block_name');
-        $type->save();
-
-        return redirect('blocks');
-    }
-
-    public function deleteType()
-    {
-        \App\Block::findOrFail(Input::get('block_id'))->delete();
-
-        return redirect('blocks');
-    }*/
-
-    public function addBlock()
+    public function addBlock(Request $request)
     {
         $block = new Block();
-        $block->heigth = Input::get('block_height');
-        $block->length = Input::get('block_length');
-        $block->units = Input::get('block_units');
-        \App\Block::findOrFail(Input::get('block_id'))->save();
+        $block->heigth = $request->block_height;
+        $block->length = $request->block_length;
+        $block->units = $request->block_units;
+        $block->typefoam_id = $request->typeFoam_id;
+        $block->save();
 
         return redirect('blocks');
     }

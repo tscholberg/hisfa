@@ -24,7 +24,7 @@ class typeFoamController extends Controller
     public function index(){
         $typeFoams = \App\typeFoam::all();
         $data['typeFoams'] = $typeFoams;
-        return view('foam.index', $data);
+        return view('blocks.index', $data);
     }
 
     public function addType()
