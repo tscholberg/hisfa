@@ -57,7 +57,7 @@
                                 <span>{{ $user->name }} @if(Auth::user()->id == $user->id) (me) @endif</span>
                             </td>
                             <td class="hidden-xs hidden-sm hidden-md"><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
-                            <td class="hidden-xs">Hier komt user rol</td>
+                            <td class="hidden-xs">@if($user->admin == 1) Admin @else Standard user @endif</td>
                             <td><a href="/users/{{$user->id}}/edit" class="btn-sm btn-success"><i
                                             class="icon fa fa-pencil" aria-hidden="true"></i><span class="hidden-xs hidden-sm">&nbsp;&nbsp;Edit user</span></a>
                             </td>
@@ -81,10 +81,10 @@
             var id_value = $(this).attr('data-id');
             var name_value = $(this).attr('data-name');
             bootbox.confirm({
-                message: "Are you sure you want to delete user " + name_value + "? All data and settings of this user will be deleted. This action is irreversible.",
+                message: "Are you sure you want to delete user " + name_value + "? This action can not be undone.",
                 buttons: {
                     confirm: {
-                        label: 'Yes, delete this user',
+                        label: 'Yes, delete user',
                         className: 'btn-danger'
                     },
                     cancel: {

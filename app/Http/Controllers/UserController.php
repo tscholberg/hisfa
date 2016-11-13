@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\PermissionUser;
 use DB;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
@@ -17,6 +18,7 @@ class UserController extends Controller
     }
 
     public function index(){
+
 
         $users = DB::table('users')->get();
         return view('user.index', ['users' => $users]);
@@ -40,24 +42,56 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
 
-        if($request->avatar != ""){
-            $avatar = $request->avatar;
-            $filename = $user->id . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->fit(300, 300)->save(public_path('/img/profile-pictures/' . $filename ) );
-            $user->avatar = $filename;
-            /*if($this->deleteProfilePicture()){
-                Image::make($avatar)->fit(300, 300)->save(public_path('/img/profile-pictures/' . $filename ) );
-                $user->avatar = $filename;
-                $user->save();
-                return redirect('profile')->with('success', 'Your profile picture is changed!');
-            }else{
-                return redirect('profile')->with('error', 'Your profile picture isn\'t changed due to an error.');
-            }*/
+
+        //permissions
+        if(isset($request->checkboxViewStock) && $request->checkboxViewStock == "on"){
+            $user->view_stock = true;
         }
+
+        if(isset($request->checkboxViewDashboard) && $request->checkboxViewDashboard == "on"){
+            $user->view_dashboard = true;
+        }
+
+        if(isset($request->checkboxViewWasteSilos) && $request->checkboxViewWasteSilos == "on"){
+            $user->view_waste_silos = true;
+        }
+
+        if(isset($request->checkboxViewMaterialSilos) && $request->checkboxViewMaterialSilos == "on"){
+            $user->view_prime_silos = true;
+        }
+
+        if(isset($request->checkboxModifyStock) && $request->checkboxModifyStock == "on"){
+            $user->manage_stock = true;
+        }
+
+        if(isset($request->checkboxModifyWasteSilos) && $request->checkboxModifyWasteSilos == "on"){
+            $user->manage_waste_silos = true;
+        }
+
+        if(isset($request->checkboxModifyMaterialSilos) && $request->checkboxModifyMaterialSilos == "on"){
+            $user->manage_prime_silos = true;
+        }
+
+        if(isset($request->checkboxModifyUsers) && $request->checkboxModifyUsers == "on"){
+            $user->manage_users = true;
+        }
+
+        if(isset($request->checkboxAdmin) && $request->checkboxAdmin == "on"){
+            $user->admin = true;
+            $user->view_dashboard = true;
+            $user->view_stock = true;
+            $user->view_waste_silos = true;
+            $user->view_prime_silos = true;
+            $user->manage_stock = true;
+            $user->manage_waste_silos = true;
+            $user->manage_prime_silos = true;
+            $user->manage_users = true;
+        }
+
 
         $name = ucwords($request->name);
         $user->save();
-        return redirect('/users')->with('success', 'Gebruiker ' . $name . ' is aangemaakt!');
+        return redirect('/users')->with('success', 'User ' . $name . ' is created and can now access the Hisfa platform!');
 
     }
 
@@ -76,7 +110,7 @@ class UserController extends Controller
         if($id != 1){
             DB::table('users')->where('id', '=', $id)->delete();
         }
-        return redirect('/users')->with('success', 'The selected user is deleted!');;
+        return redirect('/users')->with('success', 'The user is deleted!');;
     }
 
 }

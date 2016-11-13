@@ -20,6 +20,15 @@ class UserTableSeeder extends Seeder
                 'email' => 'admin@changeme.hisfa',
                 'password' => bcrypt('admin'),
                 'avatar' => 'default.png',
+                'admin' => true,
+                'view_dashboard' => true,
+                'view_stock' => true,
+                'manage_stock' => true,
+                'view_waste_silos' => true,
+                'manage_waste_silos' => true,
+                'view_prime_silos' => true,
+                'manage_prime_silos' => true,
+                'manage_users' => true,
             ),
 
             array(
@@ -28,6 +37,15 @@ class UserTableSeeder extends Seeder
                 'email' => 'tom@changeme.hisfa',
                 'password' => bcrypt('hisfa'),
                 'avatar' => 'default.png',
+                'admin' => true,
+                'view_dashboard' => true,
+                'view_stock' => true,
+                'manage_stock' => true,
+                'view_waste_silos' => true,
+                'manage_waste_silos' => true,
+                'view_prime_silos' => true,
+                'manage_prime_silos' => true,
+                'manage_users' => true,
             ),
 
         ]);

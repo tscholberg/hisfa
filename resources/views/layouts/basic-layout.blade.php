@@ -35,6 +35,14 @@ $user = Auth::user();
                         <div class="title">Blocks</div>
                     </a>
                 </li>
+                <li class="dropdown @if($route === 'resources') active @endif ">
+                    <a href="/resources">
+                        <div class="icon">
+                            <i class="fa fa-industry" aria-hidden="true"></i>
+                        </div>
+                        <div class="title">Resources</div>
+                    </a>
+                </li>
                 <li class="dropdown @if($route === 'primesilos') active @endif ">
                     <a href="/primesilos">
                         {{--<a href="/primesilos" class="dropdown-toggle" data-toggle="dropdown">--}}

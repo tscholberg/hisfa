@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class PermissionsUsersSeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +11,7 @@ class PermissionsUsersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('permissions_users')->insert([
+        DB::table('permissions')->insert([
             array(
                 'id' => 1,
                 'user_id' => 1,

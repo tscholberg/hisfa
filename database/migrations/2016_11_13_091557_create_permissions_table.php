@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePermissionsUsers extends Migration
+class CreatePermissionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreatePermissionsUsers extends Migration
      */
     public function up()
     {
-        Schema::create('permissions_users', function (Blueprint $table) {
+        Schema::create('permissions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->boolean('admin')->default(false);
             $table->boolean('view_dashboard')->default(false);
             $table->boolean('view_stock')->default(false);
@@ -37,6 +37,6 @@ class CreatePermissionsUsers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('permissions_users');
+        Schema::dropIfExists('permissions');
     }
 }

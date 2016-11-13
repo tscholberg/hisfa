@@ -112,7 +112,7 @@
 
                         <div class="group-elements">
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxAdmin">
+                                <input type="checkbox" id="checkboxAdmin" name="checkboxAdmin">
                                 <label for="checkboxAdmin">
                                     Make this user administrator (all permissions will be checked)
                                 </label>
@@ -125,7 +125,7 @@
                             <div class="group-elements-title">What can this user see?</div>
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxViewDashboard" class="checkalladmin permissionview"
+                                <input type="checkbox" id="checkboxViewDashboard" name="checkboxViewDashboard" class="checkalladmin permissionview"
                                        checked>
                                 <label for="checkboxViewDashboard">
                                     View dashboard
@@ -134,7 +134,7 @@
 
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxViewStock" class="checkalladmin permissionview"
+                                <input type="checkbox" id="checkboxViewStock" name="checkboxViewStock" class="checkalladmin permissionview"
                                        checked>
                                 <label for="checkboxViewStock">
                                     View stock
@@ -143,7 +143,7 @@
 
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxViewWasteSilos" class="checkalladmin permissionview"
+                                <input type="checkbox" id="checkboxViewWasteSilos" name="checkboxViewWasteSilos" class="checkalladmin permissionview"
                                        checked>
                                 <label for="checkboxViewWasteSilos">
                                     View waste silos
@@ -151,7 +151,7 @@
                             </div>
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxViewMaterialSilos"
+                                <input type="checkbox" id="checkboxViewMaterialSilos" name="checkboxViewMaterialSilos"
                                        class="checkalladmin permissionview"
                                        checked>
                                 <label for="checkboxViewMaterialSilos">
@@ -166,7 +166,7 @@
                             <div class="group-elements-title">What can this user modify?</div>
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyStock" class="checkalladmin permissionmodify">
+                                <input type="checkbox" id="checkboxModifyStock" name="checkboxModifyStock" class="checkalladmin permissionmodify">
                                 <label for="checkboxModifyStock">
                                     Manage stock
                                 </label>
@@ -174,7 +174,7 @@
 
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyWasteSilos"
+                                <input type="checkbox" id="checkboxModifyWasteSilos" name="checkboxModifyWasteSilos"
                                        class="checkalladmin permissionmodify">
                                 <label for="checkboxModifyWasteSilos">
                                     Manage waste silos
@@ -183,7 +183,7 @@
 
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyMaterialSilos"
+                                <input type="checkbox" id="checkboxModifyMaterialSilos" name="checkboxModifyMaterialSilos"
                                        class="checkalladmin permissionmodify">
                                 <label for="checkboxModifyMaterialSilos">
                                     Manage material silos
@@ -191,7 +191,7 @@
                             </div>
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyUsers" class="checkalladmin permissionmodify">
+                                <input type="checkbox" id="checkboxModifyUsers" name="checkboxModifyUsers" class="checkalladmin permissionmodify">
                                 <label for="checkboxModifyUsers">
                                     Manage users
                                 </label>

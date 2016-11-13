@@ -25,6 +25,7 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $data = ["user" => $user];
+        //$perm = User::find(1)->permissions()->where('title', 'foo')->first();
         return view('profile.index', $data);
     }
 
