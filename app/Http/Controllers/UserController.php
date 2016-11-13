@@ -44,6 +44,7 @@ class UserController extends Controller
 
 
         //permissions
+
         if(isset($request->checkboxViewStock) && $request->checkboxViewStock == "on"){
             $user->view_stock = true;
         }

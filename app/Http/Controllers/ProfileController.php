@@ -25,7 +25,6 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
         $data = ["user" => $user];
-        //$perm = User::find(1)->permissions()->where('title', 'foo')->first();
         return view('profile.index', $data);
     }
 
@@ -102,6 +101,22 @@ class ProfileController extends Controller
     }
 
     public function updateEmailNotifications($request){
+        $user = Auth::user();
+
+        //eerst alles op false zetten anders in conflict met if checked => checked attribuut in blade file
+        $user->email_prime_silos_full = false;
+        $user->email_waste_silos_full = false;
+
+
+        if(isset($request->checkboxPrimeFull) && $request->checkboxPrimeFull == "on"){
+            $user->email_prime_silos_full = true;
+        }
+
+        if(isset($request->checkboxWasteFull) && $request->checkboxWasteFull == "on"){
+            $user->email_waste_silos_full = true;
+        }
+
+        $user->save();
 
     }
 }

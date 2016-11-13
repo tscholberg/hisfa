@@ -63,13 +63,13 @@
                         <div class="label-profile label-profile-notifications">Email notifications I want to receive:
                         </div>
                         <div class="checkbox">
-                            <input type="checkbox" id="checkboxPrimeFull">
+                            <input type="checkbox" id="checkboxPrimeFull" name="checkboxPrimeFull" @if($user->email_prime_silos_full == true) checked @endif>
                             <label for="checkboxPrimeFull">
                                 Send me an email when prime silos are 90% full
                             </label>
                         </div>
                         <div class="checkbox">
-                            <input type="checkbox" id="checkboxWasteFull">
+                            <input type="checkbox" id="checkboxWasteFull" name="checkboxWasteFull" @if($user->email_waste_silos_full == true) checked @endif>
                             <label for="checkboxWasteFull">
                                 Send me an email when waste silos are 90% full
                             </label>
