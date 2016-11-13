@@ -52,7 +52,7 @@ Route::delete('/foam/deleteType', 'typeFoamController@deleteType');
 
 // Blocks
 Route::get('/blocks', 'BlockController@index');
-Route::get('/blocks/addBlock', 'BlockController@addBlock');
+Route::post('/blocks/addBlock', 'BlockController@addBlock');
 
 // Login, reset account, ...
 Auth::routes();
