@@ -54,6 +54,14 @@ Route::delete('/foam/deleteType', 'typeFoamController@deleteType');
 Route::get('/blocks', 'BlockController@index');
 Route::get('/blocks/addBlock', 'BlockController@addBlock');
 
+// Users
+Route::get('/users', 'UserController@index');
+Route::get('/users/create', 'UserController@create');
+Route::post('/users/store', 'UserController@store');
+Route::get('/users/{id}/edit', 'UserController@update');
+Route::get('/users/{id}/delete', 'UserController@delete');
+
+
 // Login, reset account, ...
 Auth::routes();
 

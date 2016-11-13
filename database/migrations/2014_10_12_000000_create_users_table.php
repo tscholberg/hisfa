@@ -20,6 +20,16 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->default('default.png');
             $table->string('password');
             $table->boolean('admin')->default(false);
+            $table->boolean('view_dashboard')->default(false);
+            $table->boolean('view_stock')->default(false);
+            $table->boolean('manage_stock')->default(false);
+            $table->boolean('view_waste_silos')->default(false);
+            $table->boolean('manage_waste_silos')->default(false);
+            $table->boolean('view_prime_silos')->default(false);
+            $table->boolean('manage_prime_silos')->default(false);
+            $table->boolean('manage_users')->default(false);
+            $table->boolean('email_prime_silos_full')->default(false);
+            $table->boolean('email_waste_silos_full')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
