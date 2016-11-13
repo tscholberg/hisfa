@@ -20,6 +20,10 @@
     color: #fff !important;
 }
 
+.add-silo{
+    padding-bottom: 18px;
+}
+
 .silo-view {
     display: flex;
     align-items: flex-end;
@@ -32,17 +36,17 @@
     display: flex;
     align-content: flex-end;
     flex-wrap: wrap;
-    height: 400px;
-    margin: auto;
+    height: 600px;
+    /*margin: auto;*/
     min-width: 180px;
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
-    border-right: 1px solid #ccc;
+    /*border-right: 1px solid #ccc;*/
 }
 
-.silo-view li *{
-    /*align-self: flex-end;*/
+.silo-view li input.btn{
+    margin-top: 12px;
 }
 
 .silo-view li:last-child {
@@ -56,6 +60,7 @@
     margin-bottom: 20px;
     width: 46px;
     height: 180px;
+    background-color: #eee;
 }
 .full-bar .silo-bar-percent{
     width: 100%;
@@ -81,14 +86,6 @@
 .silo-view form{
     display: block;
     margin: auto;
-}
-
-.prime li {
-    width: 16.66%;
-}
-
-.waste li {
-    width: 33.33%;
 }
 
 .foam-type-home th:first-child,

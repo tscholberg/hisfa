@@ -11,36 +11,40 @@
 
 @section('app-content')
 
-        <!-- Prime silos -->
-    <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
-        <a class="card card-banner card-green-light">
+    <!-- Waste silos -->
+    <div class="col-xs-12">
+        <a class="card card-banner">
             <div class="card-body app-heading">
                 <div class="app-title">
                     <div class="title"><span class="highlight">Waste Silo's</span></div>
                     <div class="description">
                         <ul class="silo-view waste">
                             @foreach($wastesilos as $key=>$wastesilo)
-                                <li>
-                                    <div class="full-bar" >
+                                <li class="col-xs-12 col-sm-8 col-md-4 col-lg-2">
+                                    <p class="silo">{{ $wastesilo->name }}</p>
+                                    <div class="full-bar">
                                         <div class="silo-bar-percent"
                                              style=" height: {{ $wastesilo->capacity_percent }}%; ">
                                         </div>
                                     </div>
                                     <p class="volume">{{ $wastesilo->capacity_percent }} %</p>
-                                    <form enctype="multipart/form-data" action="/wastesilos/updatecapacity" method="POST">
-                                        <input type="text" name="silo_capacity" value="{{ $wastesilo->capacity_percent }}"">
+                                    <form enctype="multipart/form-data" action="/wastesilos/updatecapacity"
+                                          method="POST">
+                                        <input class="form-control" type="text" name="silo_capacity"
+                                               value="{{ $wastesilo->capacity_percent }}"">
                                         <input type="hidden" name="silo_id" value="{{ $wastesilo->id }}">
                                         <input type="hidden" name="_method" value="PUT">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <input type="submit" name="updateSilo" value="Update {{$wastesilo->name}}">
+                                        <input class="btn btn-success" type="submit" name="updateSilo"
+                                               value="Update {{$wastesilo->name}}">
 
                                     </form>
-                                    <p class="silo">{{ $wastesilo->name }}</p>
                                     <form enctype="multipart/form-data" action="/wastesilos/delete" method="POST">
                                         <input type="hidden" name="silo_id" value="{{ $wastesilo->id }}">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <input type="submit" name="deleteSilo" value="Delete {{$wastesilo->name}}">
+                                        <input class="btn btn-danger" type="submit" name="deleteSilo"
+                                               value="Delete {{$wastesilo->name}}">
                                     </form>
                                 </li>
                             @endforeach
@@ -51,14 +55,21 @@
         </a>
     </div><!-- ./END PRIME SILO VIEW -->
 
-    <h1>Add Wastesilo</h1>
-    <form enctype="multipart/form-data" action="/wastesilos/create" method="POST">
-        <input type="text" name="silo_name">
-        <div class="row">
-            <input type="hidden" name="_token" value="{{csrf_token()}}">
-            <input type="submit" name="create" value="Create">
+    <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="card card-banner col-xs-12 add-silo">
+            <div class="card-body app-heading">
+                <div class="app-title">
+                    <div class="title"><span class="highlight">Add Waste silo</span></div>
+                </div>
+            </div>
+            <form enctype="multipart/form-data" action="/wastesilos/create" method="POST">
+                <label for="silo_name">Name</label>
+                <input class="form-control" type="text" name="silo_name">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input class="btn btn-success" type="submit" name="create" value="Create">
+            </form>
         </div>
-    </form>
+    </div>
 
 
 @endsection
