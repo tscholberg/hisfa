@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\typeFoam;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Input;
 
 class typeFoamController extends Controller
 {
@@ -22,7 +24,23 @@ class typeFoamController extends Controller
     public function index(){
         $typeFoams = \App\typeFoam::all();
         $data['typeFoams'] = $typeFoams;
-        return view('foam.index', $data);
+        return view('blocks.index', $data);
+    }
+
+    public function addType()
+    {
+        $type = new typeFoam();
+        $type->foamtype = Input::get('block_name');
+        $type->save();
+
+        return redirect('blocks');
+    }
+
+    public function deleteType()
+    {
+        \App\Block::findOrFail(Input::get('block_id'))->delete();
+
+        return redirect('blocks');
     }
 
     /**
@@ -30,11 +48,11 @@ class typeFoamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(){
+    /*public function create(){
         $typeFoam = \App\typeFoam::All();
         $data['typeFoam'] = $typeFoam;
         return view('foam.create', $data);
-    }
+    }*/
 
     /**
      * Store a newly created resource in storage.
@@ -42,12 +60,12 @@ class typeFoamController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    /*public function store(Request $request)
     {
         \App\typeFoam::create($request->all());
 
         return redirect()->action('typeFoamController@index');
-    }
+    }*/
 
     /**
      * Display the specified resource.
@@ -55,10 +73,10 @@ class typeFoamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    /*public function show($id)
     {
         //
-    }
+    }*/
 
     /**
      * Show the form for editing the specified resource.
@@ -66,11 +84,11 @@ class typeFoamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    /*public function edit($id)
     {
         $typeFoam = \App\typeFoam::findOrFail($id);
         return view('foam.edit', compact('typeFoam'));
-    }
+    }*/
 
     /**
      * Update the specified resource in storage.
@@ -79,14 +97,14 @@ class typeFoamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    /*public function update(Request $request, $id)
     {
         $typeFoam = \App\typeFoam::findOrFail($id);
         $typeFoam->name = $request->input('name');
         $typeFoam->save();
 
         return redirect()->action('typeFoamController@index');
-    }
+    }*/
 
     /**
      * Remove the specified resource from storage.
@@ -94,10 +112,10 @@ class typeFoamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    /*public function destroy($id)
     {
         $typeFoam = \App\typeFoam::findOrFail($id);
-        $typeFoam->delete();
+        $typeFoam->delete();*/
 
         /* try{
             $typeFoam->delete();
@@ -105,6 +123,6 @@ class typeFoamController extends Controller
             dd($e);
         } */
 
-        return redirect()->back();
-    }
+        /*return redirect()->back();
+    }*/
 }
