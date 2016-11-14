@@ -157,6 +157,32 @@
     left: 20px;
     transform: translateY(-50%);
 }
+
+.empty-silo{
+    height: 100px;
+    width: 50px;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    background: url('../img/silo-grey.svg') no-repeat;
+    background-size: 50px 100px;
+    overflow: hidden;
+}
+.green-silo{
+    background: url('../img/silo-green.svg') no-repeat;
+}
+.yellow-silo{
+    background: url('../img/silo-yellow.svg') no-repeat;
+}
+.filled-silo{
+    height: 60px;
+    width: 50px;
+    position: absolute;
+    bottom: 0;
+    background-size: 50px 100px;
+    background-position: bottom;  
+}
 .resource-img{
     position: absolute;
     width: 150px;
@@ -183,7 +209,6 @@
 .resource-card .content .title{
     margin: 0;
 }
-
 .primes{
 }
 .primes h2,
