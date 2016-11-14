@@ -148,22 +148,20 @@
 .btn-email-preferences{
     margin: 10px 0 0 0;
 }
-
-.silo-img{
-    height: 100px;
-    width: 50px;
+.silo-name{
     position: absolute;
     top: 50%;
-    left: 20px;
+    left: 10px;
+    font-size: 2em;
+    color: #8d9293;
     transform: translateY(-50%);
 }
-
 .empty-silo{
     height: 100px;
     width: 50px;
     position: absolute;
     top: 50%;
-    left: 20px;
+    left: 50px;
     transform: translateY(-50%);
     background: url('../img/silo-grey.svg') no-repeat;
     background-size: 50px 100px;

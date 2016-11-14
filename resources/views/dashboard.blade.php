@@ -34,6 +34,8 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <a class="card card-banner card-green-light">
                         <div class="card-body">
+                            <div class="silo-name">{{ $primesilo->name }}</div>
+
                             <div class="empty-silo">
                                 <div class="filled-silo green-silo"></div>
                             </div>
@@ -42,7 +44,6 @@
                                 <div class="title">{{ $primesilo->resource->name }}</div>
                                 <div class="value">{{ $primesilo->capacity_percent }}<span class="sign"> %</span></div>
                             </div>
-                            <!-- <p class="silo">{{ $primesilo->name }}</p> -->
                         </div>
                     </a>
                 </div>
@@ -56,6 +57,8 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                     <a class="card card-banner card-yellow-light">
                         <div class="card-body">
+                            <div class="silo-name">{{ $wastesilo->name }}</div>
+
                             <div class="empty-silo">
                                 <div class="filled-silo yellow-silo"></div>
                             </div>
