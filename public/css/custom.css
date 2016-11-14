@@ -169,6 +169,15 @@
     background-size: 50px 100px;
     overflow: hidden;
 }
+.detail-empty{
+    position: relative;
+    margin: 10px auto 25px auto;
+    height: 185px;
+    width: 70px;
+    background: url('../img/silo-grey.svg') no-repeat;
+    background-size: 70px 185px;
+    overflow: hidden;
+}
 .green-silo{
     background: url('../img/silo-green.svg') no-repeat;
 }
@@ -176,12 +185,26 @@
     background: url('../img/silo-yellow.svg') no-repeat;
 }
 .filled-silo{
-    height: 60px;
+    height: 0;
     width: 50px;
     position: absolute;
     bottom: 0;
     background-size: 50px 100px;
-    background-position: bottom;  
+    background-position: bottom;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.detail-filled{
+    height: 0;
+    width: 70px;
+    position: absolute;
+    bottom: 0;
+    background-size: 70px 185px;
+    background-position: bottom;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
 }
 .resource-img{
     position: absolute;

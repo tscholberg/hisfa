@@ -22,11 +22,14 @@
                             @foreach($wastesilos as $key=>$wastesilo)
                                 <li class="col-xs-12 col-sm-8 col-md-4 col-lg-2">
                                     <p class="silo">{{ $wastesilo->name }}</p>
-                                    <div class="full-bar">
+                                    <div class="detail-empty">
+                                        <div class="detail-filled yellow-silo"></div>
+                                    </div>
+                                    <!--<div class="full-bar">
                                         <div class="silo-bar-percent"
                                              style=" height: {{ $wastesilo->capacity_percent }}%; ">
                                         </div>
-                                    </div>
+                                    </div>-->
                                     <p class="volume">{{ $wastesilo->capacity_percent }} %</p>
                                     <form enctype="multipart/form-data" action="/wastesilos/updatecapacity"
                                           method="POST">
