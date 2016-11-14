@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Hisfa;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,6 +14,6 @@ class WasteSilo extends Model
 
     public function resource()
     {
-        return $this->belongsTo('App\Resource');
+        return $this->belongsTo('Hisfa\Resource');
     }
 }

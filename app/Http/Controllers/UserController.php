@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
-use App\PermissionUser;
+namespace Hisfa\Http\Controllers;
+use Hisfa\PermissionUser;
 use DB;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Hash;
-use App\Quotation;
+use Hisfa\Quotation;
 use Validator;
 use Image;
 
@@ -108,10 +108,13 @@ class UserController extends Controller
     }
 
 
-    public function update($id){
+    public function edit($id){
         $profiledata = DB::table('users')->where('id', '=', $id)->first();
         return view('user.edit', ["profiledata" => $profiledata]);
     }
+
+
+
 
     public function delete($id){
         //has users right permissions to delete an user?

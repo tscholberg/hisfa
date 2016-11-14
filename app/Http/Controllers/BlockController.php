@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Hisfa\Http\Controllers;
 
-use App\typeFoam;
+use Hisfa\typeFoam;
 use Illuminate\Http\Request;
-use App\Http\Requests;
-use App\Block;
+use Hisfa\Http\Requests;
+use Hisfa\Block;
 use Illuminate\Support\Facades\Input;
 
 class BlockController extends Controller

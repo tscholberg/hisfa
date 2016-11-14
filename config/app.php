@@ -173,11 +173,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        Hisfa\Providers\AppServiceProvider::class,
+        Hisfa\Providers\AuthServiceProvider::class,
+        // Hisfa\Providers\BroadcastServiceProvider::class,
+        Hisfa\Providers\EventServiceProvider::class,
+        Hisfa\Providers\RouteServiceProvider::class,
 
     ],
 

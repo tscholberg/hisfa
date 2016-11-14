@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Hisfa\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\WasteSilo;
-use App\Http\Requests;
+use Hisfa\WasteSilo;
+use Hisfa\Http\Requests;
 use Illuminate\Support\Facades\Input;
 
 
@@ -18,7 +18,7 @@ class WasteSiloController extends Controller
 
     public function index()
     {
-        $wastesilos = \App\WasteSilo::All();
+        $wastesilos = \Hisfa\WasteSilo::All();
         $data['wastesilos'] = $wastesilos;
         return view('detail/WasteSilos', $data);
 
@@ -37,14 +37,14 @@ class WasteSiloController extends Controller
     }
 
     public function deleteWasteSilo(){
-        \App\WasteSilo::findOrFail(Input::get('silo_id'))->delete();
+        \Hisfa\WasteSilo::findOrFail(Input::get('silo_id'))->delete();
 
         return redirect('wastesilos');
     }
 
     public function updateCapacityWasteSilo()
     {
-        $silo = \App\WasteSilo::findOrFail(Input::get('silo_id'));
+        $silo = \Hisfa\WasteSilo::findOrFail(Input::get('silo_id'));
         $capacity = Input::get('silo_capacity');
 
         $silo->capacity = $capacity / 100;

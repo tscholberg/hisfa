@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Hisfa;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -29,7 +29,7 @@ class User extends Authenticatable
     ];
 
     /*public function permission(){
-        return $this->hasMany('App\Permission');
+        return $this->hasMany('Hisfa\Permission');
     }*/
 
 }

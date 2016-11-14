@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Hisfa\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,16 +26,16 @@ class HomeController extends Controller
     public function index()
     {
 
-        $blocks = \App\Block::all();
+        $blocks = \Hisfa\Block::all();
         $data['blocks'] = $blocks;
 
-        $primesilos = \App\PrimeSilo::all();
+        $primesilos = \Hisfa\PrimeSilo::all();
         $data['primesilos'] = $primesilos;
 
-        $wastesilos = \App\WasteSilo::all();
+        $wastesilos = \Hisfa\WasteSilo::all();
         $data['wastesilos'] = $wastesilos;
 
-        $typeFoams = \App\typeFoam::all();
+        $typeFoams = \Hisfa\typeFoam::all();
         $data['typeFoams'] = $typeFoams;
 
         return view('dashboard', $data);

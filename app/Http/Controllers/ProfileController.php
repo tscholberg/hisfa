@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Hisfa\Http\Controllers;
 
-use App\Http\Requests;
+use Hisfa\Http\Requests;
 use Illuminate\Http\Request;
 use DB;
 use Hash;
-use App\Quotation;
+use Hisfa\Quotation;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Validator;

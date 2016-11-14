@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Hisfa\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\PrimeSilo;
-use App\Http\Requests;
+use Hisfa\PrimeSilo;
+use Hisfa\Http\Requests;
 use Illuminate\Support\Facades\Input;
 
 class PrimeSiloController extends Controller
@@ -17,8 +17,8 @@ class PrimeSiloController extends Controller
 
     public function index()
     {
-        $primesilos = \App\PrimeSilo::All();
-        $resources = \App\Resource::All();
+        $primesilos = \Hisfa\PrimeSilo::All();
+        $resources = \Hisfa\Resource::All();
 
         $data['resources'] = $resources;
         $data['primesilos'] = $primesilos;
@@ -40,14 +40,14 @@ class PrimeSiloController extends Controller
 
     public function deletePrimeSilo()
     {
-        \App\PrimeSilo::findOrFail(Input::get('silo_id'))->delete();
+        \Hisfa\PrimeSilo::findOrFail(Input::get('silo_id'))->delete();
 
         return redirect('primesilos');
     }
 
     public function updateCapacityPrimeSilo()
     {
-        $silo = \App\PrimeSilo::findOrFail(Input::get('silo_id'));
+        $silo = \Hisfa\PrimeSilo::findOrFail(Input::get('silo_id'));
         $capacity = Input::get('silo_capacity');
         $resource_id = Input::get('resource_id');
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Hisfa\Http\Controllers;
 
-use App\typeFoam;
+use Hisfa\typeFoam;
 use Illuminate\Http\Request;
-use App\Http\Requests;
+use Hisfa\Http\Requests;
 use Illuminate\Support\Facades\Input;
 
 class typeFoamController extends Controller
@@ -22,7 +22,7 @@ class typeFoamController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $typeFoams = \App\typeFoam::all();
+        $typeFoams = \Hisfa\typeFoam::all();
         $data['typeFoams'] = $typeFoams;
         return view('blocks.index', $data);
     }
@@ -38,7 +38,7 @@ class typeFoamController extends Controller
 
     public function deleteType()
     {
-        \App\Block::findOrFail(Input::get('block_id'))->delete();
+        \Hisfa\Block::findOrFail(Input::get('block_id'))->delete();
 
         return redirect('blocks');
     }
@@ -49,7 +49,7 @@ class typeFoamController extends Controller
      * @return \Illuminate\Http\Response
      */
     /*public function create(){
-        $typeFoam = \App\typeFoam::All();
+        $typeFoam = \Hisfa\typeFoam::All();
         $data['typeFoam'] = $typeFoam;
         return view('foam.create', $data);
     }*/
@@ -62,7 +62,7 @@ class typeFoamController extends Controller
      */
     /*public function store(Request $request)
     {
-        \App\typeFoam::create($request->all());
+        \Hisfa\typeFoam::create($request->all());
 
         return redirect()->action('typeFoamController@index');
     }*/
@@ -86,7 +86,7 @@ class typeFoamController extends Controller
      */
     /*public function edit($id)
     {
-        $typeFoam = \App\typeFoam::findOrFail($id);
+        $typeFoam = \Hisfa\typeFoam::findOrFail($id);
         return view('foam.edit', compact('typeFoam'));
     }*/
 
@@ -99,7 +99,7 @@ class typeFoamController extends Controller
      */
     /*public function update(Request $request, $id)
     {
-        $typeFoam = \App\typeFoam::findOrFail($id);
+        $typeFoam = \Hisfa\typeFoam::findOrFail($id);
         $typeFoam->name = $request->input('name');
         $typeFoam->save();
 
@@ -114,7 +114,7 @@ class typeFoamController extends Controller
      */
     /*public function destroy($id)
     {
-        $typeFoam = \App\typeFoam::findOrFail($id);
+        $typeFoam = \Hisfa\typeFoam::findOrFail($id);
         $typeFoam->delete();*/
 
         /* try{

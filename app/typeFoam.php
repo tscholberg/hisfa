@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Hisfa;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,6 +10,6 @@ class typeFoam extends Model
     protected $fillable = ['name', '', ''];
 
     public function blocks(){
-        return $this->hasMany('App\Block');
+        return $this->hasMany('Hisfa\Block');
     }
 }

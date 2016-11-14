@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Hisfa;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -8,6 +8,6 @@ class Block extends Model
 {
     public function typefoam()
     {
-        return $this->belongsTo('App\typeFoam');
+        return $this->belongsTo('Hisfa\typeFoam');
     }
 }
