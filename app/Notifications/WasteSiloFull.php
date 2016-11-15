@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\Facades\Auth;
 
 class WasteSiloFull extends Notification
 {
@@ -46,9 +47,11 @@ class WasteSiloFull extends Notification
         $url = url('/wastesilos');
 
         return (new MailMessage)
-            ->greeting('Hello!')
-            ->line('Your waste silo is over 90% full!')
-            ->action('View waste silo', $url);
+            ->error()
+            ->subject('Waste silo ' . $this->wastesilo->name . ' is ' . $this->wastesilo->capacity * 100 .'% full')
+            ->greeting('Hi ' . Auth::user()->name)
+            ->line('Waste silo ' . $this->wastesilo->name . ' is ' . $this->wastesilo->capacity * 100 .'% full!')
+            ->action('View ' . $this->wastesilo->name, $url);
     }
 
     /**

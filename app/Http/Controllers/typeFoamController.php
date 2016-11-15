@@ -22,10 +22,10 @@ class typeFoamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        $typeFoams = \App\typeFoam::all();
-        $data['typeFoams'] = $typeFoams;
-        return view('blocks/index', $data);
+    public function index()
+    {
+        $typeFoams = typeFoam::all();
+        return view('blocks.index', ['typeFoams' => $typeFoams]);
     }
 
     public function addType()
@@ -34,14 +34,14 @@ class typeFoamController extends Controller
         $type->foamtype = Input::get('block_name');
         $type->save();
 
-        return redirect('blocks');
+        return redirect('blocks')->with('success', 'The type is added!');
     }
 
     public function deleteType()
     {
         \App\Block::findOrFail(Input::get('block_id'))->delete();
 
-        return redirect('blocks');
+        return redirect('blocks')->with('success', 'The type is deleted!');
     }
 
     /**

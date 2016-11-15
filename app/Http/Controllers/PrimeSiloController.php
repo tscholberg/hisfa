@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\PrimeSiloFull;
 use Illuminate\Http\Request;
 use App\PrimeSilo;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Database\Eloquent\Model;
 
 class PrimeSiloController extends Controller
 {
@@ -19,7 +23,9 @@ class PrimeSiloController extends Controller
     {
         $primesilos = \App\PrimeSilo::All();
         $resources = \App\Resource::All();
+        //$users = \App\User::All();
 
+        //$data['users'] = $users;
         $data['resources'] = $resources;
         $data['primesilos'] = $primesilos;
         return view('detail/PrimeSilos', $data);
@@ -54,11 +60,19 @@ class PrimeSiloController extends Controller
         $silo->resource_id = $resource_id;
 
         $silo->capacity = $capacity / 100;
-            if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 ){
-                $silo->save();
-            }
+        if ($capacity / 100 <= 1 && $capacity / 100 >= 0)
+        {
+            $silo->save();
+        }
+
+        if ($capacity >= 90)
+        {
+            //$users = DB::table('users')->where('email_prime_silos_full', '=', true)->get();
+            //$users = DB::table('users')->where('email', 'arnodedecker@telenet.be')->value('email');
+            $users = Auth::user();
+            $users->notify(new PrimeSiloFull($silo));
+        }
+
         return redirect('primesilos');
     }
-
-
 }
