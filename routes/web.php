@@ -1,8 +1,8 @@
 <?php
 
-use App\Notifications\PrimeSiloFull;
-use App\Notifications\WasteSiloFull;
-use Illuminate\Support\Facades\Auth;
+//use App\Notifications\PrimeSiloFull;
+//use App\Notifications\WasteSiloFull;
+//use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +57,8 @@ Route::delete('/foam/deleteType', 'typeFoamController@deleteType');
 // Blocks
 Route::get('/blocks', 'BlockController@index');
 Route::post('/blocks/addBlock', 'BlockController@addBlock');
+Route::post('/blocks/updateBlock/{id}', 'BlockController@updateBlock');
+Route::post('/blocks', 'BlockController@update');
 
 // Users
 Route::get('/users', 'UserController@index');
@@ -66,7 +68,7 @@ Route::get('/users/{id}/edit', 'UserController@update');
 Route::get('/users/{id}/delete', 'UserController@delete');
 
 // Notifications
-Route::get('/mailPrime', function () {
+/*Route::get('/mailPrime', function () {
 
     $user = Auth::user();
 
@@ -84,7 +86,7 @@ Route::get('/mailWaste', function () {
 
     $user->notify(new WasteSiloFull($wastesilo));
 
-});
+});*/
 
 // Login, reset account, ...
 Auth::routes();

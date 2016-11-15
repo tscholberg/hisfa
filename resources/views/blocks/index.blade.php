@@ -10,6 +10,15 @@
 
 @section('app-content')
 
+    @if(session()->has('success'))
+        <div class="col-xs-12">
+            <span class="help-block success alert alert-success alert-profile">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>{{ session()->get('success') }}</strong>
+            </span>
+        </div>
+    @endif
+
     <div class="card">
 
         <div class="app-heading">
@@ -44,8 +53,8 @@
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </span>
                         <select class="form-control" name="block_type" required autofocus>
-                        @foreach($blocks as $typeFoam)
-                            <option value="{{ $typeFoam->typefoam->id }}">{{ $typeFoam->typefoam->foamtype }}</option>
+                        @foreach($typeFoams as $typeFoam)
+                            <option value="{{ $typeFoam->id }}">{{ $typeFoam->foamtype }}</option>
                         @endforeach
                         </select>
                     </div>
@@ -79,11 +88,16 @@
             <div class="card card-mini">
                 <div class="card-header">
                     <div class="card-title">{{ $block->typefoam->foamtype }}</div>
+                    <form action="/blocks/updateBlock/{{ $block->typefoam->id }}" method="POST" style="margin-right: 10px">
+                        <input type="hidden" name="block_id" value="{{ $block->id }}">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <input type="submit" name="updateBlock" value="Update">
+                    </form>
                     <form action="/foam/deleteType" method="POST">
                         <input type="hidden" name="block_id" value="{{ $block->id }}">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <input type="submit" name="deleteBlock" value="Delete {{ $block->typefoam->foamtype }}">
+                        <input type="submit" name="deleteBlock" value="Delete">
                     </form>
                 </div>
                 <div class="card-body no-padding table-responsive">
@@ -97,9 +111,21 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ $block->units }}</td>
-                                <td>{{ $block->units }}</td>
-                                <td>{{ $block->units }}</td>
+                                @if ($block->length == 4000)
+                                    <td>{{ $block->units }}</td>
+                                @else
+                                    <td>0</td>
+                                @endif
+                                @if ($block->length == 6000)
+                                    <td>{{ $block->units }}</td>
+                                @else
+                                    <td>0</td>
+                                @endif
+                                @if ($block->length == 8000)
+                                    <td>{{ $block->units }}</td>
+                                @else
+                                    <td>0</td>
+                                @endif
                             </tr>
                         </tbody>
                     </table>

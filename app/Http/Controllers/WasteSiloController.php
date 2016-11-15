@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\WasteSiloFull;
 use Illuminate\Http\Request;
 use App\WasteSilo;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 
 
@@ -51,6 +53,14 @@ class WasteSiloController extends Controller
         if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 ){
             $silo->save();
         }
+
+        if ($capacity >= 90)
+        {
+            //$users = DB::table('users')->where('email_prime_silos_full', 1)->get();
+            $users = Auth::user();
+            $users->notify(new WasteSiloFull($silo));
+        }
+
         return redirect('wastesilos');
     }
 }
