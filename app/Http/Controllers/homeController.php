@@ -38,6 +38,9 @@ class HomeController extends Controller
         $typeFoams = \App\typeFoam::all();
         $data['typeFoams'] = $typeFoams;
 
+        $resources = \App\Resource::All();
+        $data['resources'] = $resources;
+
         return view('dashboard', $data);
     }
 }
