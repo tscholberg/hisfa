@@ -65,6 +65,9 @@ Route::post('/users/store', 'UserController@store');
 Route::get('/users/{id}/edit', 'UserController@update');
 Route::get('/users/{id}/delete', 'UserController@delete');
 
+// Resources
+Route::get('/resources', 'ResourceController@index');
+
 // Notifications
 Route::get('/mailPrime', function () {
 

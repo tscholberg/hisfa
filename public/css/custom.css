@@ -243,7 +243,29 @@
 .resources h2{
     text-align: right;
 }
-
+.detail-resources .resource-img{
+    height: 250px;
+}
+.detail-resources .content{
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+.detail-resources .content .title{
+    display: block;
+    width: 100%;
+    color: #fff !important;
+    font-size: 2em !important;
+}
+.detail-resources .content .value{
+    display: block;
+    width: 100%;
+    color: #fff !important;
+    font-size: 5em !important;
+}
+.dark-filter{
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
 .avatar-mini{
     width: 25px !important;
     height: 25px !important;
