@@ -121,7 +121,7 @@ class UserController extends Controller
         if($id != 1){
             DB::table('users')->where('id', '=', $id)->delete();
         }
-        return redirect('/users')->with('success', 'The user is deleted!');;
+        return redirect('/users')->with('success', 'The user is deleted!');
     }
 
 

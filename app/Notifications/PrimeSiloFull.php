@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\Facades\Auth;
 
 class PrimeSiloFull extends Notification
 {
@@ -46,9 +47,11 @@ class PrimeSiloFull extends Notification
         $url = url('/primesilos');
 
         return (new MailMessage)
-            ->greeting('Hello!')
-            ->line('Your prime silo is over 90% full!')
-            ->action('View prime silo', $url);
+            ->error()
+            ->subject('Prime silo ' . $this->primesilo->name . ' is ' . $this->primesilo->capacity * 100 .'% full')
+            ->greeting('Hi ' . Auth::user()->name)
+            ->line('Prime silo ' . $this->primesilo->name . ' is ' . $this->primesilo->capacity * 100 .'% full!')
+            ->action('View ' . $this->primesilo->name, $url);
     }
 
     /**
