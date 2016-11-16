@@ -51,6 +51,13 @@
 							</span>
 							<input type="text" id="capacity" name="capacity" class="form-control" value="{{ $resourcedata->capacity }}">
 						</div>
+
+						<div class="input-group-inapp input-group{{ $errors->has('capacity') ? ' has-error' : '' }}">
+							<span class="input-group-addon">
+								<i class="fa fa-file-image-o" aria-hidden="true"></i>
+							</span>
+							<input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg" class="upload-file">
+						</div>
 					</div>
 				</div>
 
@@ -58,7 +65,7 @@
 					<div class="section col-xs-12">
 						<div class="form-footer">
 							<input type="submit" class="btn btn-success" value="Update resource">
-							<a href="/resources" class="btn btn-danger">Cancel</a>
+							<a href="/resources" class="btn btn-default">Cancel</a>
 						</div>
 					</div>
 				</div>

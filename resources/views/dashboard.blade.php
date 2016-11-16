@@ -103,7 +103,7 @@
             <div class="col-xs-6">
                 <a href="/resources/{{$resource->id}}" class="card card-banner card-green-light resource-card">
                     <div class="card-body">
-                        <div class="resource-img" style="background: url('img/resource01.jpg') no-repeat;">
+                        <div class="resource-img" style="background: url('img/resources/{{$resource->image}}') no-repeat;">
                         </div>
                         <div class="content">
                             <div class="title">{{ $resource->name }}</div>
