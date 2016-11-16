@@ -35,17 +35,8 @@ $user = Auth::user();
                         <div class="title">Blocks</div>
                     </a>
                 </li>
-                <li class="dropdown @if($route === 'resources') active @endif ">
-                    <a href="/resources">
-                        <div class="icon">
-                            <i class="fa fa-industry" aria-hidden="true"></i>
-                        </div>
-                        <div class="title">Resources</div>
-                    </a>
-                </li>
                 <li class="dropdown @if($route === 'primesilos') active @endif ">
                     <a href="/primesilos">
-                        {{--<a href="/primesilos" class="dropdown-toggle" data-toggle="dropdown">--}}
 
                         <div class="icon">
                             <i class="fa fa-bolt" aria-hidden="true"></i>
@@ -55,12 +46,26 @@ $user = Auth::user();
                 </li>
                 <li class="dropdown @if($route === 'wastesilos') active @endif ">
                     <a href="/wastesilos">
-                        {{--<a href="/wastesilos" class="dropdown-toggle" data-toggle="dropdown">--}}
-
                         <div class="icon">
                             <i class="fa fa-recycle" aria-hidden="true"></i>
                         </div>
                         <div class="title">Waste silos</div>
+                    </a>
+                </li>
+                <li class="dropdown @if($route === 'resources') active @endif ">
+                    <a href="/resources">
+                        <div class="icon">
+                            <i class="fa fa-industry" aria-hidden="true"></i>
+                        </div>
+                        <div class="title">Resources</div>
+                    </a>
+                </li>
+                <li class="dropdown @if($route === 'users') active @endif ">
+                    <a href="/users">
+                        <div class="icon">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                        </div>
+                        <div class="title">Users</div>
                     </a>
                 </li>
             </ul>
@@ -140,7 +145,7 @@ $user = Auth::user();
                                         <a href="{{ url('/logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            <i class="fa fa-sign-out"> </i> Logout
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
