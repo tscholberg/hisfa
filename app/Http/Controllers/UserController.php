@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Hash;
 use App\Quotation;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use Image;
 
@@ -19,9 +20,9 @@ class UserController extends Controller
 
     public function index(){
 
-
+        $currentUser = Auth::user();
         $users = DB::table('users')->get();
-        return view('user.index', ['users' => $users]);
+        return view('user.index', ['users' => $users, 'currentUser' => $currentUser]);
     }
 
     public function create(){

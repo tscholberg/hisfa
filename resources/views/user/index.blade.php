@@ -10,7 +10,8 @@
 
     @section('app-content')
 
-            <!-- Quick edit action -->
+    <!-- Quick edit action -->
+    @if($currentUser->admin)
     <a href="/users/create">
         <div class="btn-floating" id="help-actions">
             <div class="btn-bg"></div>
@@ -20,6 +21,7 @@
             </button>
         </div>
     </a>
+    @endif
 
     @if(session()->has('success'))
         <div class="col-xs-12">
