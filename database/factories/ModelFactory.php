@@ -26,7 +26,6 @@ $factory->define(App\Log::class, function (Faker\Generator $faker) {
         'function' => $faker->word,
         'user' => $faker->word,
         'object_id' => $faker->numberBetween(1,50),
-        'quantity' => $faker->numberBetween(1,50),
-        'percentage' => $faker->numberBetween(0,1)
+        'description' => $faker->word
     ];
 });

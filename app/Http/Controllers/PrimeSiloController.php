@@ -34,15 +34,14 @@ class PrimeSiloController extends Controller
 
     public function addPrimeSilo()
     {
-        $user = Auth::user();
-
         $silo = new PrimeSilo;
         $silo->capacity = '0';
         $silo->resource_id = '1';
         $silo->name = Input::get('silo_name');
         $silo->save();
 
-        $silo->addLog( 'addPrimeSilo', $user->name, $silo->id);
+        $user = Auth::user();
+        $silo->addLog( 'added prime silo', $user->name, $silo->id, $silo->id);
 
         return redirect('primesilos');
     }
@@ -54,7 +53,7 @@ class PrimeSiloController extends Controller
             $user = Auth::user();
 
             $silo = new PrimeSilo();
-            $silo->addLog( 'deletePrimeSilo', $user->user, 1);
+            $silo->addLog( 'deleted prime silo', $user->name, Input::get('silo_id'), Input::get('silo_id'));
         }
 
         return redirect('primesilos');
@@ -73,7 +72,7 @@ class PrimeSiloController extends Controller
         if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 ){
             $user = Auth::user();
             $silo->save();
-            $silo->addLog( 'UpdateCapacityPrimeSilo', $user->name, $silo->id, $silo->resource_id, NULL, $silo->capacity);
+            $silo->addLog( 'updated prime silo', $user->name, $silo->id, $silo->id, $silo->resource_id);
 
             if ($capacity >= 90)
             {

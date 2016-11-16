@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Block;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 
 class BlockController extends Controller
@@ -34,6 +35,9 @@ class BlockController extends Controller
         $block->typefoam_id = Input::get('block_type');
         $block->save();
 
+        $user = Auth::user();
+        $block->addLog( 'added block', $user->name, $block->id, $block->id);
+
         return redirect('blocks')->with('success', 'The block is added!');
     }
 
@@ -52,6 +56,8 @@ class BlockController extends Controller
         $block->units = Input::get('block_units');
         $block->save();
 
+        $user = Auth::user();
+        $block->addLog( 'updated block', $user->name, $block->id, $block->id);
         return redirect('blocks')->with('success', 'The block is updated!');
     }
 }

@@ -41,6 +41,9 @@ class HomeController extends Controller
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
 
+        $logs = \App\Log::All();
+        $data['logs'] = $logs;
+
         return view('dashboard', $data);
     }
 }

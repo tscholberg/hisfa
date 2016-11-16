@@ -216,4 +216,41 @@
             </div>
         </div>
     </div><!-- ./END FOAM TYPES VIEW -->
+
+    <div class="col-xs-12">
+        <div class="card card-mini">
+            <div class="card-header">
+                <div class="card-title">History</div>
+                <ul class="card-action">
+                    <li><a href="">History</a></li>
+                </ul>
+            </div>
+            <div class="card-body no-padding table-responsive">
+                <table class="table card-table table-hover table-striped foam-type-home">
+                    <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Function</th>
+                        <th>Description</th>
+                        <th>Date</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($logs as $log)
+                        <tr>
+                            <td>{{ $log->user }}</td>
+                            <td>{{ $log->function }}</td>
+                            <td>{{ $log->description }}</td>
+                            <td>{{ $log->updated_at }}</td>
+                            <!--
+                            <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Running out</span></span></td>
+                        <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Not available</span></span></td>
+                            -->
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div><!-- ./END FOAM TYPES VIEW -->
 @stop
