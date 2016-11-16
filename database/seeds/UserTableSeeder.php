@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
         //gebruikers admin en tom toevoegen
 
         DB::table('users')->insert([
-            array(
+            [
                 'id' => 1,
                 'name' => 'Admin',
                 'email' => 'admin@changeme.hisfa',
@@ -29,9 +29,9 @@ class UserTableSeeder extends Seeder
                 'view_prime_silos' => true,
                 'manage_prime_silos' => true,
                 'manage_users' => true,
-            ),
+            ],
 
-            array(
+            [
                 'id' => 2,
                 'name' => 'Tom',
                 'email' => 'tom@changeme.hisfa',
@@ -46,7 +46,7 @@ class UserTableSeeder extends Seeder
                 'view_prime_silos' => true,
                 'manage_prime_silos' => true,
                 'manage_users' => true,
-            ),
+            ],
 
         ]);
     }
