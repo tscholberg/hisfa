@@ -2,15 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Notifications\PrimeSiloFull;
-use Illuminate\Http\Request;
+
 use App\PrimeSilo;
 use App\Http\Traits\LogTrait;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Database\Eloquent\Model;
+
 
 class PrimeSiloController extends Controller
 {
@@ -24,6 +20,7 @@ class PrimeSiloController extends Controller
         $primesilos = \App\PrimeSilo::All();
         $resources = \App\Resource::All();
         //$users = \App\User::All();
+
 
         //$data['users'] = $users;
         $data['resources'] = $resources;

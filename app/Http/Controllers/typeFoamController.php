@@ -23,10 +23,16 @@ class typeFoamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $typeFoams = typeFoam::all();
         return view('blocks.index', ['typeFoams' => $typeFoams]);
+
+    /*public function index(){
+        $typeFoams = \App\typeFoam::all();
+        $data['typeFoams'] = $typeFoams;
+        return view('blocks/index', $data);*/
     }
 
     public function addType()

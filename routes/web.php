@@ -64,7 +64,8 @@ Route::post('/blocks', 'BlockController@update');
 Route::get('/users', 'UserController@index');
 Route::get('/users/create', 'UserController@create');
 Route::post('/users/store', 'UserController@store');
-Route::get('/users/{id}/edit', 'UserController@update');
+Route::get('/users/{id}', 'UserController@detail');
+Route::post('/users/{id}/edit', 'UserController@edit');
 Route::get('/users/{id}/delete', 'UserController@delete');
 
 // Resources
@@ -75,7 +76,7 @@ Route::get('/resources', 'ResourceController@index');
 
     $user = Auth::user();
 
-    $primesilo = App\PrimeSilo::first();
+    $primesilo = Hisfa\PrimeSilo::first();
 
     $user->notify(new PrimeSiloFull($primesilo));
 
@@ -85,7 +86,7 @@ Route::get('/mailWaste', function () {
 
     $user = Auth::user();
 
-    $wastesilo = App\WasteSilo::first();
+    $wastesilo = Hisfa\WasteSilo::first();
 
     $user->notify(new WasteSiloFull($wastesilo));
 
