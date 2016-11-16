@@ -1,5 +1,9 @@
 <?php
 
+use App\Notifications\PrimeSiloFull;
+use App\Notifications\WasteSiloFull;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,15 +56,39 @@ Route::delete('/foam/deleteType', 'typeFoamController@deleteType');
 
 // Blocks
 Route::get('/blocks', 'BlockController@index');
-Route::get('/blocks/addBlock', 'BlockController@addBlock');
+Route::post('/blocks/addBlock', 'BlockController@addBlock');
 
 // Users
 Route::get('/users', 'UserController@index');
 Route::get('/users/create', 'UserController@create');
 Route::post('/users/store', 'UserController@store');
-Route::get('/users/{id}/edit', 'UserController@edit');
+Route::get('/users/{id}', 'UserController@detail');
+Route::post('/users/{id}/edit', 'UserController@edit');
 Route::get('/users/{id}/delete', 'UserController@delete');
 
+// Resources
+Route::get('/resources', 'ResourceController@index');
+
+// Notifications
+Route::get('/mailPrime', function () {
+
+    $user = Auth::user();
+
+    $primesilo = Hisfa\PrimeSilo::first();
+
+    $user->notify(new PrimeSiloFull($primesilo));
+
+});
+
+Route::get('/mailWaste', function () {
+
+    $user = Auth::user();
+
+    $wastesilo = Hisfa\WasteSilo::first();
+
+    $user->notify(new WasteSiloFull($wastesilo));
+
+});
 
 // Login, reset account, ...
 Auth::routes();

@@ -20,6 +20,10 @@
     color: #fff !important;
 }
 
+.add-silo{
+    padding-bottom: 18px;
+}
+
 .silo-view {
     display: flex;
     align-items: flex-end;
@@ -32,17 +36,17 @@
     display: flex;
     align-content: flex-end;
     flex-wrap: wrap;
-    height: 400px;
-    margin: auto;
+    height: 600px;
+    /*margin: auto;*/
     min-width: 180px;
     padding-top: 20px;
     padding-bottom: 20px;
     text-align: center;
-    border-right: 1px solid #ccc;
+    /*border-right: 1px solid #ccc;*/
 }
 
-.silo-view li *{
-    /*align-self: flex-end;*/
+.silo-view li input.btn{
+    margin-top: 12px;
 }
 
 .silo-view li:last-child {
@@ -56,6 +60,7 @@
     margin-bottom: 20px;
     width: 46px;
     height: 180px;
+    background-color: #eee;
 }
 .full-bar .silo-bar-percent{
     width: 100%;
@@ -81,14 +86,6 @@
 .silo-view form{
     display: block;
     margin: auto;
-}
-
-.prime li {
-    width: 16.66%;
-}
-
-.waste li {
-    width: 33.33%;
 }
 
 .foam-type-home th:first-child,
@@ -151,14 +148,61 @@
 .btn-email-preferences{
     margin: 10px 0 0 0;
 }
-
-.silo-img{
+.silo-name{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    font-size: 2em;
+    color: #8d9293;
+    transform: translateY(-50%);
+}
+.empty-silo{
     height: 100px;
     width: 50px;
     position: absolute;
     top: 50%;
-    left: 20px;
+    left: 50px;
     transform: translateY(-50%);
+    background: url('../img/silo-grey.svg') no-repeat;
+    background-size: 50px 100px;
+    overflow: hidden;
+}
+.detail-empty{
+    position: relative;
+    margin: 10px auto 25px auto;
+    height: 185px;
+    width: 70px;
+    background: url('../img/silo-grey.svg') no-repeat;
+    background-size: 70px 185px;
+    overflow: hidden;
+}
+.green-silo{
+    background: url('../img/silo-green.svg') no-repeat;
+}
+.yellow-silo{
+    background: url('../img/silo-yellow.svg') no-repeat;
+}
+.filled-silo{
+    height: 0;
+    width: 50px;
+    position: absolute;
+    bottom: 0;
+    background-size: 50px 100px;
+    background-position: bottom;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.detail-filled{
+    height: 0;
+    width: 70px;
+    position: absolute;
+    bottom: 0;
+    background-size: 70px 185px;
+    background-position: bottom;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    transition: all 1s ease;
 }
 .resource-img{
     position: absolute;
@@ -186,7 +230,6 @@
 .resource-card .content .title{
     margin: 0;
 }
-
 .primes{
 }
 .primes h2,
@@ -200,7 +243,29 @@
 .resources h2{
     text-align: right;
 }
-
+.detail-resources .resource-img{
+    height: 250px;
+}
+.detail-resources .content{
+    margin-top: 25px;
+    margin-bottom: 50px;
+}
+.detail-resources .content .title{
+    display: block;
+    width: 100%;
+    color: #fff !important;
+    font-size: 2em !important;
+}
+.detail-resources .content .value{
+    display: block;
+    width: 100%;
+    color: #fff !important;
+    font-size: 5em !important;
+}
+.dark-filter{
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
 .avatar-mini{
     width: 25px !important;
     height: 25px !important;
@@ -231,6 +296,7 @@
 .feedback-title{
     margin-bottom: 10px !important;
 }
+
 
 @media only screen and (min-width:1920px){
     .app{

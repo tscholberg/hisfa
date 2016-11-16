@@ -2,6 +2,7 @@
 
 namespace Hisfa\Http\Controllers;
 
+use App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,6 +38,9 @@ class HomeController extends Controller
 
         $typeFoams = \Hisfa\typeFoam::all();
         $data['typeFoams'] = $typeFoams;
+
+        $resources = \Hisfa\Resource::All();
+        $data['resources'] = $resources;
 
         return view('dashboard', $data);
     }

@@ -32,7 +32,7 @@
                     </div>
                 </div>
             @endif
-            <form action="@yield('form-submit-action')" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/users/store') }}" method="POST" enctype="multipart/form-data">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
 
                 <!-- Default info -->
@@ -207,7 +207,7 @@
                     <div class="section col-xs-12">
                         <div class="form-footer">
                             <input type="submit" class="btn btn-success" value="Create account">
-                            <a href="/users" class="btn btn-default">Cancel registration</a>
+                            <a href="/users" class="btn btn-default">Cancel</a>
                         </div>
                     </div>
                 </div>

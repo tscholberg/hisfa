@@ -32,7 +32,7 @@
                     </div>
                 </div>
             @endif
-            <form action="@yield('form-submit-action')" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('/users/' . $profiledata->id . '/edit') }}" method="POST" enctype="multipart/form-data">
                 <input name="_token" type="hidden" value="{{ csrf_token() }}">
 
                 <!-- Default info -->
@@ -111,7 +111,7 @@
 
                         <div class="group-elements">
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxAdmin" name="checkboxAdmin"  @if(count($errors) == 0 && ($profiledata->admin == true)) checked @else {{ old('checkboxAdmin') }} @endif>
+                                <input type="checkbox" id="checkboxAdmin" name="checkboxAdmin"  {{ $profiledata->admin == 1 ? 'checked' : '' }}>
                                 <label for="checkboxAdmin">
                                     Make this user administrator (all permissions will be checked)
                                 </label>
@@ -124,8 +124,7 @@
                             <div class="group-elements-title">What can this user see?</div>
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxViewDashboard" name="checkboxViewDashboard" class="checkalladmin permissionview"
-                                       checked>
+                                <input type="checkbox" id="checkboxViewDashboard" name="checkboxViewDashboard" class="checkalladmin permissionview" {{ $profiledata->view_dashboard == 1 ? 'checked' : '' }}>
                                 <label for="checkboxViewDashboard">
                                     View dashboard
                                 </label>
@@ -133,8 +132,7 @@
 
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxViewStock" name="checkboxViewStock" class="checkalladmin permissionview"
-                                       checked>
+                                <input type="checkbox" id="checkboxViewStock" name="checkboxViewStock" class="checkalladmin permissionview" {{ $profiledata->view_stock == 1 ? 'checked' : '' }}>
                                 <label for="checkboxViewStock">
                                     View stock
                                 </label>
@@ -142,8 +140,7 @@
 
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxViewWasteSilos" name="checkboxViewWasteSilos" class="checkalladmin permissionview"
-                                       checked>
+                                <input type="checkbox" id="checkboxViewWasteSilos" name="checkboxViewWasteSilos" class="checkalladmin permissionview" {{ $profiledata->view_waste_silos == 1 ? 'checked' : '' }}>
                                 <label for="checkboxViewWasteSilos">
                                     View waste silos
                                 </label>
@@ -151,8 +148,7 @@
 
                             <div class="checkbox">
                                 <input type="checkbox" id="checkboxViewMaterialSilos" name="checkboxViewMaterialSilos"
-                                       class="checkalladmin permissionview"
-                                       checked>
+                                       class="checkalladmin permissionview" {{ $profiledata->view_prime_silos == 1 ? 'checked' : '' }}>
                                 <label for="checkboxViewMaterialSilos">
                                     View material silos
                                 </label>
@@ -165,7 +161,7 @@
                             <div class="group-elements-title">What can this user modify?</div>
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyStock" name="checkboxModifyStock" class="checkalladmin permissionmodify">
+                                <input type="checkbox" id="checkboxModifyStock" name="checkboxModifyStock" class="checkalladmin permissionmodify" {{ $profiledata->manage_stock == 1 ? 'checked' : '' }}>
                                 <label for="checkboxModifyStock">
                                     Manage stock
                                 </label>
@@ -173,7 +169,7 @@
 
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyWasteSilos" name="checkboxModifyWasteSilos"
+                                <input type="checkbox" id="checkboxModifyWasteSilos" name="checkboxModifyWasteSilos" {{ $profiledata->manage_waste_silos == 1 ? 'checked' : '' }}
                                        class="checkalladmin permissionmodify">
                                 <label for="checkboxModifyWasteSilos">
                                     Manage waste silos
@@ -182,7 +178,7 @@
 
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyMaterialSilos" name="checkboxModifyMaterialSilos"
+                                <input type="checkbox" id="checkboxModifyMaterialSilos" name="checkboxModifyMaterialSilos" {{ $profiledata->manage_prime_silos == 1 ? 'checked' : '' }}
                                        class="checkalladmin permissionmodify">
                                 <label for="checkboxModifyMaterialSilos">
                                     Manage material silos
@@ -190,7 +186,7 @@
                             </div>
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyUsers" name="checkboxModifyUsers" class="checkalladmin permissionmodify">
+                                <input type="checkbox" id="checkboxModifyUsers" name="checkboxModifyUsers" class="checkalladmin permissionmodify" {{ $profiledata->manage_users == 1 ? 'checked' : '' }}>
                                 <label for="checkboxModifyUsers">
                                     Manage users
                                 </label>
@@ -207,7 +203,7 @@
                     <div class="section col-xs-12">
                         <div class="form-footer">
                             <input type="submit" class="btn btn-success" value="Create account">
-                            <a href="/users" class="btn btn-default">Cancel registration</a>
+                            <a href="/users" class="btn btn-default">Cancel</a>
                         </div>
                     </div>
                 </div>

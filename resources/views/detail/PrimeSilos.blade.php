@@ -10,42 +10,49 @@
 
 @section('app-content')
 
-        <!-- Prime silos -->
+    <!-- Prime silos -->
     <div class="col-xs-12">
-        <a class="card card-banner ">
+        <div class="card card-banner ">
             <div class="card-body app-heading">
                 <div class="app-title">
                     <div class="title"><span class="highlight">Prime Silo's</span></div>
                     <div class="description">
                         <ul class="silo-view prime">
                             @foreach($primesilos as $key=>$primesilo)
-                                <li>
+                                <li class="col-xs-12 col-sm-8 col-md-4 col-lg-2">
                                     <p class="silo">{{ $primesilo->name }}</p>
-                                    <div class="full-bar" >
+                                    <div class="detail-empty">
+                                        <div class="detail-filled green-silo"></div>
+                                    </div>
+                                    <!--<div class="full-bar">
                                         <div class="silo-bar-percent"
                                              style=" height: {{ $primesilo->capacity_percent }}%; ">
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <p class="volume">{{ $primesilo->capacity_percent }} %</p>
-                                    <form enctype="multipart/form-data" action="/primesilos/updatecapacity" method="POST">
-                                        <input type="text" name="silo_capacity" value="{{ $primesilo->capacity_percent }}">
-                                        <select name="resource_id">
+                                    <p class="silo">{{ $primesilo->resource->name }}</p>
+                                    <form enctype="multipart/form-data" action="/primesilos/updatecapacity"
+                                          method="POST">
+                                        <input class="form-control" type="text" name="silo_capacity"
+                                               value="{{ $primesilo->capacity_percent }}">
+                                        <select class="form-control" name="resource_id">
                                             @foreach($resources as $key=>$resource)
-                                                <option  value="{{$resource->id}}">{{$resource->name}}</option>
+                                                <option value="{{$resource->id}}">{{$resource->name}}</option>
                                             @endforeach
                                         </select>
                                         <input type="hidden" name="silo_id" value="{{ $primesilo->id }}">
                                         <input type="hidden" name="_method" value="PUT">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <input type="submit" name="updateSilo" value="Update {{$primesilo->name}}">
+                                        <input class="btn btn-success" type="submit" name="updateSilo"
+                                               value="Update {{$primesilo->name}}">
 
                                     </form>
-                                    <p class="silo">{{ $primesilo->resource->name }}</p>
                                     <form enctype="multipart/form-data" action="/primesilos/delete" method="POST">
                                         <input type="hidden" name="silo_id" value="{{ $primesilo->id }}">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <input type="submit" name="deleteSilo" value="Delete {{$primesilo->name}}">
+                                        <input class="btn btn-danger" type="submit" name="deleteSilo"
+                                               value="Delete {{$primesilo->name}}">
                                     </form>
                                 </li>
 
@@ -54,16 +61,32 @@
                     </div><!-- ./description -->
                 </div>
             </div>
-        </a>
+        </div>
     </div><!-- ./END PRIME SILO VIEW -->
 
-    <h1>Add Primesilo</h1>
-    <form enctype="multipart/form-data" action="/primesilos/create" method="POST">
-        <input type="text" name="silo_name">
-        <div class="row">
-            <input type="hidden" name="_token" value="{{csrf_token()}}">
-            <input type="submit" name="create" value="Create">
+    <div class="col-xs-12 col-md-6 col-lg-4">
+        <div class="card card-banner col-xs-12 add-silo">
+            <div class="card-body app-heading">
+                <div class="app-title">
+                    <div class="title"><span class="highlight">Add Prime silo</span></div>
+                </div>
+            </div>
+            <form enctype="multipart/form-data" action="/primesilos/create" method="POST">
+                <label for="silo_name">Name</label>
+                <input class="form-control" type="text" name="silo_name">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input class="btn btn-success" type="submit" name="create" value="Create">
+            </form>
         </div>
-    </form>
+    </div>
+
+
+    <div class="btn-floating" id="help-actions">
+        <div class="btn-bg"></div>
+        <a href="http://www.google.be" type="button" class="btn btn-default btn-toggle">
+            <i class="icon fa fa-plus"></i>
+            <span class="help-text">Add new prime silo</span>
+        </a>
+    </div>
 
 @stop

@@ -10,94 +10,68 @@
 
 @section('app-content')
 
-    <div class="col-xs-12">
-        <div class="col-xs-6">
-            <h3>Add Type</h3>
-            <form class="form-horizontal" action="/foam/addType" method="POST">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="inputText1" class="col-sm-2 control-label">Name</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="block_name">
-                    </div>
+    <div class="card">
+
+        <div class="app-heading">
+            <div class="section col-xs-12">
+                <div class="section-title">
+                    <i class="icon fa fa-cube" aria-hidden="true"></i>
+                    Add foam type
                 </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-default" name="add">Add Type</button>
+                <form action="/foam/addType" method="POST">
+                    {{ csrf_field() }}
+                    <div class="input-group-inapp input-group">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                        <input type="text" name="block_name" class="form-control" placeholder="New type" required autofocus>
                     </div>
-                </div>
-            </form>
+                    <input type="submit" class="btn btn-success btn-submit" name="add" value="Add type">
+                </form>
+            </div>
         </div>
-        <div class="col-xs-6">
-            <h3>Add Block</h3>
-            <form class="form-horizontal" action="/blocks/addBlock" method="POST">
-                {{ csrf_field() }}
-                <div class="form-group">
-                    <label for="inputSelect1" class="col-sm-2 control-label">Type</label>
-                    <div class="col-sm-10">
-                        <select class="form-control" name="typeFoam_id">
-                            @foreach($blocks as $typeFoam)
-                                <option value="{{ $typeFoam->typefoam->id }}">{{ $typeFoam->typefoam->foamtype }}</option>
-                            @endforeach
+
+        <div class="app-heading">
+            <div class="section col-xs-12">
+                <div class="section-title">
+                    <i class="icon fa fa-cube" aria-hidden="true"></i>
+                    Add block
+                </div>
+                <form action="/blocks/addBlock" method="POST">
+                    {{ csrf_field() }}
+                    <div class="input-group-inapp input-group">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                        <select class="form-control" name="block_type" required autofocus>
+                        @foreach($blocks as $typeFoam)
+                            <option value="{{ $typeFoam->typefoam->id }}">{{ $typeFoam->typefoam->foamtype }}</option>
+                        @endforeach
                         </select>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputNumber1" class="col-sm-2 control-label">Height</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" name="block_height">
+                    <div class="input-group-inapp input-group">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                        <input type="number" name="block_height" class="form-control" placeholder="Height" required autofocus>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputNumber2" class="col-sm-2 control-label">Length</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" name="block_length">
+                    <div class="input-group-inapp input-group">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                        <input type="number" name="block_length" class="form-control" placeholder="Length" required autofocus>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="inputNumber3" class="col-sm-2 control-label">Units</label>
-                    <div class="col-sm-10">
-                        <input type="number" class="form-control" name="block_units">
+                    <div class="input-group-inapp input-group">
+                        <span class="input-group-addon" id="basic-addon2">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                        </span>
+                        <input type="number" name="block_units" class="form-control" placeholder="Units" required autofocus>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <button type="submit" class="btn btn-default" name="add">Add Block</button>
-                    </div>
-                </div>
-            </form>
-                <!--<div class="input-group-inapp input-group">
-                                <span class="input-group-addon" id="basic-addon2">
-                                    <i class="fa fa-key" aria-hidden="true"></i>
-                                </span>
-                    <input type="password" id="current-password" name="current-password" class="form-control"
-                           placeholder="Current password" required autofocus>
-                </div>
-
-
-                <div class="input-group-inapp input-group">
-                                <span class="input-group-addon" id="basic-addon2">
-                                    <i class="fa fa-key" aria-hidden="true"></i>
-                                </span>
-                    <input type="password" id="new-password1" name="new-password1" class="form-control"
-                           placeholder="New password" required>
-                </div>
-
-
-                <div class="input-group-inapp input-group">
-                                <span class="input-group-addon" id="basic-addon3">
-                                    <i class="fa fa-key" aria-hidden="true"></i>
-                                </span>
-                    <input type="password" id="new-password2" name="new-password2" class="form-control"
-                           placeholder="Confirm new password" required>
-                </div>
-
-
-
-                <input type="submit" class="btn btn-success btn-submit" value="Change my password">-->
+                    <input type="submit" class="btn btn-success btn-submit" name="add" value="Add block">
+                </form>
+            </div>
         </div>
+
     </div>
 
     @foreach($blocks as $key=>$block)
@@ -161,5 +135,19 @@
             </div>
         </div>
     </div>-->
+
+        <div class="btn-floating" id="help-actions">
+            <div class="btn-bg"></div>
+            <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
+                <i class="icon fa fa-plus"></i>
+                <span class="help-text">Add items</span>
+            </button>
+            <div class="toggle-content">
+                <ul class="actions">
+                    <li><a href="#">Add block</a></li>
+                    <li><a href="#">Add foam type</a></li>
+                </ul>
+            </div>
+        </div>
 
 @stop

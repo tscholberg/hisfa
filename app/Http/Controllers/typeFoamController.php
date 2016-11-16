@@ -2,7 +2,8 @@
 
 namespace Hisfa\Http\Controllers;
 
-use Hisfa\typeFoam;
+use App\typeFoam;
+use App\Block;
 use Illuminate\Http\Request;
 use Hisfa\Http\Requests;
 use Illuminate\Support\Facades\Input;
@@ -24,7 +25,7 @@ class typeFoamController extends Controller
     public function index(){
         $typeFoams = \Hisfa\typeFoam::all();
         $data['typeFoams'] = $typeFoams;
-        return view('blocks.index', $data);
+        return view('blocks/index', $data);
     }
 
     public function addType()

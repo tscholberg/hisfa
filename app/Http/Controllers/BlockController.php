@@ -23,13 +23,13 @@ class BlockController extends Controller
         return view('blocks/index')->with('blocks', $blocks);
     }
 
-    public function addBlock(Request $request)
+    public function addBlock()
     {
         $block = new Block();
-        $block->heigth = $request->block_height;
-        $block->length = $request->block_length;
-        $block->units = $request->block_units;
-        $block->typefoam_id = $request->typeFoam_id;
+        $block->height = Input::get('block_height');
+        $block->length = Input::get('block_length');
+        $block->units = Input::get('block_units');
+        $block->typefoam_id = Input::get('block_type');
         $block->save();
 
         return redirect('blocks');

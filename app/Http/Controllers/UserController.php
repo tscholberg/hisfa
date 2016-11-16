@@ -100,7 +100,6 @@ class UserController extends Controller
             $user->manage_users = true;
         }
 
-
         $name = $user->name;
         $user->save();
         return redirect('/users')->with('success', 'User ' . $name . ' is created and can now access the Hisfa platform!');
@@ -108,12 +107,121 @@ class UserController extends Controller
     }
 
 
-    public function edit($id){
+    public function detail($id){
         $profiledata = DB::table('users')->where('id', '=', $id)->first();
         return view('user.edit', ["profiledata" => $profiledata]);
     }
 
 
+    public function edit($id, Request $request){
+        $this->validate($request, [
+            'name' => 'required|Min:2',
+            'email' => 'required|email',
+            'password' => 'confirmed|min:6',
+            'avatar' => 'mimes:jpeg,jpg,png',
+        ]);
+
+        // Alle items are validated
+        $name = ucwords($request->name);
+        $email = $request->email;
+        $password = bcrypt($request->password);
+
+
+        // add avatar
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $filename = date('Y-m-d-H-i-s')."." . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->fit(300, 300)->save(public_path('img/profile-pictures/' . $filename));
+            $avatar = $filename;
+        }else{
+            $avatar = "default.png";
+        }
+
+
+        //permissions
+        if(isset($request->checkboxViewStock) && $request->checkboxViewStock == "on"){
+            $view_stock = true;
+        }else{
+            $view_stock = false;
+        }
+
+        if(isset($request->checkboxViewDashboard) && $request->checkboxViewDashboard == "on"){
+            $view_dashboard = true;
+        }else{
+            $view_dashboard = false;
+        }
+
+        if(isset($request->checkboxViewWasteSilos) && $request->checkboxViewWasteSilos == "on"){
+            $view_waste_silos = true;
+        }else{
+            $view_waste_silos = false;
+        }
+
+        if(isset($request->checkboxViewMaterialSilos) && $request->checkboxViewMaterialSilos == "on"){
+            $view_prime_silos = true;
+        }else{
+            $view_prime_silos = false;
+        }
+
+        if(isset($request->checkboxModifyStock) && $request->checkboxModifyStock == "on"){
+            $manage_stock = true;
+        }else{
+            $manage_stock = false;
+        }
+
+        if(isset($request->checkboxModifyWasteSilos) && $request->checkboxModifyWasteSilos == "on"){
+            $manage_waste_silos = true;
+        }else{
+            $manage_waste_silos = false;
+        }
+
+        if(isset($request->checkboxModifyMaterialSilos) && $request->checkboxModifyMaterialSilos == "on"){
+            $manage_prime_silos = true;
+        }else{
+            $manage_prime_silos = false;
+        }
+
+        if(isset($request->checkboxModifyUsers) && $request->checkboxModifyUsers == "on"){
+            $manage_users = true;
+        }else{
+            $manage_users = false;
+        }
+
+        if(isset($request->checkboxAdmin) && $request->checkboxAdmin == "on"){
+            $admin = true;
+            $view_dashboard = true;
+            $view_stock = true;
+            $view_waste_silos = true;
+            $view_prime_silos = true;
+            $manage_stock = true;
+            $manage_waste_silos = true;
+            $manage_prime_silos = true;
+            $manage_users = true;
+        }else{
+            $admin = false;
+        }
+
+
+        DB::table('users')
+            ->where('id', $id)
+            ->update([
+               'name' => $name,
+               'email' => $email,
+               'password' => $password,
+               'avatar' => $avatar,
+               'admin' => $admin,
+                'view_stock' => $view_stock,
+                'view_dashboard' => $view_dashboard,
+                'view_waste_silos' => $view_waste_silos,
+                'view_prime_silos' => $view_prime_silos,
+                'manage_stock' =>  $manage_stock,
+                'manage_waste_silos' => $manage_waste_silos,
+                'manage_prime_silos' => $manage_prime_silos,
+                'manage_users' => $manage_users,
+            ]);
+
+        return redirect('/users')->with('success', 'User ' . $name . ' is updated. The changes are immediately active.');
+    }
 
 
     public function delete($id){
@@ -124,7 +232,7 @@ class UserController extends Controller
         if($id != 1){
             DB::table('users')->where('id', '=', $id)->delete();
         }
-        return redirect('/users')->with('success', 'The user is deleted!');;
+        return redirect('/users')->with('success', 'The user is deleted!');
     }
 
 
