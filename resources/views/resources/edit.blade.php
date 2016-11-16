@@ -18,7 +18,7 @@
 					<div class="section col-xs-12">
 						<span class="help-block alert alert-danger alert-profile">
 							<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-							<p class="feedback-title vet">The user is not created. Please check the following errors:</p>
+							<p class="feedback-title vet">The resource is not updated! Please check the following errors:</p>
 							<ul>
 								@foreach ($errors->all() as $error)
 									<li>{{ $error }}</li>
