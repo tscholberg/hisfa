@@ -47,6 +47,7 @@ class UserTableSeeder extends Seeder
                 'manage_prime_silos' => true,
                 'manage_users' => true,
             ),
+
         ]);
     }
 }

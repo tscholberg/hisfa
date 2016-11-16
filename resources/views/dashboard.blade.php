@@ -9,22 +9,6 @@
 @stop
 
 @section('app-content')
-    <!-- Quick edit action -->
-    <div class="btn-floating" id="help-actions">
-        <div class="btn-bg"></div>
-        <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
-            <i class="icon fa fa-pencil"></i>
-            <span class="help-text">Shortcut</span>
-        </button>
-        <div class="toggle-content">
-            <ul class="actions">
-                <!--<li><a href="#">Manage stock</a></li>-->
-                <li><a href="/users">Manage users</a></li>
-                <!--<li><a href="#">Manage prime silos</a></li>
-                <li><a href="#">Manage waste silos</a></li>-->
-            </ul>
-        </div>
-    </div>
 
     <!-- prime silo's -->
     <div class="col-xs-12 col-sm-8">
@@ -132,50 +116,7 @@
         @endforeach
     </div><!-- ./resources -->
 
-    
 
-
-    <!-- Current m3 stock -->
-    <!--<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-        <a class="card card-banner card-green-light">
-            <div class="card-body">
-                <i class="icon fa fa-cubes fa-4x"></i>
-                <div class="content">
-                    <div class="title">Foam in stock</div>
-                    <div class="value">420<span class="sign">m³</span></div>
-                </div>
-            </div>
-        </a>
-
-    </div>-->
-
-    <!-- Current m3 stock -->
-    <!--<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-        <a class="card card-banner card-green-light">
-            <div class="card-body">
-                <i class="icon fa fa-cubes fa-4x"></i>
-                <div class="content">
-                    <div class="title">Foam in stock</div>
-                    <div class="value">420<span class="sign">m³</span></div>
-                </div>
-            </div>
-        </a>
-
-    </div>-->
-
-    <!-- Manage users (if admin) -->
-    <!--<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-        <a class="card card-banner card-yellow-light">
-            <div class="card-body">
-                <i class="icon fa fa-users fa-4x"></i>
-                <div class="content">
-                    <div class="title">Manage users</div>
-                    <div class="value"><span class="sign"></span>50</div>
-                </div>
-            </div>
-        </a>
-
-    </div>
 
     <!-- Foam types -->
     <div class="col-xs-12">
@@ -216,4 +157,6 @@
             </div>
         </div>
     </div><!-- ./END FOAM TYPES VIEW -->
+
+
 @stop

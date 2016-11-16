@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Notifications\WasteSiloFull;
-use Illuminate\Http\Request;
 use App\WasteSilo;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
