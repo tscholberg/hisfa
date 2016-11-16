@@ -70,6 +70,8 @@ Route::get('/users/{id}/delete', 'UserController@delete');
 
 // Resources
 Route::get('/resources', 'ResourceController@index');
+Route::get('/resources/{id}', 'ResourceController@single');
+Route::post('/resources/{id}/edit', 'ResourceController@edit');
 
 // Notifications
 /*Route::get('/mailPrime', function () {
