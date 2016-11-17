@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -40,6 +41,9 @@ class HomeController extends Controller
 
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
+
+        $logs = \App\Log::All();
+        $data['logs'] = $logs;
 
         return view('dashboard', $data);
     }

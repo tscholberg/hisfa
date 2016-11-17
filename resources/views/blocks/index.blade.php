@@ -45,7 +45,7 @@
 
             <div class="section col-xs-12">
                 <div class="section-title">
-                    <i class="icon fa fa-key" aria-hidden="true"></i>
+                    <i class="icon fa fa-cube" aria-hidden="true"></i>
                     Add foam type
                 </div>
                 <form action="/foam/addType" method="POST">
@@ -64,7 +64,7 @@
         <div class="app-heading">
             <div class="section col-xs-12">
                 <div class="section-title">
-                    <i class="icon fa fa-key" aria-hidden="true"></i>
+                    <i class="icon fa fa-cube" aria-hidden="true"></i>
                     Add block
                 </div>
                 <form action="/blocks/addBlock" method="POST">
@@ -177,5 +177,19 @@
             </div>
         </div>
     </div>-->
+
+        <div class="btn-floating" id="help-actions">
+            <div class="btn-bg"></div>
+            <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
+                <i class="icon fa fa-plus"></i>
+                <span class="help-text">Add items</span>
+            </button>
+            <div class="toggle-content">
+                <ul class="actions">
+                    <li><a href="#">Add block</a></li>
+                    <li><a href="#">Add foam type</a></li>
+                </ul>
+            </div>
+        </div>
 
 @stop

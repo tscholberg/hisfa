@@ -1,7 +1,20 @@
 $(document).ready(function(){
+
 	$('.filled-silo').each(function(){  
 		var height = ($(this).parent().parent().find('.value').html().replace(/[^0-9]/g, ''));
-		$(this).css({'height':parseInt(height)})
+
+		if(height >= 90){
+			$(this).addClass('orange-silo');
+			$(this).parent().parent().parent().addClass('card-orange-light');
+		}else if(height <= 90 && height >= 70){
+			$(this).addClass('yellow-silo');
+			$(this).parent().parent().parent().addClass('card-yellow-light');
+		}else{
+			$(this).addClass('green-silo');
+			$(this).parent().parent().parent().addClass('card-green-light');
+		}
+		
+		$(this).css({'height':parseInt(height)});
 	});
 
 	$('.detail-filled').each(function(){  

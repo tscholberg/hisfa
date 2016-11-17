@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Resource;
 use App\Http\Requests;
-use Illuminate\Support\Facades\Input;
+use Validator;
+use Image;
 
 class ResourceController extends Controller{
 
@@ -20,51 +23,40 @@ class ResourceController extends Controller{
         return view('detail/Resources', $data);
     }
 
-/*
-    public function addResource(){
-        $resource = new Block();
-        $resource->height = Input::get('block_height');
-        $resource->length = Input::get('block_length');
-        $resource->units = Input::get('block_units');
-        $resource->typefoam_id = Input::get('block_type');
-        $resource->save();
-
-        return redirect('blocks');
+    public function single($id){
+        $resourcedata = DB::table('resources')->where('id', '=', $id)->first();
+        return view('resources.edit', ["resourcedata" => $resourcedata]);
     }
 
-    public function addPrimeSilo()
-    {
+    public function edit($id, Request $request){
+        $this->validate($request, [
+            'name' => 'required',
+            'capacity' => 'required',
+            'image' => 'mimes:jpeg,jpg,png'
+        ]);
 
-        $silo = new PrimeSilo;
-        $silo->capacity = '0';
-        $silo->resource_id = '1';
-        $silo->name = Input::get('silo_name');
-        $silo->save();
+        $name = $request->name;
+        $capacity = $request->capacity;
 
-        return redirect('primesilos');
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $filename = date('Y-m-d-H-i-s')."." . $image->getClientOriginalExtension();
+            Image::make($image)->fit(330, 250)->save(public_path('img/resources/' . $filename));
+            $image = $filename;
+        }else{
+            $image = "default.png";
+        }
+
+
+        DB::table('resources')
+            ->where('id', $id)
+            ->update([
+                'name' => $name,
+                'capacity' => $capacity,
+                'image' => $image
+            ]);
+
+        return redirect('/resources')->with('success', 'Resource ' . $name . ' is updated. The changes are immediately active.');
     }
-
-    public function deletePrimeSilo()
-    {
-        \App\PrimeSilo::findOrFail(Input::get('silo_id'))->delete();
-
-        return redirect('primesilos');
-    }
-
-    public function updateCapacityPrimeSilo()
-    {
-        $silo = \App\PrimeSilo::findOrFail(Input::get('silo_id'));
-        $capacity = Input::get('silo_capacity');
-        $resource_id = Input::get('resource_id');
-
-        $silo->resource_id = $resource_id;
-
-        $silo->capacity = $capacity / 100;
-            if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 ){
-                $silo->save();
-            }
-        return redirect('primesilos');
-    }
-*/
 
 }

@@ -182,6 +182,9 @@
 .yellow-silo{
     background: url('../img/silo-yellow.svg') no-repeat;
 }
+.orange-silo{
+    background: url('../img/silo-orange.svg') no-repeat;
+}
 .filled-silo{
     height: 0;
     width: 50px;
@@ -296,6 +299,7 @@
 .feedback-title{
     margin-bottom: 10px !important;
 }
+
 
 @media only screen and (min-width:1920px){
     .app{

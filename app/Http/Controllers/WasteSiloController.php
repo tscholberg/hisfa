@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Notifications\WasteSiloFull;
-use Illuminate\Http\Request;
 use App\WasteSilo;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
+use App\Http\Traits\LogTrait;
 
 
 class WasteSiloController extends Controller
@@ -35,12 +35,18 @@ class WasteSiloController extends Controller
         $silo->name = Input::get('silo_name');
         $silo->save();
 
+        $user = Auth::user();
+        $silo->addLog( 'added waste silo', $user->name, $silo->id, $silo->id);
+
         return redirect('wastesilos');
     }
 
     public function deleteWasteSilo(){
-        \App\WasteSilo::findOrFail(Input::get('silo_id'))->delete();
-
+        if ( \App\WasteSilo::findOrFail(Input::get('silo_id'))->delete() ){
+            $user = Auth::user();
+            $silo = new WasteSilo();
+            $silo->addLog( 'deleted waste silo', $user->name, Input::get('silo_id'), Input::get('silo_id'));
+        }
         return redirect('wastesilos');
     }
 
@@ -50,8 +56,11 @@ class WasteSiloController extends Controller
         $capacity = Input::get('silo_capacity');
 
         $silo->capacity = $capacity / 100;
-        if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 ){
+        if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 )
+        {
+            $user = Auth::user();
             $silo->save();
+            $silo->addLog( 'updated waste silo', $user->name, $silo->capacity ,$silo->id);
         }
 
         if ($capacity >= 90)

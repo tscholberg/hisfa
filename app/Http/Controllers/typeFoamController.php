@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use Validator;
+use Illuminate\Support\Facades\Auth;
 
 class typeFoamController extends Controller
 {
@@ -23,6 +24,7 @@ class typeFoamController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $typeFoams = typeFoam::all();
@@ -39,12 +41,19 @@ class typeFoamController extends Controller
         $type->foamtype = Input::get('block_name');
         $type->save();
 
+        $user = Auth::user();
+        $type->addLog( 'added foam type', $user->name, $type->id, $type->id);
         return redirect('blocks')->with('success', 'The type is added!');
     }
 
     public function deleteType()
     {
-        \App\Block::findOrFail(Input::get('block_id'))->delete();
+        if ( \App\Block::findOrFail(Input::get('block_id'))->delete() )
+        {
+            $user = Auth::user();
+            $type = new typeFoam();
+            $type->addLog( 'deleted foam type', $user->name, Input::get('block_id'), Input::get('block_id'));
+        }
 
         return redirect('blocks')->with('success', 'The type is deleted!');
     }
