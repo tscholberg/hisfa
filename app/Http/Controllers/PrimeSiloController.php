@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Notifications\PrimeSiloFull;
+use App\User;
 use Illuminate\Http\Request;
 use App\PrimeSilo;
 use App\Http\Requests;
@@ -23,13 +24,10 @@ class PrimeSiloController extends Controller
     {
         $primesilos = \App\PrimeSilo::All();
         $resources = \App\Resource::All();
-        //$users = \App\User::All();
-
-        //$data['users'] = $users;
         $data['resources'] = $resources;
         $data['primesilos'] = $primesilos;
-        return view('detail/PrimeSilos', $data);
 
+        return view('detail/PrimeSilos', $data);
     }
 
     public function addPrimeSilo()
@@ -67,10 +65,12 @@ class PrimeSiloController extends Controller
 
         if ($capacity >= 90)
         {
-            //$users = DB::table('users')->where('email_prime_silos_full', '=', true)->get();
-            //$users = DB::table('users')->where('email', 'arnodedecker@telenet.be')->value('email');
-            $users = Auth::user();
-            $users->notify(new PrimeSiloFull($silo));
+            $users = \App\User::where('email_prime_silos_full', '=', 1)->get();
+
+            foreach ($users as $user)
+            {
+                $user->notify(new PrimeSiloFull($silo));
+            }
         }
 
         return redirect('primesilos');

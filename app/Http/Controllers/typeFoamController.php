@@ -7,6 +7,7 @@ use App\Block;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
+use Validator;
 
 class typeFoamController extends Controller
 {
@@ -28,8 +29,12 @@ class typeFoamController extends Controller
         return view('blocks.index', ['typeFoams' => $typeFoams]);
     }
 
-    public function addType()
+    public function addType(Request $request)
     {
+        $this->validate($request, [
+            'block_name' => 'required',
+        ]);
+
         $type = new typeFoam();
         $type->foamtype = Input::get('block_name');
         $type->save();

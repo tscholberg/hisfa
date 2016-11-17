@@ -1,9 +1,5 @@
 <?php
 
-//use App\Notifications\PrimeSiloFull;
-//use App\Notifications\WasteSiloFull;
-//use Illuminate\Support\Facades\Auth;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,30 +62,6 @@ Route::get('/users/create', 'UserController@create');
 Route::post('/users/store', 'UserController@store');
 Route::get('/users/{id}/edit', 'UserController@update');
 Route::get('/users/{id}/delete', 'UserController@delete');
-
-// Resources
-Route::get('/resources', 'ResourceController@index');
-
-// Notifications
-/*Route::get('/mailPrime', function () {
-
-    $user = Auth::user();
-
-    $primesilo = App\PrimeSilo::first();
-
-    $user->notify(new PrimeSiloFull($primesilo));
-
-});
-
-Route::get('/mailWaste', function () {
-
-    $user = Auth::user();
-
-    $wastesilo = App\WasteSilo::first();
-
-    $user->notify(new WasteSiloFull($wastesilo));
-
-});*/
 
 // Login, reset account, ...
 Auth::routes();

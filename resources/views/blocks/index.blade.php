@@ -10,18 +10,39 @@
 
 @section('app-content')
 
-    @if(session()->has('success'))
-        <div class="col-xs-12">
-            <span class="help-block success alert alert-success alert-profile">
-                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                <strong>{{ session()->get('success') }}</strong>
-            </span>
-        </div>
-    @endif
-
     <div class="card">
 
+        <div class="card-body app-heading"></div>
+
+        @if(session()->has('success'))
+            <div class="app-heading">
+                <div class="section col-xs-12">
+                    <span class="help-block success alert alert-success alert-profile">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>{{ session()->get('success') }}</strong>
+                    </span>
+                </div>
+            </div>
+        @endif
+
+        @if(count($errors) > 0)
+            <div class="app-heading">
+                <div class="section col-xs-12">
+                    <span class="help-block alert alert-danger alert-profile">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <p class="feedback-title vet">The foam type is not created. Please check the following errors:</p>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        @endif
+
         <div class="app-heading">
+
             <div class="section col-xs-12">
                 <div class="section-title">
                     <i class="icon fa fa-key" aria-hidden="true"></i>
@@ -29,11 +50,11 @@
                 </div>
                 <form action="/foam/addType" method="POST">
                     {{ csrf_field() }}
-                    <div class="input-group-inapp input-group">
+                    <div class="input-group-inapp input-group{{ $errors->has('block_name') ? ' has-error' : '' }}">
                         <span class="input-group-addon" id="basic-addon2">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </span>
-                        <input type="text" name="block_name" class="form-control" placeholder="New type" required autofocus>
+                        <input type="text" name="block_name" class="form-control" placeholder="New type" autofocus value="{{ old('block_name') }}">
                     </div>
                     <input type="submit" class="btn btn-success btn-submit" name="add" value="Add type">
                 </form>
@@ -48,28 +69,23 @@
                 </div>
                 <form action="/blocks/addBlock" method="POST">
                     {{ csrf_field() }}
+                    <label class="col-md-2 control-label">Foam type</label>
                     <div class="input-group-inapp input-group">
-                        <span class="input-group-addon" id="basic-addon2">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                        </span>
-                        <select class="form-control" name="block_type" required autofocus>
-                        @foreach($typeFoams as $typeFoam)
-                            <option value="{{ $typeFoam->id }}">{{ $typeFoam->foamtype }}</option>
-                        @endforeach
+                        <select class="select2 select2-hidden-accessible form-control" tabindex="-1" aria-hidden="true" name="block_type" required autofocus>
+                            @foreach($typeFoams as $typeFoam)
+                                <option value="{{ $typeFoam->id }}">{{ $typeFoam->foamtype }}</option>
+                            @endforeach
                         </select>
+                        <span class="input-group-addon">Type</span>
                     </div>
-                    <div class="input-group-inapp input-group">
-                        <span class="input-group-addon" id="basic-addon2">
-                            <i class="fa fa-plus" aria-hidden="true"></i>
-                        </span>
-                        <input type="number" name="block_height" class="form-control" placeholder="Height" required autofocus>
-                    </div>
+                    <label class="col-md-2 control-label">Length (in meter)</label>
                     <div class="input-group-inapp input-group">
                         <span class="input-group-addon" id="basic-addon2">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </span>
                         <input type="number" name="block_length" class="form-control" placeholder="Length" required autofocus>
                     </div>
+                    <label class="col-md-2 control-label">Items</label>
                     <div class="input-group-inapp input-group">
                         <span class="input-group-addon" id="basic-addon2">
                             <i class="fa fa-plus" aria-hidden="true"></i>
