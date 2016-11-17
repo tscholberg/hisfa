@@ -21,14 +21,11 @@
                             @foreach($primesilos as $key=>$primesilo)
                                 <li class="col-xs-12 col-sm-8 col-md-4 col-lg-2">
                                     <p class="silo">{{ $primesilo->name }}</p>
+
                                     <div class="detail-empty">
-                                        <div class="detail-filled green-silo"></div>
+                                        <div class="detail-filled"></div>
                                     </div>
-                                    <!--<div class="full-bar">
-                                        <div class="silo-bar-percent"
-                                             style=" height: {{ $primesilo->capacity_percent }}%; ">
-                                        </div>
-                                    </div> -->
+                                    
                                     <p class="volume">{{ $primesilo->capacity_percent }} %</p>
                                     <p class="silo">{{ $primesilo->resource->name }}</p>
                                     <form enctype="multipart/form-data" action="/primesilos/updatecapacity"

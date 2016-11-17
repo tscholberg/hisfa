@@ -23,7 +23,7 @@
                                 <li class="col-xs-12 col-sm-8 col-md-4 col-lg-2">
                                     <p class="silo">{{ $wastesilo->name }}</p>
                                     <div class="detail-empty">
-                                        <div class="detail-filled yellow-silo"></div>
+                                        <div class="detail-filled"></div>
                                     </div>
                                     <!--<div class="full-bar">
                                         <div class="silo-bar-percent"

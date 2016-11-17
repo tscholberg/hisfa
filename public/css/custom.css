@@ -185,6 +185,9 @@
 .orange-silo{
     background: url('../img/silo-orange.svg') no-repeat;
 }
+.red-silo{
+    background: url('../img/silo-red.svg') no-repeat;
+}
 .filled-silo{
     height: 0;
     width: 50px;
