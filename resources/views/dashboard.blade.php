@@ -16,12 +16,12 @@
             <h2>Prime silo's</h2>
             @foreach($primesilos as $key=>$primesilo)
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <a href="/primesilos" class="card card-banner card-green-light">
+                    <a href="/primesilos" class="card card-banner">
                         <div class="card-body">
                             <div class="silo-name">{{ $primesilo->name }}</div>
 
                             <div class="empty-silo">
-                                <div class="filled-silo green-silo"></div>
+                                <div class="filled-silo"></div>
                             </div>
 
                             <div class="content">
@@ -39,12 +39,12 @@
             <!-- Waste silo -->
             @foreach($wastesilos as $key=>$wastesilo)
                 <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                    <a href="/wastesilos" class="card card-banner card-yellow-light">
+                    <a href="/wastesilos" class="card card-banner">
                         <div class="card-body">
                             <div class="silo-name">{{ $wastesilo->name }}</div>
 
                             <div class="empty-silo">
-                                <div class="filled-silo yellow-silo"></div>
+                                <div class="filled-silo"></div>
                             </div>
 
                             <div class="content">
