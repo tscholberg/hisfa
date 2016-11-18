@@ -64,6 +64,11 @@ Route::get('/users/{id}', 'UserController@detail');
 Route::post('/users/{id}/edit', 'UserController@edit');
 Route::get('/users/{id}/delete', 'UserController@delete');
 
+// Resources
+Route::get('/resources', 'ResourceController@index');
+Route::get('/resources/{id}', 'ResourceController@single');
+Route::post('/resources/{id}/edit', 'ResourceController@edit');
+
 // Login, reset account, ...
 Auth::routes();
 

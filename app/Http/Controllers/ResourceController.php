@@ -37,24 +37,19 @@ class ResourceController extends Controller{
 
         $name = $request->name;
         $capacity = $request->capacity;
+        $update = ['name' => $name,'capacity' => $capacity];
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $filename = date('Y-m-d-H-i-s')."." . $image->getClientOriginalExtension();
             Image::make($image)->fit(330, 250)->save(public_path('img/resources/' . $filename));
             $image = $filename;
-        }else{
-            $image = "default.png";
+            $update = ['name' => $name,'capacity' => $capacity,'image' => $image];
         }
-
 
         DB::table('resources')
             ->where('id', $id)
-            ->update([
-                'name' => $name,
-                'capacity' => $capacity,
-                'image' => $image
-            ]);
+            ->update($update);
 
         return redirect('/resources')->with('success', 'Resource ' . $name . ' is updated. The changes are immediately active.');
     }
