@@ -22,14 +22,6 @@ Route::post('/profile/update-password', 'ProfileController@updatePassword');
 Route::post('/profile/update-profile-picture', 'ProfileController@updateProfilePicture');
 Route::post('/profile/update-email', 'ProfileController@updateEmailPreferences');
 
-// Foam
-/*Route::get('/foam', 'typeFoamController@index');
-Route::get('/foam/{id}/delete', 'typeFoamController@destroy');
-Route::get('/foam/add', 'typeFoamController@create');
-Route::post('/foam/add', 'typeFoamController@store');
-Route::get('/foam/{id}/edit', 'typeFoamController@edit');
-Route::post('/foam/{id}/edit', 'typeFoamController@update');*/
-
 // Primesilos
 Route::get('/primesilos', 'PrimeSiloController@index');
 Route::post('/primesilos/create', 'PrimeSiloController@addPrimeSilo');
@@ -46,15 +38,16 @@ Route::put('/wastesilos/updatecapacity', 'WasteSiloController@updateCapacityWast
 
 
 // Foam
-Route::get('/foam', 'typeFoamController@index');
-Route::post('/foam/addType', 'typeFoamController@addType');
-Route::delete('/foam/deleteType', 'typeFoamController@deleteType');
+Route::get('/foam/add', 'typeFoamController@routeAdd');
+Route::post('/foam/add', 'typeFoamController@add');
+Route::delete('/foam/delete', 'typeFoamController@delete');
 
 // Blocks
 Route::get('/blocks', 'BlockController@index');
-Route::post('/blocks/addBlock', 'BlockController@addBlock');
-Route::post('/blocks/updateBlock/{id}', 'BlockController@updateBlock');
-Route::post('/blocks', 'BlockController@update');
+Route::get('/blocks/add', 'BlockController@routeAdd');
+Route::post('/blocks/add', 'BlockController@add');
+Route::post('/blocks/update/{id}', 'BlockController@routeUpdate');
+Route::post('/blocks/update', 'BlockController@update');
 
 // Users
 Route::get('/users', 'UserController@index');
