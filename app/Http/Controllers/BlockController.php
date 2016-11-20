@@ -18,7 +18,6 @@ class BlockController extends Controller
         $this->middleware('auth');
     }
 
-
     public function index()
     {
         $blocks = Block::all();
@@ -26,8 +25,21 @@ class BlockController extends Controller
         return view('blocks/index')->with(['blocks' => $blocks, 'typeFoams' => $typeFoams]);
     }
 
-    public function addBlock()
+    public function routeAdd()
     {
+        $blocks = Block::all();
+        $typeFoams = typeFoam::all();
+        return view('blocks/add')->with(['blocks' => $blocks, 'typeFoams' => $typeFoams]);
+    }
+
+    public function add(Request $request)
+    {
+        $this->validate($request, [
+            'block_length' => 'required',
+            'block_units' => 'required',
+            'block_type' => 'required'
+        ]);
+
         $block = new Block();
         $block->length = Input::get('block_length');
         $block->units = Input::get('block_units');
@@ -36,21 +48,23 @@ class BlockController extends Controller
 
         $user = Auth::user();
         $block->addLog( 'added block', $user->name, $block->id, $block->id);
-
         return redirect('blocks')->with('success', 'The block is added!');
     }
 
-    public function updateBlock()
+    public function routeUpdate()
     {
         $block = \App\Block::findOrFail(Input::get('block_id'));
-
         return view('blocks/update')->with('block', $block);
     }
 
-    public function update()
+    public function update(Request $request)
     {
+        $this->validate($request, [
+            'block_length' => 'required',
+            'block_units' => 'required'
+        ]);
+
         $block = \App\Block::findOrFail(Input::get('block_id'));
-        $block->height = Input::get('block_height');
         $block->length = Input::get('block_length');
         $block->units = Input::get('block_units');
         $block->save();
