@@ -35,7 +35,7 @@ class BlockController extends Controller
         $block->save();
 
         $user = Auth::user();
-        $block->addLog( 'added block', $user->name, $block->id, $block->id);
+        $block->addLog( 'added block', $user->name, $block->units."x ( ".$block->length." )".$block->typeFoam->name, $block->id);
 
         return redirect('blocks')->with('success', 'The block is added!');
     }

@@ -12,6 +12,6 @@ class LogSeeder extends Seeder
      */
     public function run()
     {
-        factory(Log::class, 5)->create();
+//        factory(Log::class, 5)->create();
     }
 }

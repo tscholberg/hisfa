@@ -1,5 +1,6 @@
 .DS_STORE
 .vagrant
+.env
 /vendor
 /.idea
 /node_modules

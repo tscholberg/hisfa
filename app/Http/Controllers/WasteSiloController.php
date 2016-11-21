@@ -36,16 +36,17 @@ class WasteSiloController extends Controller
         $silo->save();
 
         $user = Auth::user();
-        $silo->addLog( 'added waste silo', $user->name, $silo->id, $silo->id);
+        $silo->addLog( 'added waste silo', $user->name, $silo->name, $silo->id);
 
         return redirect('wastesilos');
     }
 
     public function deleteWasteSilo(){
-        if ( \App\WasteSilo::findOrFail(Input::get('silo_id'))->delete() ){
+        if ( $silo = \App\WasteSilo::findOrFail(Input::get('silo_id')) )
+        {
             $user = Auth::user();
-            $silo = new WasteSilo();
-            $silo->addLog( 'deleted waste silo', $user->name, Input::get('silo_id'), Input::get('silo_id'));
+            $silo->addLog( 'deleted waste silo', $user->name, $silo->name, Input::get('silo_id'));
+            $silo->delete();
         }
         return redirect('wastesilos');
     }
@@ -59,8 +60,9 @@ class WasteSiloController extends Controller
         if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 )
         {
             $user = Auth::user();
+
             $silo->save();
-            $silo->addLog( 'updated waste silo', $user->name, $silo->capacity ,$silo->id);
+            $silo->addLog( 'updated waste silo', $user->name, $silo->name.": ".($silo->capacity*100)."%",$silo->id);
         }
 
         if ($capacity >= 90)
