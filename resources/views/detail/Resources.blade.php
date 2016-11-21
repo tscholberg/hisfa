@@ -15,9 +15,9 @@
         <!-- <h2>Resources</h2> -->
         @foreach($resources as $key=>$resource)
             <div class="col-md-3 col-xs-6">
-                <a class="card card-banner card-green-light resource-card">
+                <a href="/resources/{{$resource->id}}" class="card card-banner card-green-light resource-card">
                     <div class="card-body">
-                        <div class="resource-img" style="background: url('img/resource01.jpg') no-repeat;">
+                        <div class="resource-img" style="background: url('img/resources/{{$resource->image}}') no-repeat;">
                             <div class="dark-filter"></div>
                         </div>
                         <div class="content">

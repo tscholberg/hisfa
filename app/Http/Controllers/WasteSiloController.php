@@ -57,16 +57,21 @@ class WasteSiloController extends Controller
         $capacity = Input::get('silo_capacity');
 
         $silo->capacity = $capacity / 100;
-        if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 ){
-            $silo->save();
+        if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 )
+        {
             $user = Auth::user();
-            $silo->addLog( 'updated waste silo', $user->name, $silo->name.": ".($silo->capacity*100)."%",$silo->id);
 
-            if ($capacity >= 90)
+            $silo->save();
+            $silo->addLog( 'updated waste silo', $user->name, $silo->name.": ".($silo->capacity*100)."%",$silo->id);
+        }
+
+        if ($capacity >= 90)
+        {
+            $users = \App\User::where('email_waste_silos_full', '=', 1)->get();
+
+            foreach ($users as $user)
             {
-                //$users = DB::table('users')->where('email_prime_silos_full', 1)->get();
-                $users = Auth::user();
-                $users->notify(new WasteSiloFull($silo));
+                $user->notify(new WasteSiloFull($silo));
             }
         }
 
