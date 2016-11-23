@@ -10,17 +10,17 @@
 
     @section('app-content')
 
-    <!-- Quick edit action -->
+            <!-- Quick edit action -->
     @if($currentUser->admin)
-    <a href="/users/create">
-        <div class="btn-floating" id="help-actions">
-            <div class="btn-bg"></div>
-            <button type="button" class="btn btn-default btn-toggle">
-                <i class="icon fa fa-plus"></i>
-                <span class="help-text">Add new user</span>
-            </button>
-        </div>
-    </a>
+        <a href="/users/create">
+            <div class="btn-floating" id="help-actions">
+                <div class="btn-bg"></div>
+                <button type="button" class="btn btn-default btn-toggle">
+                    <i class="icon fa fa-plus"></i>
+                    <span class="help-text">Add new user</span>
+                </button>
+            </div>
+        </a>
     @endif
 
     @if(session()->has('success'))
@@ -46,8 +46,12 @@
                         <th>Name</th>
                         <th class="hidden-xs hidden-sm hidden-md">Email</th>
                         <th class="hidden-xs">Role</th>
+                        @if(Auth::user()->manage_users == 1 || Auth::user()->admin == 1)
                         <th>Edit</th>
+                        @endif
+                        @if(Auth::user()->admin == 1)
                         <th>Delete</th>
+                            @endif
                     </tr>
                     </thead>
                     <tbody>
@@ -58,15 +62,23 @@
                                      src="/img/profile-pictures/{{$user->avatar}}">&nbsp;
                                 <span>{{ $user->name }} @if(Auth::user()->id == $user->id) (me) @endif</span>
                             </td>
-                            <td class="hidden-xs hidden-sm hidden-md"><a href="mailto:{{$user->email}}">{{$user->email}}</a></td>
+                            <td class="hidden-xs hidden-sm hidden-md"><a
+                                        href="mailto:{{$user->email}}">{{$user->email}}</a></td>
                             <td class="hidden-xs">{{ $user->admin == 1 ? 'Admin' : 'Standard user' }}</td>
+                            @if(Auth::user()->manage_users == 1 || Auth::user()->admin == 1)
                             <td><a href="/users/{{$user->id}}" class="btn-sm btn-success"><i
-                                            class="icon fa fa-pencil" aria-hidden="true"></i><span class="hidden-xs hidden-sm">&nbsp;&nbsp;Edit user</span></a>
+                                            class="icon fa fa-pencil" aria-hidden="true"></i><span
+                                            class="hidden-xs hidden-sm">&nbsp;&nbsp;Edit user</span></a>
                             </td>
+                            @endif
+                            @if(Auth::user()->admin == 1)
                             <td>@if($user->id != 1) <a href="#delete" class="btn-sm btn-danger btn-delete"
-                                                       data-id="{{$user->id}}" data-name="{{$user->name}}" data-table="users"><i
-                                            class="icon fa fa-trash" aria-hidden="true"></i><span class="hidden-xs hidden-sm">&nbsp;&nbsp;Delete user</span></a> @endif
+                                                       data-id="{{$user->id}}" data-name="{{$user->name}}"
+                                                       data-table="users"><i
+                                            class="icon fa fa-trash" aria-hidden="true"></i><span
+                                            class="hidden-xs hidden-sm">&nbsp;&nbsp;Delete user</span></a> @endif
                             </td>
+                                @endif
                         </tr>
                     @endforeach
                     </tbody>

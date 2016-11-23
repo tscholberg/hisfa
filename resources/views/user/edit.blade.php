@@ -101,7 +101,7 @@
                 </div>
 
 
-                @if($currentUser->admin == 1)
+
                 <!-- Permission -->
                 <div class="app-heading">
                     <div class="section col-xs-12">
@@ -198,7 +198,7 @@
                     </div>
 
                 </div>
-                @endif
+
 
                 <div class="app-heading">
                     <div class="section col-xs-12">

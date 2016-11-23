@@ -59,11 +59,14 @@ Route::post('/blocks', 'BlockController@update');
 
 // Users
 Route::get('/users', 'UserController@index');
-Route::get('/users/create', 'UserController@create');
-Route::post('/users/store', 'UserController@store');
-Route::get('/users/{id}', 'UserController@detail');
-Route::post('/users/{id}/edit', 'UserController@edit');
-Route::get('/users/{id}/delete', 'UserController@delete');
+Route::get('/users/create', 'UserController@create')->middleware('permission:admin');
+Route::post('/users/store', 'UserController@store')->middleware('permission:manage_users');
+Route::get('/users/{id}', 'UserController@detail')->middleware('permission:manage_users');
+Route::post('/users/{id}/edit', 'UserController@edit')->middleware('permission:manage_users');
+Route::get('/users/{id}/delete', 'UserController@delete')->middleware('permission:admin');
+
+//errors
+Route::get('/noaccess', 'UserController@denied');
 
 // Resources
 Route::get('/resources', 'ResourceController@index');

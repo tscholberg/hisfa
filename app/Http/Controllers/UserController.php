@@ -237,4 +237,9 @@ class UserController extends Controller
     }
 
 
+    public function denied(){
+        return view('errors.noaccess');
+    }
+
+
 }

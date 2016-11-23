@@ -13,16 +13,12 @@ class CheckPermissions
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $permission)
     {
-        return $next($request);
-    }
-
-    public function checkAdmin($request, Closure $next){
-        if($request->admin == false){
-            return view('errors.noaccess');
+        if ($request->user()->$permission != 1) {
+            return redirect('/noaccess');
         }
-
         return $next($request);
     }
+
 }
