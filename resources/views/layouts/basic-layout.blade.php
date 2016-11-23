@@ -98,7 +98,7 @@ $user = Auth::user();
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li class="dropdown notification warning">
+                        <!--<li class="dropdown notification warning">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <div class="icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
                                 <div class="title">Notifications</div>
@@ -120,11 +120,13 @@ $user = Auth::user();
                                     </li>
 
                                     <li class="dropdown-footer">
-                                        <a href="/notifications">View All <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+                                        <a href="/notifications">View All <i class="fa fa-angle-right"
+                                                                             aria-hidden="true"></i></a>
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li>-->
+
                         <li class="dropdown profile">
                             <a href="/profile">
                                 <img class="profile-img" src="/img/profile-pictures/{{ $user->avatar }}">
@@ -141,14 +143,14 @@ $user = Auth::user();
                                         </a>
                                     </li>
                                     <li>
-
                                         <a href="{{ url('/logout') }}"
                                            onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                             <i class="fa fa-sign-out"> </i> Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ url('/logout') }}" method="POST"
+                                              style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
