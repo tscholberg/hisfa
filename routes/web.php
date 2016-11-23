@@ -52,10 +52,10 @@ Route::post('/foam/addType', 'typeFoamController@addType');
 Route::delete('/foam/deleteType', 'typeFoamController@deleteType');
 
 // Blocks
-Route::get('/blocks', 'BlockController@index');
-Route::post('/blocks/addBlock', 'BlockController@addBlock');
-Route::post('/blocks/updateBlock/{id}', 'BlockController@updateBlock');
-Route::post('/blocks', 'BlockController@update');
+Route::get('/blocks', 'BlockController@index')->middleware('permission:view_stock');
+Route::post('/blocks/addBlock', 'BlockController@addBlock')->middleware('permission:manage_stock');
+Route::post('/blocks/updateBlock/{id}', 'BlockController@updateBlock')->middleware('permission:manage_stock');
+Route::post('/blocks', 'BlockController@update')->middleware('permission:manage_stock');
 
 // Users
 Route::get('/users', 'UserController@index');

@@ -19,6 +19,7 @@ $user = Auth::user();
         </div>
         <div class="sidebar-menu">
             <ul class="sidebar-nav">
+                @if($user->view_dashboard == 1)
                 <li @if($route === '/' || $route === 'dashboard') class="active @endif">
                     <a href="/dashboard">
                         <div class="icon">
@@ -27,6 +28,8 @@ $user = Auth::user();
                         <div class="title">Dashboard</div>
                     </a>
                 </li>
+                @endif
+                @if($user->view_blocks == 1)
                 <li class="dropdown @if($route === 'blocks') active @endif ">
                     <a href="/blocks">
                         <div class="icon">
@@ -35,6 +38,7 @@ $user = Auth::user();
                         <div class="title">Blocks</div>
                     </a>
                 </li>
+                    @endif
                 <li class="dropdown @if($route === 'primesilos') active @endif ">
                     <a href="/primesilos">
 

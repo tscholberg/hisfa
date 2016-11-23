@@ -6,11 +6,13 @@
 
 @section('app-title')
     Dashboard
-    @stop
+@stop
 
-    @section('app-content')
+@section('app-content')
 
-            <!-- prime silo's -->
+
+    @if(Auth::user()->view_dashboard)
+        <!-- prime silo's -->
     <div class="col-xs-12 col-sm-8">
         <div class="primes">
             <h2>Prime silo's</h2>
@@ -103,7 +105,8 @@
             <div class="col-xs-6">
                 <a href="/resources/{{$resource->id}}" class="card card-banner card-green-light resource-card">
                     <div class="card-body">
-                        <div class="resource-img" style="background: url('img/resources/{{$resource->image}}') no-repeat;">
+                        <div class="resource-img"
+                             style="background: url('img/resources/{{$resource->image}}') no-repeat;">
                         </div>
                         <div class="content">
                             <div class="title">{{ $resource->name }}</div>
@@ -190,5 +193,15 @@
     </div>
 
     <!-- ./END FOAM TYPES VIEW -->
+
+
+    @else
+
+        @include('errors.noaccess-dashboard')
+
+    @endif
+
+
+
 
 @stop
