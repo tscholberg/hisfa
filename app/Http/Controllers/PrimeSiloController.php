@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Notifications\PrimeSiloFull;
+use App\User;
+use Illuminate\Http\Request;
 use App\PrimeSilo;
+use App\Http\Traits\LogTrait;
 use App\Http\Requests;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class PrimeSiloController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth');
@@ -19,33 +22,38 @@ class PrimeSiloController extends Controller
     {
         $primesilos = \App\PrimeSilo::All();
         $resources = \App\Resource::All();
-        //$users = \App\User::All();
 
-
-        //$data['users'] = $users;
         $data['resources'] = $resources;
         $data['primesilos'] = $primesilos;
-        return view('detail/PrimeSilos', $data);
 
+        return view('detail/PrimeSilos', $data);
     }
 
     public function addPrimeSilo()
     {
-
         $silo = new PrimeSilo;
         $silo->capacity = '0';
         $silo->resource_id = '1';
         $silo->name = Input::get('silo_name');
         $silo->save();
 
+        $user = Auth::user();
+        $silo->addLog( 'added prime silo', $user->name, $silo->name, $silo->id);
+
         return redirect('primesilos');
     }
 
-    public function deletePrimeSilo()
+    public function deletePrimeSilo($id)
     {
-        \App\PrimeSilo::findOrFail(Input::get('silo_id'))->delete();
+        if ( $silo = \App\PrimeSilo::findOrFail($id) )
+        {
+            $user = Auth::user();
 
-        return redirect('primesilos');
+            $silo->addLog( 'deleted prime silo', $user->name, $silo->name, $id);
+            $silo->delete();
+        }
+
+        return redirect('primesilos')->with('success', 'delete')->with('success', 'The prime silo has been deleted!');;
     }
 
     public function updateCapacityPrimeSilo()
@@ -57,17 +65,22 @@ class PrimeSiloController extends Controller
         $silo->resource_id = $resource_id;
 
         $silo->capacity = $capacity / 100;
-        if ($capacity / 100 <= 1 && $capacity / 100 >= 0)
-        {
+
+        if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 ){
+            $user = Auth::user();
             $silo->save();
+
+            $silo->addLog( 'updated prime silo', $user->name, $silo->name.": ".($silo->capacity*100)."%, ".$silo->resource->name, $silo->id, $silo->resource_id);
         }
 
         if ($capacity >= 90)
         {
-            //$users = DB::table('users')->where('email_prime_silos_full', '=', true)->get();
-            //$users = DB::table('users')->where('email', 'arnodedecker@telenet.be')->value('email');
-            $users = Auth::user();
-            $users->notify(new PrimeSiloFull($silo));
+            $users = \App\User::where('email_prime_silos_full', '=', 1)->get();
+
+            foreach ($users as $user)
+            {
+                $user->notify(new PrimeSiloFull($silo));
+            }
         }
 
         return redirect('primesilos');

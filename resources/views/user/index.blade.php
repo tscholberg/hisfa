@@ -64,7 +64,7 @@
                                             class="icon fa fa-pencil" aria-hidden="true"></i><span class="hidden-xs hidden-sm">&nbsp;&nbsp;Edit user</span></a>
                             </td>
                             <td>@if($user->id != 1) <a href="#delete" class="btn-sm btn-danger btn-delete"
-                                                       data-id="{{$user->id}}" data-name="{{$user->name}}"><i
+                                                       data-id="{{$user->id}}" data-name="{{$user->name}}" data-table="users"><i
                                             class="icon fa fa-trash" aria-hidden="true"></i><span class="hidden-xs hidden-sm">&nbsp;&nbsp;Delete user</span></a> @endif
                             </td>
                         </tr>

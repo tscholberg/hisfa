@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Traits\LogTrait;
+
 
 class PrimeSilo extends Model
 {
+    use LogTrait;
+
     public $table = "prime_silos";
 
     public function getCapacityPercentAttribute() {

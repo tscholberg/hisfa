@@ -23,7 +23,7 @@
                                 <li class="col-xs-12 col-sm-8 col-md-4 col-lg-2">
                                     <p class="silo">{{ $wastesilo->name }}</p>
                                     <div class="detail-empty">
-                                        <div class="detail-filled yellow-silo"></div>
+                                        <div class="detail-filled"></div>
                                     </div>
                                     <!--<div class="full-bar">
                                         <div class="silo-bar-percent"
@@ -34,7 +34,7 @@
                                     <form enctype="multipart/form-data" action="/wastesilos/updatecapacity"
                                           method="POST">
                                         <input class="form-control" type="text" name="silo_capacity"
-                                               value="{{ $wastesilo->capacity_percent }}"">
+                                               value="{{ $wastesilo->capacity_percent }}">
                                         <input type="hidden" name="silo_id" value="{{ $wastesilo->id }}">
                                         <input type="hidden" name="_method" value="PUT">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -42,13 +42,11 @@
                                                value="Update {{$wastesilo->name}}">
 
                                     </form>
-                                    <form enctype="multipart/form-data" action="/wastesilos/delete" method="POST">
-                                        <input type="hidden" name="silo_id" value="{{ $wastesilo->id }}">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <input class="btn btn-danger" type="submit" name="deleteSilo"
-                                               value="Delete {{$wastesilo->name}}">
-                                    </form>
+                                    <div>
+                                        <input class="btn btn-danger btn-delete" type="submit"
+                                               name="deleteSilo" value="Delete {{$wastesilo->name}}"
+                                               data-id="{{$wastesilo->id}}" data-name="{{$wastesilo->name}}" data-table="wastesilos">
+                                    </div>
                                 </li>
                             @endforeach
                         </ul>
@@ -83,3 +81,8 @@
     </div>
 
 @endsection
+
+@section('custom-scripts')
+        <!-- Delete confirm bootbox -->
+    <script src="/js/confirm-delete-user.js"></script>
+    @stop

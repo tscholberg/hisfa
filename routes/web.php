@@ -1,9 +1,5 @@
 <?php
 
-//use App\Notifications\PrimeSiloFull;
-//use App\Notifications\WasteSiloFull;
-//use Illuminate\Support\Facades\Auth;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,7 +33,7 @@ Route::post('/foam/{id}/edit', 'typeFoamController@update');*/
 // Primesilos
 Route::get('/primesilos', 'PrimeSiloController@index');
 Route::post('/primesilos/create', 'PrimeSiloController@addPrimeSilo');
-Route::delete('/primesilos/delete', 'PrimeSiloController@deletePrimeSilo');
+Route::get('/primesilos/{id}/delete', 'PrimeSiloController@deletePrimeSilo');
 Route::put('/primesilos/updatecapacity', 'PrimeSiloController@updateCapacityPrimeSilo');
 Route::put('/primesilos/updateresource', 'PrimeSiloController@updateResourcePrimeSilo');
 
@@ -45,7 +41,8 @@ Route::put('/primesilos/updateresource', 'PrimeSiloController@updateResourcePrim
 // Wastesilos
 Route::get('/wastesilos', 'WasteSiloController@index');
 Route::post('/wastesilos/create', 'WasteSiloController@addWasteSilo');
-Route::delete('/wastesilos/delete', 'WasteSiloController@deleteWasteSilo');
+Route::get('/wastesilos/{id}/delete', 'WasteSiloController@deleteWasteSilo');
+
 Route::put('/wastesilos/updatecapacity', 'WasteSiloController@updateCapacityWasteSilo');
 
 
@@ -70,27 +67,8 @@ Route::get('/users/{id}/delete', 'UserController@delete');
 
 // Resources
 Route::get('/resources', 'ResourceController@index');
-
-// Notifications
-/*Route::get('/mailPrime', function () {
-
-    $user = Auth::user();
-
-    $primesilo = Hisfa\PrimeSilo::first();
-
-    $user->notify(new PrimeSiloFull($primesilo));
-
-});
-
-Route::get('/mailWaste', function () {
-
-    $user = Auth::user();
-
-    $wastesilo = Hisfa\WasteSilo::first();
-
-    $user->notify(new WasteSiloFull($wastesilo));
-
-});*/
+Route::get('/resources/{id}', 'ResourceController@single');
+Route::post('/resources/{id}/edit', 'ResourceController@edit');
 
 // Login, reset account, ...
 Auth::routes();
