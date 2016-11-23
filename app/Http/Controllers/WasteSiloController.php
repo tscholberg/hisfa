@@ -22,11 +22,15 @@ class WasteSiloController extends Controller
     {
         $wastesilos = \App\WasteSilo::All();
         $data['wastesilos'] = $wastesilos;
-        return view('detail/WasteSilos', $data);
+        return view('waste.index', $data);
 
     }
 
-    public function addWasteSilo()
+    public function add(){
+        return view('waste.add');
+    }
+
+    public function create()
     {
 
         $silo = new WasteSilo;
@@ -41,7 +45,7 @@ class WasteSiloController extends Controller
         return redirect('wastesilos');
     }
 
-    public function deleteWasteSilo($id){
+    public function delete($id){
         if ( $silo = \App\WasteSilo::findOrFail($id) )
         {
             $user = Auth::user();
@@ -51,7 +55,7 @@ class WasteSiloController extends Controller
         return redirect('wastesilos')->with('success', 'The waste silo has been deleted!');
     }
 
-    public function updateCapacityWasteSilo()
+    public function update()
     {
         $silo = \App\WasteSilo::findOrFail(Input::get('silo_id'));
         $capacity = Input::get('silo_capacity');

@@ -29,7 +29,12 @@ class PrimeSiloController extends Controller
         return view('detail/PrimeSilos', $data);
     }
 
-    public function addPrimeSilo()
+
+    public function addPrimeSilo(){
+        return view('prime.add');
+    }
+
+    public function createPrimeSilo()
     {
         $silo = new PrimeSilo;
         $silo->capacity = '0';

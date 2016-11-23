@@ -39,6 +39,8 @@ $user = Auth::user();
                     </a>
                 </li>
                     @endif
+
+                    @if($user->view_prime_silos == 1)
                 <li class="dropdown @if($route === 'primesilos') active @endif ">
                     <a href="/primesilos">
 
@@ -48,6 +50,9 @@ $user = Auth::user();
                         <div class="title">Prime silos</div>
                     </a>
                 </li>
+                    @endif
+
+                    @if($user->view_waste_silos == 1)
                 <li class="dropdown @if($route === 'wastesilos') active @endif ">
                     <a href="/wastesilos">
                         <div class="icon">
@@ -56,6 +61,8 @@ $user = Auth::user();
                         <div class="title">Waste silos</div>
                     </a>
                 </li>
+                    @endif
+
                     @if($user->view_resources == 1)
                 <li class="dropdown @if($route === 'resources') active @endif ">
                     <a href="/resources">

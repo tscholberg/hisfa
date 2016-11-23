@@ -1,4 +1,6 @@
-@extends('layouts.basic-layout')
+<?php
+    $user = Auth::user();
+?>@extends('layouts.basic-layout')
 
 @section('page-title')
     Waste silos
@@ -13,7 +15,7 @@
 
     <!-- Waste silos -->
     <div class="col-xs-12">
-        <a class="card card-banner">
+        <div class="card card-banner">
             <div class="card-body app-heading">
                 <div class="app-title">
                     <div class="title"><span class="highlight">Waste Silo's</span></div>
@@ -31,6 +33,8 @@
                                         </div>
                                     </div>-->
                                     <p class="volume">{{ $wastesilo->capacity_percent }} %</p>
+
+                                    @if($user->manage_waste_silos == 1)
                                     <form enctype="multipart/form-data" action="/wastesilos/updatecapacity"
                                           method="POST">
                                         <input class="form-control" type="text" name="silo_capacity"
@@ -48,37 +52,25 @@
                                                data-id="{{$wastesilo->id}}" data-name="{{$wastesilo->name}}" data-table="wastesilos">
                                     </div>
                                 </li>
+                                @endif
                             @endforeach
                         </ul>
                     </div><!-- ./description -->
                 </div>
             </div>
-        </a>
+        </div>
     </div><!-- ./END PRIME SILO VIEW -->
 
-    <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="card card-banner col-xs-12 add-silo">
-            <div class="card-body app-heading">
-                <div class="app-title">
-                    <div class="title"><span class="highlight">Add Waste silo</span></div>
-                </div>
-            </div>
-            <form enctype="multipart/form-data" action="/wastesilos/create" method="POST">
-                <label for="silo_name">Name</label>
-                <input class="form-control" type="text" name="silo_name">
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <input class="btn btn-success" type="submit" name="create" value="Create">
-            </form>
-        </div>
-    </div>
 
+    @if($user->manage_waste_silos == 1)
     <div class="btn-floating" id="help-actions">
         <div class="btn-bg"></div>
-        <a href="http://www.google.be" type="button" class="btn btn-default btn-toggle">
+        <a href="/wastesilos/add" type="button" class="btn btn-default btn-toggle">
             <i class="icon fa fa-plus"></i>
             <span class="help-text">Add new waste silo</span>
         </a>
     </div>
+    @endif
 
 @endsection
 

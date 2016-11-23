@@ -31,19 +31,20 @@ Route::get('/foam/{id}/edit', 'typeFoamController@edit');
 Route::post('/foam/{id}/edit', 'typeFoamController@update');*/
 
 // Primesilos
-Route::get('/primesilos', 'PrimeSiloController@index');
-Route::post('/primesilos/create', 'PrimeSiloController@addPrimeSilo');
-Route::get('/primesilos/{id}/delete', 'PrimeSiloController@deletePrimeSilo');
-Route::put('/primesilos/updatecapacity', 'PrimeSiloController@updateCapacityPrimeSilo');
-Route::put('/primesilos/updateresource', 'PrimeSiloController@updateResourcePrimeSilo');
+Route::get('/primesilos', 'PrimeSiloController@index')->middleware('permission:view_prime_silos');
+Route::get('/primesilos/add', 'PrimeSiloController@addPrimeSilo')->middleware('permission:manage_prime_silos');
+Route::post('/primesilos/create', 'PrimeSiloController@createPrimeSilo')->middleware('permission:manage_prime_silos');
+Route::get('/primesilos/{id}/delete', 'PrimeSiloController@deletePrimeSilo')->middleware('permission:manage_prime_silos');
+Route::put('/primesilos/updatecapacity', 'PrimeSiloController@updateCapacityPrimeSilo')->middleware('permission:manage_prime_silos');
+Route::put('/primesilos/updateresource', 'PrimeSiloController@updateResourcePrimeSilo')->middleware('permission:manage_prime_silos');
 
 
 // Wastesilos
-Route::get('/wastesilos', 'WasteSiloController@index');
-Route::post('/wastesilos/create', 'WasteSiloController@addWasteSilo');
-Route::get('/wastesilos/{id}/delete', 'WasteSiloController@deleteWasteSilo');
-
-Route::put('/wastesilos/updatecapacity', 'WasteSiloController@updateCapacityWasteSilo');
+Route::get('/wastesilos', 'WasteSiloController@index')->middleware('permission:view_waste_silos');
+Route::get('/wastesilos/add', 'WasteSiloController@add')->middleware('permission:manage_waste_silos');
+Route::post('/wastesilos/create', 'WasteSiloController@create')->middleware('permission:manage_waste_silos');
+Route::get('/wastesilos/{id}/delete', 'WasteSiloController@delete')->middleware('permission:manage_waste_silos');
+Route::put('/wastesilos/updatecapacity', 'WasteSiloController@update')->middleware('permission:manage_waste_silos');
 
 
 // Foam

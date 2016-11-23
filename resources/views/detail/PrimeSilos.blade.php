@@ -59,31 +59,16 @@
         </div>
     </div><!-- ./END PRIME SILO VIEW -->
 
-    <div class="col-xs-12 col-md-6 col-lg-4">
-        <div class="card card-banner col-xs-12 add-silo">
-            <div class="card-body app-heading">
-                <div class="app-title">
-                    <div class="title"><span class="highlight">Add Prime silo</span></div>
-                </div>
-            </div>
-            <form enctype="multipart/form-data" action="/primesilos/create" method="POST">
-                <label for="silo_name">Name</label>
-                <input class="form-control" type="text" name="silo_name">
-                <input type="hidden" name="_token" value="{{csrf_token()}}">
-                <input class="btn btn-success" type="submit" name="create" value="Create">
-            </form>
-        </div>
-    </div>
 
-
+    @if(Auth::user()->manage_prime_silos == 1)
     <div class="btn-floating" id="help-actions">
         <div class="btn-bg"></div>
-        <a href="http://www.google.be" type="button" class="btn btn-default btn-toggle">
+        <a href="/primesilos/add" type="button" class="btn btn-default btn-toggle">
             <i class="icon fa fa-plus"></i>
             <span class="help-text">Add new prime silo</span>
         </a>
     </div>
-
+    @endif
 @stop
 
 @section('custom-scripts')
