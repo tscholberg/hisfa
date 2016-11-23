@@ -41,14 +41,14 @@ class WasteSiloController extends Controller
         return redirect('wastesilos');
     }
 
-    public function deleteWasteSilo(){
-        if ( $silo = \App\WasteSilo::findOrFail(Input::get('silo_id')) )
+    public function deleteWasteSilo($id){
+        if ( $silo = \App\WasteSilo::findOrFail($id) )
         {
             $user = Auth::user();
-            $silo->addLog( 'deleted waste silo', $user->name, $silo->name, Input::get('silo_id'));
+            $silo->addLog( 'deleted waste silo', $user->name, $silo->name, $id);
             $silo->delete();
         }
-        return redirect('wastesilos');
+        return redirect('wastesilos')->with('success', 'The waste silo has been deleted!');
     }
 
     public function updateCapacityWasteSilo()

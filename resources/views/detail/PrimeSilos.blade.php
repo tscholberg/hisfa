@@ -44,13 +44,11 @@
                                                value="Update {{$primesilo->name}}">
 
                                     </form>
-                                    <form enctype="multipart/form-data" action="/primesilos/delete" method="POST">
-                                        <input type="hidden" name="silo_id" value="{{ $primesilo->id }}">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                                        <input class="btn btn-danger" type="submit" name="deleteSilo"
-                                               value="Delete {{$primesilo->name}}">
-                                    </form>
+                                    <div>
+                                        <input class="btn btn-danger btn-delete" type="submit" name="deleteSilo"
+                                               value="Delete {{$primesilo->name}}"
+                                               data-id="{{$primesilo->id}}" data-name="{{$primesilo->name}}" data-table="primesilos">
+                                    </div>
                                 </li>
 
                             @endforeach
@@ -87,3 +85,8 @@
     </div>
 
 @stop
+
+@section('custom-scripts')
+        <!-- Delete confirm bootbox -->
+    <script src="/js/confirm-delete-user.js"></script>
+    @stop

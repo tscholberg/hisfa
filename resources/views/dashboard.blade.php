@@ -1,4 +1,4 @@
-    @extends('layouts.basic-layout')
+@extends('layouts.basic-layout')
 
 @section('page-title')
     Dashboard
@@ -6,11 +6,11 @@
 
 @section('app-title')
     Dashboard
-@stop
+    @stop
 
-@section('app-content')
+    @section('app-content')
 
-    <!-- prime silo's -->
+            <!-- prime silo's -->
     <div class="col-xs-12 col-sm-8">
         <div class="primes">
             <h2>Prime silo's</h2>
@@ -58,7 +58,7 @@
             @endforeach
             <div class="clearfix"></div>
         </div><!-- ./waste -->
-        
+
         <!-- Blocks -->
         <div class="col-xs-12">
             <div class="card card-mini">
@@ -118,6 +118,7 @@
 
 
 
+
     <!-- Foam types -->
     <div class="col-xs-12">
         <div class="card card-mini">
@@ -159,15 +160,12 @@
     </div><!-- ./END FOAM TYPES VIEW -->
 
     <div class="col-xs-12">
-        <div class="card card-mini">
+        <div class="card">
             <div class="card-header">
-                <div class="card-title">History</div>
-                <ul class="card-action">
-                    <li><a href="">History</a></li>
-                </ul>
+                Logs
             </div>
-            <div class="card-body no-padding table-responsive">
-                <table class="table card-table table-hover table-striped foam-type-home">
+            <div class="card-body no-padding">
+                <table class="datatable table table-striped primary" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th>User</th>
@@ -183,16 +181,14 @@
                             <td>{{ $log->function }}</td>
                             <td>{{ $log->description }}</td>
                             <td>{{ $log->updated_at }}</td>
-                            <!--
-                            <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Running out</span></span></td>
-                        <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Not available</span></span></td>
-                            -->
                         </tr>
                     @endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-    </div><!-- ./END FOAM TYPES VIEW -->
+    </div>
+
+    <!-- ./END FOAM TYPES VIEW -->
 
 @stop

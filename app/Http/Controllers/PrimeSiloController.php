@@ -43,17 +43,17 @@ class PrimeSiloController extends Controller
         return redirect('primesilos');
     }
 
-    public function deletePrimeSilo()
+    public function deletePrimeSilo($id)
     {
-        if ( $silo = \App\PrimeSilo::findOrFail(Input::get('silo_id')) )
+        if ( $silo = \App\PrimeSilo::findOrFail($id) )
         {
             $user = Auth::user();
 
-            $silo->addLog( 'deleted prime silo', $user->name, $silo->name, Input::get('silo_id'));
+            $silo->addLog( 'deleted prime silo', $user->name, $silo->name, $id);
             $silo->delete();
         }
 
-        return redirect('primesilos');
+        return redirect('primesilos')->with('success', 'delete')->with('success', 'The prime silo has been deleted!');;
     }
 
     public function updateCapacityPrimeSilo()
