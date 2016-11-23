@@ -30,4 +30,11 @@
         @endforeach
         <div class="clearfix"></div>
     </div>
+    <div class="btn-floating" id="help-actions">
+        <div class="btn-bg"></div>
+        <a href="/resources/add" type="button" class="btn btn-default btn-toggle">
+            <i class="icon fa fa-plus"></i>
+            <span class="help-text">Add new resource</span>
+        </a>
+    </div>
 @stop
