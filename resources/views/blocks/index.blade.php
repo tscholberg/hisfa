@@ -178,6 +178,7 @@
         </div>
     </div>-->
 
+        @if(Auth::user()->manage_stock)
         <div class="btn-floating" id="help-actions">
             <div class="btn-bg"></div>
             <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
@@ -191,5 +192,6 @@
                 </ul>
             </div>
         </div>
+        @endif
 
 @stop

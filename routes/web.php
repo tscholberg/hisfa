@@ -69,7 +69,7 @@ Route::get('/users/{id}/delete', 'UserController@delete')->middleware('permissio
 Route::get('/noaccess', 'UserController@denied');
 
 // Resources
-Route::get('/resources', 'ResourceController@index')->middleware('permission:manage_stock');
+Route::get('/resources', 'ResourceController@index')->middleware('permission:view_stock');
 Route::get('/resources/{id}', 'ResourceController@single')->middleware('permission:manage_stock');
 Route::post('/resources/{id}/edit', 'ResourceController@edit')->middleware('permission:manage_stock');
 
