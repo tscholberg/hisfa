@@ -29,7 +29,7 @@ $user = Auth::user();
                     </a>
                 </li>
                 @endif
-                @if($user->view_blocks == 1)
+                @if($user->view_stock == 1)
                 <li class="dropdown @if($route === 'blocks') active @endif ">
                     <a href="/blocks">
                         <div class="icon">

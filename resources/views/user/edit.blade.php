@@ -151,9 +151,20 @@
                                 <input type="checkbox" id="checkboxViewMaterialSilos" name="checkboxViewMaterialSilos"
                                        class="checkalladmin permissionview" {{ $profiledata->view_prime_silos == 1 ? 'checked' : '' }}>
                                 <label for="checkboxViewMaterialSilos">
-                                    View material silos
+                                    View prime silos
                                 </label>
                             </div>
+
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkboxViewResources" name="checkboxViewResources"
+                                       class="checkalladmin permissionview"
+                                       {{ $profiledata->view_resources == 1 ? 'checked' : '' }}
+                                       >
+                                <label for="checkboxViewResources">
+                                    View resources
+                                </label>
+                            </div>
+
 
                         </div>
 
@@ -170,6 +181,14 @@
 
 
                             <div class="checkbox">
+                                <input type="checkbox" id="checkboxModifyMaterialSilos" name="checkboxModifyMaterialSilos" {{ $profiledata->manage_prime_silos == 1 ? 'checked' : '' }}
+                                class="checkalladmin permissionmodify">
+                                <label for="checkboxModifyMaterialSilos">
+                                    Manage prime silos
+                                </label>
+                            </div>
+
+                            <div class="checkbox">
                                 <input type="checkbox" id="checkboxModifyWasteSilos" name="checkboxModifyWasteSilos" {{ $profiledata->manage_waste_silos == 1 ? 'checked' : '' }}
                                        class="checkalladmin permissionmodify">
                                 <label for="checkboxModifyWasteSilos">
@@ -179,10 +198,10 @@
 
 
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyMaterialSilos" name="checkboxModifyMaterialSilos" {{ $profiledata->manage_prime_silos == 1 ? 'checked' : '' }}
+                                <input type="checkbox" id="checkboxModifyResources" name="checkboxModifyResources" {{ $profiledata->manage_resources == 1 ? 'checked' : '' }}
                                        class="checkalladmin permissionmodify">
-                                <label for="checkboxModifyMaterialSilos">
-                                    Manage material silos
+                                <label for="checkboxModifyResources">
+                                    Manage resources
                                 </label>
                             </div>
 

@@ -29,6 +29,8 @@ class UserTableSeeder extends Seeder
                 'view_prime_silos' => true,
                 'manage_prime_silos' => true,
                 'manage_users' => true,
+                'view_resources' => true,
+                'manage_resources' => true,
             ],
 
             [
@@ -46,6 +48,8 @@ class UserTableSeeder extends Seeder
                 'view_prime_silos' => true,
                 'manage_prime_silos' => true,
                 'manage_users' => true,
+                'view_resources' => true,
+                'manage_resources' => true,
             ],
 
         ]);
