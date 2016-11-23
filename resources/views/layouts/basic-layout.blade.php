@@ -56,6 +56,7 @@ $user = Auth::user();
                         <div class="title">Waste silos</div>
                     </a>
                 </li>
+                    @if($user->view_resources == 1)
                 <li class="dropdown @if($route === 'resources') active @endif ">
                     <a href="/resources">
                         <div class="icon">
@@ -64,6 +65,7 @@ $user = Auth::user();
                         <div class="title">Resources</div>
                     </a>
                 </li>
+                    @endif
                 <li class="dropdown @if($route === 'users') active @endif ">
                     <a href="/users">
                         <div class="icon">
