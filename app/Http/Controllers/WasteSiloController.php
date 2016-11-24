@@ -42,7 +42,7 @@ class WasteSiloController extends Controller
         $user = Auth::user();
         $silo->addLog( 'added waste silo', $user->name, $silo->name, $silo->id);
 
-        return redirect('wastesilos');
+        return redirect('/wastesilos');
     }
 
     public function delete($id){
@@ -52,7 +52,7 @@ class WasteSiloController extends Controller
             $silo->addLog( 'deleted waste silo', $user->name, $silo->name, $id);
             $silo->delete();
         }
-        return redirect('wastesilos')->with('success', 'The waste silo has been deleted!');
+        return redirect('/wastesilos')->with('success', 'The waste silo has been deleted!');
     }
 
     public function update()
@@ -79,6 +79,6 @@ class WasteSiloController extends Controller
             }
         }
 
-        return redirect('wastesilos');
+        return redirect('/wastesilos');
     }
 }

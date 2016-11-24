@@ -22,9 +22,9 @@ class SiloSeeder extends Seeder
         ]);
 
         DB::table('waste_silos')->insert([
-            ['name' => 'A1', 'capacity' => 0.65, 'resource_id' => 2],
-            ['name' => 'A2', 'capacity' => 0.9, 'resource_id' => 4],
-            ['name' => 'A3', 'capacity' => 0, 'resource_id' => 3]
+            ['name' => 'W1', 'capacity' => 0.65, 'resource_id' => 2],
+            ['name' => 'W2', 'capacity' => 0.9, 'resource_id' => 4],
+            ['name' => 'W3', 'capacity' => 0, 'resource_id' => 3]
         ]);
     }
 }

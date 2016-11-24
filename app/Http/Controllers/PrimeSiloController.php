@@ -26,7 +26,7 @@ class PrimeSiloController extends Controller
         $data['resources'] = $resources;
         $data['primesilos'] = $primesilos;
 
-        return view('detail/PrimeSilos', $data);
+        return view('prime.index', $data);
     }
 
 
@@ -45,7 +45,7 @@ class PrimeSiloController extends Controller
         $user = Auth::user();
         $silo->addLog( 'added prime silo', $user->name, $silo->name, $silo->id);
 
-        return redirect('primesilos');
+        return redirect('/primesilos');
     }
 
     public function deletePrimeSilo($id)
@@ -58,7 +58,7 @@ class PrimeSiloController extends Controller
             $silo->delete();
         }
 
-        return redirect('primesilos')->with('success', 'delete')->with('success', 'The prime silo has been deleted!');;
+        return redirect('/primesilos')->with('success', 'delete')->with('success', 'The prime silo has been deleted!');;
     }
 
     public function updateCapacityPrimeSilo()
@@ -88,6 +88,6 @@ class PrimeSiloController extends Controller
             }
         }
 
-        return redirect('primesilos');
+        return redirect('/primesilos');
     }
 }

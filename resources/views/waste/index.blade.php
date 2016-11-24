@@ -8,7 +8,7 @@
 
 
 @section('app-title')
-    App page title
+    Waste silos
 @stop
 
 @section('app-content')
@@ -18,7 +18,6 @@
         <div class="card card-banner">
             <div class="card-body app-heading">
                 <div class="app-title">
-                    <div class="title"><span class="highlight">Waste Silo's</span></div>
                     <div class="description">
                         <ul class="silo-view waste">
                             @foreach($wastesilos as $key=>$wastesilo)
@@ -51,8 +50,9 @@
                                                name="deleteSilo" value="Delete {{$wastesilo->name}}"
                                                data-id="{{$wastesilo->id}}" data-name="{{$wastesilo->name}}" data-table="wastesilos">
                                     </div>
+                                    @endif
                                 </li>
-                                @endif
+
                             @endforeach
                         </ul>
                     </div><!-- ./description -->

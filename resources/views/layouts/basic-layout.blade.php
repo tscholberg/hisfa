@@ -111,40 +111,14 @@ $user = Auth::user();
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
 
-                        <!--<li class="dropdown notification warning">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <div class="icon"><i class="fa fa-bell" aria-hidden="true"></i></div>
-                                <div class="title">Notifications</div>
-                                <div class="count">1</div>
-                            </a>
-                            <div class="dropdown-menu">
-                                <ul>
-                                    <li class="dropdown-header">Notifications</li>
-                                    <li>
-                                        <a href="/notifications/id">
-                                            <span class="badge badge-danger pull-right">1</span>
-                                            <div class="message">
-                                                <div class="content">
-                                                    <div class="title">Title</div>
-                                                    <div class="description">Example notification description</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </li>
-
-                                    <li class="dropdown-footer">
-                                        <a href="/notifications">View All <i class="fa fa-angle-right"
-                                                                             aria-hidden="true"></i></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>-->
 
                         <li class="dropdown profile">
-                            <a href="/profile">
-                                <img class="profile-img" src="/img/profile-pictures/{{ $user->avatar }}">
+
+    <a href="/profile">
+                                <img class="profile-img prifile-img-burger" src="img/profile-pictures//{{ $user->avatar }}">
                                 <div class="title">Profile settings</div>
-                            </a>
+                            </a>                    </a>
+
                             <div class="dropdown-menu">
                                 <div class="profile-info">
                                     <h4 class="username">{{ $user->name }}</h4>
@@ -170,6 +144,9 @@ $user = Auth::user();
                                 </ul>
                             </div>
                         </li>
+
+
+
                     </ul>
                 </div>
             </div>

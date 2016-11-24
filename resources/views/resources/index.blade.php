@@ -1,4 +1,6 @@
-@extends('layouts.basic-layout')
+<?php
+$user = Auth::user();
+?>@extends('layouts.basic-layout')
 
 @section('page-title')
     Resources
@@ -30,6 +32,8 @@
         @endforeach
         <div class="clearfix"></div>
     </div>
+
+    @if($user->manage_resources == 1)
     <div class="btn-floating" id="help-actions">
         <div class="btn-bg"></div>
         <a href="/resources/add" type="button" class="btn btn-default btn-toggle">
@@ -37,4 +41,5 @@
             <span class="help-text">Add new resource</span>
         </a>
     </div>
+    @endif
 @stop

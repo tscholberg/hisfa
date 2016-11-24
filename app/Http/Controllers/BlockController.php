@@ -23,7 +23,7 @@ class BlockController extends Controller
     {
         $blocks = Block::all();
         $typeFoams = typeFoam::all();
-        return view('blocks/index')->with(['blocks' => $blocks, 'typeFoams' => $typeFoams]);
+        return view('blocks.index')->with(['blocks' => $blocks, 'typeFoams' => $typeFoams]);
     }
 
     public function addBlock()
@@ -44,7 +44,7 @@ class BlockController extends Controller
     {
         $block = \App\Block::findOrFail(Input::get('block_id'));
 
-        return view('blocks/update')->with('block', $block);
+        return view('blocks.update')->with('block', $block);
     }
 
     public function update()

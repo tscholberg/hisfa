@@ -20,10 +20,10 @@ class ResourceController extends Controller{
         $resources = \App\Resource::All();
 
         $data['resources'] = $resources;
-        return view('detail/Resources', $data);
+        return view('resources.index', $data);
     }
 
-    public function single($id){
+    public function detail($id){
         $resourcedata = DB::table('resources')->where('id', '=', $id)->first();
         return view('resources.edit', ["resourcedata" => $resourcedata]);
     }

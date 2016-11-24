@@ -1,4 +1,6 @@
-@extends('layouts.basic-layout')
+<?php
+$user = Auth::user();
+?>@extends('layouts.basic-layout')
 
 @section('page-title')
     Prime silos
@@ -15,7 +17,6 @@
         <div class="card card-banner ">
             <div class="card-body app-heading">
                 <div class="app-title">
-                    <div class="title"><span class="highlight">Prime Silo's</span></div>
                     <div class="description">
                         <ul class="silo-view prime">
                             @foreach($primesilos as $key=>$primesilo)
@@ -28,6 +29,7 @@
                                     
                                     <p class="volume">{{ $primesilo->capacity_percent }} %</p>
                                     <p class="silo">{{ $primesilo->resource->name }}</p>
+                                    @if($user->manage_prime_silos == 1)
                                     <form enctype="multipart/form-data" action="/primesilos/updatecapacity"
                                           method="POST">
                                         <input class="form-control" type="text" name="silo_capacity"
@@ -49,6 +51,7 @@
                                                value="Delete {{$primesilo->name}}"
                                                data-id="{{$primesilo->id}}" data-name="{{$primesilo->name}}" data-table="primesilos">
                                     </div>
+                                        @endif
                                 </li>
 
                             @endforeach
@@ -60,7 +63,7 @@
     </div><!-- ./END PRIME SILO VIEW -->
 
 
-    @if(Auth::user()->manage_prime_silos == 1)
+    @if($user->manage_prime_silos == 1)
     <div class="btn-floating" id="help-actions">
         <div class="btn-bg"></div>
         <a href="/primesilos/add" type="button" class="btn btn-default btn-toggle">
