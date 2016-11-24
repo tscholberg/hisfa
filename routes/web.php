@@ -66,6 +66,9 @@ Route::get('/users/{id}', 'UserController@detail')->middleware('permission:manag
 Route::post('/users/{id}/edit', 'UserController@edit')->middleware('permission:manage_users');
 Route::get('/users/{id}/delete', 'UserController@delete')->middleware('permission:admin');
 
+//logs
+Route::get('/logs', 'LogController@index');
+
 //errors
 Route::get('/noaccess', 'UserController@denied');
 

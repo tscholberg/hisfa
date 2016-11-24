@@ -1,6 +1,4 @@
-<?php
-$user = Auth::user();
-?>@extends('layouts.basic-layout')
+@extends('layouts.basic-layout')
 
 @section('page-title')
     Prime silos
@@ -44,13 +42,13 @@ $user = Auth::user();
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         <input class="btn btn-success" type="submit" name="updateSilo"
                                                value="Update {{$primesilo->name}}">
-
-                                    </form>
-                                    <div>
-                                        <input class="btn btn-danger btn-delete" type="submit" name="deleteSilo"
+                                        <input class="btn btn-danger btn-delete" type="button" name="deleteSilo"
                                                value="Delete {{$primesilo->name}}"
                                                data-id="{{$primesilo->id}}" data-name="{{$primesilo->name}}" data-table="primesilos">
-                                    </div>
+                                    </form>
+
+
+
                                         @endif
                                 </li>
 

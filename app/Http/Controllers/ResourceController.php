@@ -9,6 +9,7 @@ use App\Resource;
 use App\Http\Requests;
 use Validator;
 use Image;
+use Auth;
 
 class ResourceController extends Controller{
 
@@ -18,8 +19,9 @@ class ResourceController extends Controller{
 
     public function index(){
         $resources = \App\Resource::All();
-
+        $user = Auth::user();
         $data['resources'] = $resources;
+        $data['user'] = $user;
         return view('resources.index', $data);
     }
 

@@ -1,6 +1,4 @@
-<?php
-    $user = Auth::user();
-?>@extends('layouts.basic-layout')
+@extends('layouts.basic-layout')
 
 @section('page-title')
     Waste silos
@@ -43,13 +41,10 @@
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         <input class="btn btn-success" type="submit" name="updateSilo"
                                                value="Update {{$wastesilo->name}}">
-
-                                    </form>
-                                    <div>
-                                        <input class="btn btn-danger btn-delete" type="submit"
+                                        <input class="btn btn-danger btn-delete" type="button"
                                                name="deleteSilo" value="Delete {{$wastesilo->name}}"
                                                data-id="{{$wastesilo->id}}" data-name="{{$wastesilo->name}}" data-table="wastesilos">
-                                    </div>
+                                    </form>
                                     @endif
                                 </li>
 

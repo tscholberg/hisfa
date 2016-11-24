@@ -22,7 +22,9 @@ class PrimeSiloController extends Controller
     {
         $primesilos = \App\PrimeSilo::All();
         $resources = \App\Resource::All();
+        $user = Auth::user();
 
+        $data['user'] = $user;
         $data['resources'] = $resources;
         $data['primesilos'] = $primesilos;
 

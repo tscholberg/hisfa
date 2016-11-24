@@ -21,6 +21,8 @@ class WasteSiloController extends Controller
     public function index()
     {
         $wastesilos = \App\WasteSilo::All();
+        $user = Auth::user();
+        $data['user'] = $user;
         $data['wastesilos'] = $wastesilos;
         return view('waste.index', $data);
 
