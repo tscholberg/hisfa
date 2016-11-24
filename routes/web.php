@@ -67,13 +67,14 @@ Route::post('/users/{id}/edit', 'UserController@edit')->middleware('permission:m
 Route::get('/users/{id}/delete', 'UserController@delete')->middleware('permission:admin');
 
 //logs
-Route::get('/logs', 'LogController@index');
+Route::get('/logs', 'LogController@index')->middleware('permission:admin');
 
 //errors
 Route::get('/noaccess', 'UserController@denied');
 
 // Resources
 Route::get('/resources', 'ResourceController@index')->middleware('permission:view_resources');
+Route::get('/resources/add', 'ResourceController@add')->middleware('permission:manage_resources');
 Route::get('/resources/{id}', 'ResourceController@detail')->middleware('permission:manage_resources');
 Route::post('/resources/{id}/edit', 'ResourceController@edit')->middleware('permission:manage_resources');
 

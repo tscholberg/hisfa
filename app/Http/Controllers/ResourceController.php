@@ -18,7 +18,7 @@ class ResourceController extends Controller{
     }
 
     public function index(){
-        $resources = \App\Resource::All();
+        $resources = \App\Resource::orderBy('name', 'ASC')->get();
         $user = Auth::user();
         $data['resources'] = $resources;
         $data['user'] = $user;
@@ -28,6 +28,10 @@ class ResourceController extends Controller{
     public function detail($id){
         $resourcedata = DB::table('resources')->where('id', '=', $id)->first();
         return view('resources.edit', ["resourcedata" => $resourcedata]);
+    }
+
+    public function add(){
+        return view('resources.add');
     }
 
     public function edit($id, Request $request){

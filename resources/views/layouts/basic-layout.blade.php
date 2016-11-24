@@ -81,6 +81,16 @@ $user = Auth::user();
                         <div class="title">Users</div>
                     </a>
                 </li>
+                    @if($user->admin == 1)
+                    <li class="dropdown @if($route === 'logs') active @endif ">
+                        <a href="/logs">
+                            <div class="icon">
+                                <i class="fa fa-book" aria-hidden="true"></i>
+                            </div>
+                            <div class="title">Logs</div>
+                        </a>
+                    </li>
+                        @endif
             </ul>
         </div>
     </aside>

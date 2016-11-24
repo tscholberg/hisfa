@@ -308,6 +308,16 @@
 
 }
 
+.pointer-default:hover{
+    cursor: default !important;
+}
+
+
+.form-control-capacity{
+    max-width: 136px !important;
+    margin: 0 auto 10px auto;
+}
+
 @media only screen and (min-width:1920px){
     .app{
         width: 1920px !important;

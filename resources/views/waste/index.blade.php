@@ -13,7 +13,7 @@
 
     <!-- Waste silos -->
     <div class="col-xs-12">
-        <div class="card card-banner">
+        <div class="card card-banner pointer-default">
             <div class="card-body app-heading">
                 <div class="app-title">
                     <div class="description">
@@ -24,18 +24,30 @@
                                     <div class="detail-empty">
                                         <div class="detail-filled"></div>
                                     </div>
-                                    <!--<div class="full-bar">
-                                        <div class="silo-bar-percent"
-                                             style=" height: {{ $wastesilo->capacity_percent }}%; ">
-                                        </div>
-                                    </div>-->
-                                    <p class="volume">{{ $wastesilo->capacity_percent }} %</p>
+                                    <p class="volume @if($user->manage_waste_silos == 1) hidden @endif ">{{ $wastesilo->capacity_percent }} %</p>
 
                                     @if($user->manage_waste_silos == 1)
-                                    <form enctype="multipart/form-data" action="/wastesilos/updatecapacity"
+
+
+                                        <form enctype="multipart/form-data" action="/wastesilos/updatecapacity"
                                           method="POST">
-                                        <input class="form-control" type="text" name="silo_capacity"
-                                               value="{{ $wastesilo->capacity_percent }}">
+
+
+                                        <div class="input-group-inapp input-group form-control-capacity">
+
+                                                <span class="input-group-addon" id="basic-addon2">
+                            <i class="fa fa-percent" aria-hidden="true"></i>
+                        </span>
+
+                                            <input type="number" name="silo_capacity" class="form-control"
+                                                   placeholder="Percentage"
+                                                   value="{{ $wastesilo->capacity_percent }}" min="0" max="100">
+
+
+                                        </div>
+
+
+
                                         <input type="hidden" name="silo_id" value="{{ $wastesilo->id }}">
                                         <input type="hidden" name="_method" value="PUT">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
