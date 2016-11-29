@@ -27,6 +27,9 @@ class HomeController extends Controller
     public function index()
     {
 
+        $user = Auth::user();
+        $data['user'] = $user;
+
         $blocks = \App\Block::all();
         $data['blocks'] = $blocks;
 
@@ -42,7 +45,7 @@ class HomeController extends Controller
         $resources = \App\Resource::All();
         $data['resources'] = $resources;
 
-        $logs = \App\Log::All();
+        $logs = \App\Log::orderBy('created_at', 'DESC')->take(10)->get();
         $data['logs'] = $logs;
 
         return view('dashboard', $data);

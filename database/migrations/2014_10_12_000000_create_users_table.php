@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->boolean('view_prime_silos')->default(false);
             $table->boolean('manage_prime_silos')->default(false);
             $table->boolean('manage_users')->default(false);
+            $table->boolean('view_resources')->default(false);
+            $table->boolean('manage_resources')->default(false);
             $table->boolean('email_prime_silos_full')->default(false);
             $table->boolean('email_waste_silos_full')->default(false);
             $table->rememberToken();

@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Hash;
 use App\Quotation;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use Image;
 
@@ -19,9 +20,9 @@ class UserController extends Controller
 
     public function index(){
 
-
+        $currentUser = Auth::user();
         $users = DB::table('users')->get();
-        return view('user.index', ['users' => $users]);
+        return view('user.index', ['users' => $users, 'currentUser' => $currentUser]);
     }
 
     public function create(){
@@ -72,6 +73,10 @@ class UserController extends Controller
             $user->view_prime_silos = true;
         }
 
+        if(isset($request->checkboxViewResources) && $request->checkboxViewResources == "on"){
+            $user->view_resources = true;
+        }
+
         if(isset($request->checkboxModifyStock) && $request->checkboxModifyStock == "on"){
             $user->manage_stock = true;
         }
@@ -88,6 +93,10 @@ class UserController extends Controller
             $user->manage_users = true;
         }
 
+        if(isset($request->checkboxModifyResources) && $request->checkboxModifyResources == "on"){
+            $user->manage_resources = true;
+        }
+
         if(isset($request->checkboxAdmin) && $request->checkboxAdmin == "on"){
             $user->admin = true;
             $user->view_dashboard = true;
@@ -98,6 +107,9 @@ class UserController extends Controller
             $user->manage_waste_silos = true;
             $user->manage_prime_silos = true;
             $user->manage_users = true;
+            $user->view_resources = true;
+        }else{
+            $user->admin = false;
         }
 
         $name = $user->name;
@@ -163,6 +175,12 @@ class UserController extends Controller
             $view_prime_silos = false;
         }
 
+        if(isset($request->checkboxViewResources) && $request->checkboxViewResources == "on"){
+            $view_resources = true;
+        }else{
+            $view_resources = false;
+        }
+
         if(isset($request->checkboxModifyStock) && $request->checkboxModifyStock == "on"){
             $manage_stock = true;
         }else{
@@ -187,16 +205,24 @@ class UserController extends Controller
             $manage_users = false;
         }
 
+        if(isset($request->checkboxModifyResources) && $request->checkboxModifyResources == "on"){
+            $manage_resources = true;
+        }else{
+            $manage_resources = false;
+        }
+
         if(isset($request->checkboxAdmin) && $request->checkboxAdmin == "on"){
             $admin = true;
             $view_dashboard = true;
             $view_stock = true;
             $view_waste_silos = true;
             $view_prime_silos = true;
+            $view_resources = true;
             $manage_stock = true;
             $manage_waste_silos = true;
             $manage_prime_silos = true;
             $manage_users = true;
+            $manage_resources = true;
         }else{
             $admin = false;
         }
@@ -214,9 +240,11 @@ class UserController extends Controller
                 'view_dashboard' => $view_dashboard,
                 'view_waste_silos' => $view_waste_silos,
                 'view_prime_silos' => $view_prime_silos,
+                'view_resources' => $view_resources,
                 'manage_stock' =>  $manage_stock,
                 'manage_waste_silos' => $manage_waste_silos,
                 'manage_prime_silos' => $manage_prime_silos,
+                'manage_resources' => $manage_resources,
                 'manage_users' => $manage_users,
             ]);
 
@@ -232,7 +260,12 @@ class UserController extends Controller
         if($id != 1){
             DB::table('users')->where('id', '=', $id)->delete();
         }
-        return redirect('/users')->with('success', 'The user is deleted!');
+        return redirect('/users')->with('success', 'The user has been deleted!');
+    }
+
+
+    public function denied(){
+        return view('errors.noaccess');
     }
 
 

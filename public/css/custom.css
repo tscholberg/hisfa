@@ -36,7 +36,7 @@
     display: flex;
     align-content: flex-end;
     flex-wrap: wrap;
-    height: 600px;
+    /*height: 600px;*/
     /*margin: auto;*/
     min-width: 180px;
     padding-top: 20px;
@@ -163,7 +163,7 @@
     top: 50%;
     left: 50px;
     transform: translateY(-50%);
-    background: url('../img/silo-grey.svg') no-repeat;
+    background: url('../img/silos/silo-grey.svg') no-repeat;
     background-size: 50px 100px;
     overflow: hidden;
 }
@@ -172,21 +172,21 @@
     margin: 10px auto 25px auto;
     height: 185px;
     width: 70px;
-    background: url('../img/silo-grey.svg') no-repeat;
+    background: url('../img/silos/silo-grey.svg') no-repeat;
     background-size: 70px 185px;
     overflow: hidden;
 }
 .green-silo{
-    background: url('../img/silo-green.svg') no-repeat;
+    background: url('../img/silos/silo-green.svg') no-repeat;
 }
 .yellow-silo{
-    background: url('../img/silo-yellow.svg') no-repeat;
+    background: url('../img/silos/silo-yellow.svg') no-repeat;
 }
 .orange-silo{
-    background: url('../img/silo-orange.svg') no-repeat;
+    background: url('../img/silos/silo-orange.svg') no-repeat;
 }
 .red-silo{
-    background: url('../img/silo-red.svg') no-repeat;
+    background: url('../img/silos/silo-red.svg') no-repeat;
 }
 .filled-silo{
     height: 0;
@@ -303,6 +303,20 @@
     margin-bottom: 10px !important;
 }
 
+.prifile-img-burger{
+    margin-left: 0 !important;
+
+}
+
+.pointer-default:hover{
+    cursor: default !important;
+}
+
+
+.form-control-capacity{
+    max-width: 136px !important;
+    margin: 0 auto 10px auto;
+}
 
 @media only screen and (min-width:1920px){
     .app{

@@ -23,18 +23,20 @@ Route::post('/profile/update-profile-picture', 'ProfileController@updateProfileP
 Route::post('/profile/update-email', 'ProfileController@updateEmailPreferences');
 
 // Primesilos
-Route::get('/primesilos', 'PrimeSiloController@index');
-Route::post('/primesilos/create', 'PrimeSiloController@addPrimeSilo');
-Route::delete('/primesilos/delete', 'PrimeSiloController@deletePrimeSilo');
-Route::put('/primesilos/updatecapacity', 'PrimeSiloController@updateCapacityPrimeSilo');
-Route::put('/primesilos/updateresource', 'PrimeSiloController@updateResourcePrimeSilo');
+Route::get('/primesilos', 'PrimeSiloController@index')->middleware('permission:view_prime_silos');
+Route::get('/primesilos/add', 'PrimeSiloController@addPrimeSilo')->middleware('permission:manage_prime_silos');
+Route::post('/primesilos/create', 'PrimeSiloController@createPrimeSilo')->middleware('permission:manage_prime_silos');
+Route::get('/primesilos/{id}/delete', 'PrimeSiloController@deletePrimeSilo')->middleware('permission:manage_prime_silos');
+Route::put('/primesilos/updatecapacity', 'PrimeSiloController@updateCapacityPrimeSilo')->middleware('permission:manage_prime_silos');
+Route::put('/primesilos/updateresource', 'PrimeSiloController@updateResourcePrimeSilo')->middleware('permission:manage_prime_silos');
 
 
 // Wastesilos
-Route::get('/wastesilos', 'WasteSiloController@index');
-Route::post('/wastesilos/create', 'WasteSiloController@addWasteSilo');
-Route::delete('/wastesilos/delete', 'WasteSiloController@deleteWasteSilo');
-Route::put('/wastesilos/updatecapacity', 'WasteSiloController@updateCapacityWasteSilo');
+Route::get('/wastesilos', 'WasteSiloController@index')->middleware('permission:view_waste_silos');
+Route::get('/wastesilos/add', 'WasteSiloController@add')->middleware('permission:manage_waste_silos');
+Route::post('/wastesilos/create', 'WasteSiloController@create')->middleware('permission:manage_waste_silos');
+Route::get('/wastesilos/{id}/delete', 'WasteSiloController@delete')->middleware('permission:manage_waste_silos');
+Route::put('/wastesilos/updatecapacity', 'WasteSiloController@update')->middleware('permission:manage_waste_silos');
 
 
 // Foam
@@ -43,24 +45,38 @@ Route::post('/foam/add', 'typeFoamController@add');
 Route::delete('/foam/delete', 'typeFoamController@delete');
 
 // Blocks
+<<<<<<< HEAD
 Route::get('/blocks', 'BlockController@index');
 Route::get('/blocks/add', 'BlockController@routeAdd');
 Route::post('/blocks/add', 'BlockController@add');
 Route::post('/blocks/update/{id}', 'BlockController@routeUpdate');
 Route::post('/blocks/update', 'BlockController@update');
+=======
+Route::get('/blocks', 'BlockController@index')->middleware('permission:view_stock');
+Route::post('/blocks/addBlock', 'BlockController@addBlock')->middleware('permission:manage_stock');
+Route::post('/blocks/updateBlock/{id}', 'BlockController@updateBlock')->middleware('permission:manage_stock');
+Route::post('/blocks', 'BlockController@update')->middleware('permission:manage_stock');
+>>>>>>> 7d1b5839fdcc6218fa6e8ffa0ae848b335de3a6c
 
 // Users
 Route::get('/users', 'UserController@index');
-Route::get('/users/create', 'UserController@create');
-Route::post('/users/store', 'UserController@store');
-Route::get('/users/{id}', 'UserController@detail');
-Route::post('/users/{id}/edit', 'UserController@edit');
-Route::get('/users/{id}/delete', 'UserController@delete');
+Route::get('/users/create', 'UserController@create')->middleware('permission:admin');
+Route::post('/users/store', 'UserController@store')->middleware('permission:manage_users');
+Route::get('/users/{id}', 'UserController@detail')->middleware('permission:manage_users');
+Route::post('/users/{id}/edit', 'UserController@edit')->middleware('permission:manage_users');
+Route::get('/users/{id}/delete', 'UserController@delete')->middleware('permission:admin');
+
+//logs
+Route::get('/logs', 'LogController@index')->middleware('permission:admin');
+
+//errors
+Route::get('/noaccess', 'UserController@denied');
 
 // Resources
-Route::get('/resources', 'ResourceController@index');
-Route::get('/resources/{id}', 'ResourceController@single');
-Route::post('/resources/{id}/edit', 'ResourceController@edit');
+Route::get('/resources', 'ResourceController@index')->middleware('permission:view_resources');
+Route::get('/resources/add', 'ResourceController@add')->middleware('permission:manage_resources');
+Route::get('/resources/{id}', 'ResourceController@detail')->middleware('permission:manage_resources');
+Route::post('/resources/{id}/edit', 'ResourceController@edit')->middleware('permission:manage_resources');
 
 // Login, reset account, ...
 Auth::routes();

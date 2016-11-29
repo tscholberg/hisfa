@@ -142,6 +142,15 @@
 
 
                             <div class="checkbox">
+                                <input type="checkbox" id="checkboxViewMaterialSilos" name="checkboxViewMaterialSilos"
+                                       class="checkalladmin permissionview"
+                                       checked>
+                                <label for="checkboxViewMaterialSilos">
+                                    View prime silos
+                                </label>
+                            </div>
+
+                            <div class="checkbox">
                                 <input type="checkbox" id="checkboxViewWasteSilos" name="checkboxViewWasteSilos" class="checkalladmin permissionview"
                                        checked>
                                 <label for="checkboxViewWasteSilos">
@@ -149,12 +158,14 @@
                                 </label>
                             </div>
 
+
+
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxViewMaterialSilos" name="checkboxViewMaterialSilos"
+                                <input type="checkbox" id="checkboxViewResources" name="checkboxViewResources"
                                        class="checkalladmin permissionview"
                                        checked>
-                                <label for="checkboxViewMaterialSilos">
-                                    View material silos
+                                <label for="checkboxViewResources">
+                                    View resources
                                 </label>
                             </div>
 
@@ -171,6 +182,13 @@
                                 </label>
                             </div>
 
+                            <div class="checkbox">
+                                <input type="checkbox" id="checkboxModifyMaterialSilos" name="checkboxModifyMaterialSilos"
+                                       class="checkalladmin permissionmodify">
+                                <label for="checkboxModifyMaterialSilos">
+                                    Manage prime silos
+                                </label>
+                            </div>
 
                             <div class="checkbox">
                                 <input type="checkbox" id="checkboxModifyWasteSilos" name="checkboxModifyWasteSilos"
@@ -181,11 +199,13 @@
                             </div>
 
 
+
+
                             <div class="checkbox">
-                                <input type="checkbox" id="checkboxModifyMaterialSilos" name="checkboxModifyMaterialSilos"
+                                <input type="checkbox" id="checkboxModifyResources" name="checkboxModifyResources"
                                        class="checkalladmin permissionmodify">
-                                <label for="checkboxModifyMaterialSilos">
-                                    Manage material silos
+                                <label for="checkboxModifyResources">
+                                    Manage resources
                                 </label>
                             </div>
 

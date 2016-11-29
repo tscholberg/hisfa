@@ -90,6 +90,7 @@
         </div>
     @endforeach
 
+<<<<<<< HEAD
     <div class="btn-floating" id="help-actions">
         <div class="btn-bg"></div>
         <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
@@ -103,5 +104,50 @@
             </ul>
         </div>
     </div>
+=======
+    <!--<div class="col-xs-12">
+        <div class="card">
+            <div class="card-header">Titel</div>
+            <div class="card-body no-padding">
+                <table class="datatable table table-striped primary" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>4m</th>
+                            <th>6m</th>
+                            <th>8m</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($blocks as $block)
+                        <tr>
+                            <td scope="row"><span>{{ $block->typefoam->foamtype }}</span></td>
+                            <td scope="row"><span>{{ $block->units }}</span></td>
+                            <td scope="row"><span>{{ $block->units }}</span></td>
+                            <td scope="row"><span>{{ $block->units }}</span></td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>-->
+
+        @if(Auth::user()->manage_stock)
+        <div class="btn-floating" id="help-actions">
+            <div class="btn-bg"></div>
+            <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
+                <i class="icon fa fa-plus"></i>
+                <span class="help-text">Add items</span>
+            </button>
+            <div class="toggle-content">
+                <ul class="actions">
+                    <li><a href="#">Add block</a></li>
+                    <li><a href="#">Add foam type</a></li>
+                </ul>
+            </div>
+        </div>
+        @endif
+>>>>>>> 7d1b5839fdcc6218fa6e8ffa0ae848b335de3a6c
 
 @stop

@@ -21,12 +21,18 @@ class WasteSiloController extends Controller
     public function index()
     {
         $wastesilos = \App\WasteSilo::All();
+        $user = Auth::user();
+        $data['user'] = $user;
         $data['wastesilos'] = $wastesilos;
-        return view('detail/WasteSilos', $data);
+        return view('waste.index', $data);
 
     }
 
-    public function addWasteSilo()
+    public function add(){
+        return view('waste.add');
+    }
+
+    public function create()
     {
 
         $silo = new WasteSilo;
@@ -36,21 +42,22 @@ class WasteSiloController extends Controller
         $silo->save();
 
         $user = Auth::user();
-        $silo->addLog( 'added waste silo', $user->name, $silo->id, $silo->id);
+        $silo->addLog( 'added waste silo', $user->name, $silo->name, $silo->id);
 
-        return redirect('wastesilos');
+        return redirect('/wastesilos');
     }
 
-    public function deleteWasteSilo(){
-        if ( \App\WasteSilo::findOrFail(Input::get('silo_id'))->delete() ){
+    public function delete($id){
+        if ( $silo = \App\WasteSilo::findOrFail($id) )
+        {
             $user = Auth::user();
-            $silo = new WasteSilo();
-            $silo->addLog( 'deleted waste silo', $user->name, Input::get('silo_id'), Input::get('silo_id'));
+            $silo->addLog( 'deleted waste silo', $user->name, $silo->name, $id);
+            $silo->delete();
         }
-        return redirect('wastesilos');
+        return redirect('/wastesilos')->with('success', 'The waste silo has been deleted!');
     }
 
-    public function updateCapacityWasteSilo()
+    public function update()
     {
         $silo = \App\WasteSilo::findOrFail(Input::get('silo_id'));
         $capacity = Input::get('silo_capacity');
@@ -59,8 +66,9 @@ class WasteSiloController extends Controller
         if ( $capacity / 100 <= 1 && $capacity / 100 >= 0 )
         {
             $user = Auth::user();
+
             $silo->save();
-            $silo->addLog( 'updated waste silo', $user->name, $silo->capacity ,$silo->id);
+            $silo->addLog( 'updated waste silo', $user->name, $silo->name.": ".($silo->capacity*100)."%",$silo->id);
         }
 
         if ($capacity >= 90)
@@ -73,6 +81,6 @@ class WasteSiloController extends Controller
             }
         }
 
-        return redirect('wastesilos');
+        return redirect('/wastesilos');
     }
 }
