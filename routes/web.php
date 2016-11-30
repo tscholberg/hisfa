@@ -45,18 +45,17 @@ Route::post('/foam/add', 'typeFoamController@add');
 Route::delete('/foam/delete', 'typeFoamController@delete');
 
 // Blocks
-<<<<<<< HEAD
 Route::get('/blocks', 'BlockController@index');
 Route::get('/blocks/add', 'BlockController@routeAdd');
 Route::post('/blocks/add', 'BlockController@add');
 Route::post('/blocks/update/{id}', 'BlockController@routeUpdate');
 Route::post('/blocks/update', 'BlockController@update');
-=======
+
+/*
 Route::get('/blocks', 'BlockController@index')->middleware('permission:view_stock');
 Route::post('/blocks/addBlock', 'BlockController@addBlock')->middleware('permission:manage_stock');
 Route::post('/blocks/updateBlock/{id}', 'BlockController@updateBlock')->middleware('permission:manage_stock');
-Route::post('/blocks', 'BlockController@update')->middleware('permission:manage_stock');
->>>>>>> 7d1b5839fdcc6218fa6e8ffa0ae848b335de3a6c
+Route::post('/blocks', 'BlockController@update')->middleware('permission:manage_stock');*/
 
 // Users
 Route::get('/users', 'UserController@index');

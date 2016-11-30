@@ -19,6 +19,8 @@ class CreateBlocksTable extends Migration
             $table->integer('units');
             $table->integer('typefoam_id')->unsigned();
             $table->foreign('typefoam_id')->references('id')->on('typefoams');
+            $table->integer('lengthfoam_id')->unsigned();
+            $table->foreign('lengthfoam_id')->references('id')->on('lengtes');
             $table->timestamps();
         });
     }

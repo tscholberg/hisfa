@@ -90,21 +90,6 @@
         </div>
     @endforeach
 
-<<<<<<< HEAD
-    <div class="btn-floating" id="help-actions">
-        <div class="btn-bg"></div>
-        <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
-            <i class="icon fa fa-plus"></i>
-            <span class="help-text">Add items</span>
-        </button>
-        <div class="toggle-content">
-            <ul class="actions">
-                <li><a href="/blocks/add">Add block</a></li>
-                <li><a href="/foam/add">Add foam type</a></li>
-            </ul>
-        </div>
-    </div>
-=======
     <!--<div class="col-xs-12">
         <div class="card">
             <div class="card-header">Titel</div>
@@ -142,12 +127,11 @@
             </button>
             <div class="toggle-content">
                 <ul class="actions">
-                    <li><a href="#">Add block</a></li>
-                    <li><a href="#">Add foam type</a></li>
+                    <li><a href="/blocks/add">Add block</a></li>
+                    <li><a href="/foam/add">Add foam type</a></li>
                 </ul>
             </div>
         </div>
         @endif
->>>>>>> 7d1b5839fdcc6218fa6e8ffa0ae848b335de3a6c
 
 @stop
