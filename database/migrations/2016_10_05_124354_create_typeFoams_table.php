@@ -13,6 +13,13 @@ class CreateTypeFoamsTable extends Migration
      */
     public function up()
     {
+
+        Schema::create('lengtes', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('foamlength');
+            $table->timestamps();
+        });
+
         Schema::create('typefoams', function (Blueprint $table) {
             $table->increments('id');
             $table->string('foamtype');
@@ -28,5 +35,6 @@ class CreateTypeFoamsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('typefoams');
+        Schema::dropIfExists('lengtes');
     }
 }

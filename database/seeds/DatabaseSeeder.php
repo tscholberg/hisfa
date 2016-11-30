@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TypeFoamSeeder::class);
         $this->call(ResourceSeeder::class);
         $this->call(SiloSeeder::class);
+        $this->call(LengteSeeder::class);
         $this->call(BlockSeeder::class);
         $this->call(LogSeeder::class);
     }
