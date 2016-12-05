@@ -33,7 +33,7 @@
 				<input name="_token" type="hidden" value="{{ csrf_token() }}">
 
 				<div class="app-heading">
-					<div class="section col-xs-12 col-md-8 update-field">
+					<div class="section col-xs-12 col-md-8">
 						<div class="section-title">
 							<i class="icon fa fa-industry" aria-hidden="true"></i> {{ $resourcedata->name }}
 						</div>

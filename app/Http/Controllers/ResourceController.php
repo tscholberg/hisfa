@@ -34,6 +34,23 @@ class ResourceController extends Controller{
         return view('resources.add');
     }
 
+    public function createResource(Request $request){
+        $this->validate($request, [
+            'name' => 'required',
+            'capacity' => 'required'
+        ]);
+
+        $resource = new Resource();
+        $resource->name = Input::get('name');
+        $resource->capacity = Input::get('capacity');
+        $resource->save();
+
+        $user = Auth::user();
+        $resource->addLog( 'added new resource', $user->name, $resource->name, $resource->id);
+
+        return view('resources.add')->with('success', 'Resouce was added succesfull!');
+    }
+
     public function edit($id, Request $request){
         $this->validate($request, [
             'name' => 'required',
