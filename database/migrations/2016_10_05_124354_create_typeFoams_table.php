@@ -16,7 +16,7 @@ class CreateTypeFoamsTable extends Migration
 
         Schema::create('lengtes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('foamlength');
+            $table->float('foamlength');
             $table->timestamps();
         });
 

@@ -58,7 +58,13 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 <tr>
+                                    <td>e</td>
+                                    <td>0</td>
+                                </tr>
+
+                                <!--<tr>
                                     <td>4m</td>
                                     @if ($block->length == 4000)
                                         <td>{{ $block->units }}</td>
@@ -81,7 +87,7 @@
                                     @else
                                         <td>0</td>
                                     @endif
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>
