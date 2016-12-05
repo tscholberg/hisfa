@@ -84,4 +84,7 @@
 @section('custom-scripts')
         <!-- Delete confirm bootbox -->
     <script src="/js/confirm-delete-user.js"></script>
-    @stop
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
+
+@stop

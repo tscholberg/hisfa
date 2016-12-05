@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Notifications\PrimeSiloFull;
-use App\User;
-use Illuminate\Http\Request;
 use App\PrimeSilo;
-use App\Http\Traits\LogTrait;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\API;
 use Illuminate\Support\Facades\Input;
 
 class PrimeSiloController extends Controller
@@ -20,13 +18,13 @@ class PrimeSiloController extends Controller
 
     public function index()
     {
-        $primesilos = \App\PrimeSilo::All();
-        $resources = \App\Resource::All();
+//        $primesilos = \App\PrimeSilo::All();
+//        $resources = \App\Resource::All();
         $user = Auth::user();
 
         $data['user'] = $user;
-        $data['resources'] = $resources;
-        $data['primesilos'] = $primesilos;
+//        $data['resources'] = $resources;
+//        $data['primesilos'] = $primesilos;
 
         return view('prime.index', $data);
     }
