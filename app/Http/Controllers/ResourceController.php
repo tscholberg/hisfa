@@ -60,4 +60,14 @@ class ResourceController extends Controller{
         return redirect('/resources')->with('success', 'Resource ' . $name . ' is updated. The changes are immediately active.');
     }
 
+    public function removeImage($id, Request $request){
+        $update = ['image' => 'default.png'];
+
+        DB::table('resources')
+            ->where('id', $id)
+            ->update($update);
+
+        return redirect('/resources')->with('success', 'Resource ' . $request->name . 'is updated.');
+    }
+
 }

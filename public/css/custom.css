@@ -298,7 +298,17 @@
 .vet{
     font-weight: bold !important;
 }
-
+.update-img{
+    height: 285px;
+    background-size: cover !important;
+    background-position: center !important;
+}
+.delete-link{
+    margin-top: 10px;
+    display: inline-block;
+    padding: 5px 10px;
+    color: red;
+}
 .feedback-title{
     margin-bottom: 10px !important;
 }

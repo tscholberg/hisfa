@@ -33,7 +33,7 @@
 				<input name="_token" type="hidden" value="{{ csrf_token() }}">
 
 				<div class="app-heading">
-					<div class="section col-xs-12">
+					<div class="section col-xs-12 col-md-8 update-field">
 						<div class="section-title">
 							<i class="icon fa fa-industry" aria-hidden="true"></i> {{ $resourcedata->name }}
 						</div>
@@ -58,6 +58,10 @@
 							</span>
 							<input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg" class="upload-file">
 						</div>
+					</div>
+					<div class="section col-xs-12 col-md-4" >
+						<div class="update-img" style="background: url('../img/resources/{{$resourcedata->image}}"></div>
+						<a href="/resources/{{$resourcedata->id}}/removeImage" class="delete-link pull-right">verwijder afbeelding</a>
 					</div>
 				</div>
 

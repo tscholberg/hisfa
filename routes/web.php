@@ -74,6 +74,7 @@ Route::get('/resources', 'ResourceController@index')->middleware('permission:vie
 Route::get('/resources/add', 'ResourceController@add')->middleware('permission:manage_resources');
 Route::get('/resources/{id}', 'ResourceController@detail')->middleware('permission:manage_resources');
 Route::post('/resources/{id}/edit', 'ResourceController@edit')->middleware('permission:manage_resources');
+Route::get('/resources/{id}/removeImage', 'ResourceController@removeImage')->middleware('permission:manage_resources');
 
 // Login, reset account, ...
 Auth::routes();
