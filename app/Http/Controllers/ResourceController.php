@@ -34,7 +34,7 @@ class ResourceController extends Controller{
         return view('resources.add');
     }
 
-    public function createResource(Request $request){
+    public function create(Request $request){
         $this->validate($request, [
             'name' => 'required',
             'capacity' => 'required'

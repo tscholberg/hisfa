@@ -12,8 +12,8 @@
 
 
     @if($user->view_dashboard == 1)
-            <!-- prime silo's -->
-        <div class="col-xs-12 col-sm-8">
+        <!-- prime silo's -->
+        <div class="col-xs-12 col-lg-8">
             <div class="primes">
                 <h2>Prime silo's</h2>
                 @foreach($primesilos as $key=>$primesilo)
@@ -99,7 +99,7 @@
 
 
         <!-- resources -->
-        <div class="col-xs-12 col-sm-4 resources">
+        <div class="col-xs-12 col-lg-4 resources">
             <h2>Resources</h2>
             @foreach($resources as $key=>$resource)
                 <div class="col-xs-6">
@@ -123,7 +123,7 @@
 
 
         <!-- Foam types -->
-        <div class="col-md-6">
+        <div class="col-xs-12 col-lg-6">
             <div class="card card-mini">
                 <div class="card-header">
                     <div class="card-title">Foam Types</div>
@@ -167,7 +167,7 @@
         @if($user->admin == 1)
 
             <a href="/logs">
-                <div class="col-md-6">
+                <div class="col-xs-12 col-lg-6">
                     <div class="card card-mini">
                         <div class="card-header">
                             Logs

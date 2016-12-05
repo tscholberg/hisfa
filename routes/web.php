@@ -72,7 +72,7 @@ Route::get('/noaccess', 'UserController@denied');
 // Resources
 Route::get('/resources', 'ResourceController@index')->middleware('permission:view_resources');
 Route::get('/resources/add', 'ResourceController@add')->middleware('permission:manage_resources');
-Route::post('/resources/create', 'ResourceController@createResource')->middleware('permission:manage_resources');
+Route::post('/resources/create', 'ResourceController@create')->middleware('permission:manage_resources');
 Route::get('/resources/{id}', 'ResourceController@detail')->middleware('permission:manage_resources');
 Route::post('/resources/{id}/edit', 'ResourceController@edit')->middleware('permission:manage_resources');
 Route::get('/resources/{id}/removeImage', 'ResourceController@removeImage')->middleware('permission:manage_resources');

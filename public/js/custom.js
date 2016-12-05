@@ -2,6 +2,7 @@ $(document).ready(function(){
 
 	$('.filled-silo').each(function(){  
 		var height = ($(this).parent().parent().find('.value').html().replace(/[^0-9]/g, ''));
+		var accurate = $(this).parent().height() * (parseInt(height)/100);
 
 		if(height == 100){
 			$(this).addClass('red-silo');
@@ -16,7 +17,7 @@ $(document).ready(function(){
 			$(this).parent().parent().parent().addClass('card-green-light');
 		}
 		
-		$(this).css({'height':parseInt(height)});
+		$(this).css({'height':parseInt(accurate)});
 	});
 
 	$('.detail-filled').each(function(){  
