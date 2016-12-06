@@ -53,6 +53,6 @@ class typeFoamController extends Controller
             $type->addLog( 'deleted foam type', $user->name, Input::get('block_id'), Input::get('block_id'));
         }
 
-        return redirect('blocks')->with('success', 'The type is deleted!');
+        return redirect('blocks')->with('success', 'The block is deleted!');
     }
 }

@@ -51,9 +51,9 @@ Route::post('/blocks/add', 'BlockController@add')->middleware('permission:manage
 Route::post('/blocks/update/{id}', 'BlockController@routeUpdate')->middleware('permission:manage_stock');
 Route::post('/blocks/update', 'BlockController@update')->middleware('permission:manage_stock');
 //other part of clocks
-Route::post('/blocks/addBlock', 'BlockController@addBlock')->middleware('permission:manage_stock');
+/*Route::post('/blocks/addBlock', 'BlockController@addBlock')->middleware('permission:manage_stock');
 Route::post('/blocks/updateBlock/{id}', 'BlockController@updateBlock')->middleware('permission:manage_stock');
-Route::post('/blocks', 'BlockController@update')->middleware('permission:manage_stock');
+Route::post('/blocks', 'BlockController@update')->middleware('permission:manage_stock');*/
 
 // Users
 Route::get('/users', 'UserController@index');

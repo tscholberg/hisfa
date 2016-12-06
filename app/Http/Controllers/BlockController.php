@@ -6,6 +6,7 @@ use App\typeFoam;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Block;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -72,5 +73,12 @@ class BlockController extends Controller
         $user = Auth::user();
         $block->addLog( 'updated block', $user->name, $block->id, $block->id);
         return redirect('blocks')->with('success', 'The block is updated!');
+    }
+
+    public function getTotal()
+    {
+        //$blocks = Block::all();
+        //$count = $units + $units;
+        //return view('blocks', ['units' => $units]);
     }
 }

@@ -21,8 +21,20 @@
         </div>
     @endif
 
+    <div class="card">
+        <div class="app-heading">
+            <div class="section col-xs-12">
+                <div class="section-title">
+                    <i class="icon fa fa-cube" aria-hidden="true"></i>
+                    Total stock
+                </div>
+                <p>You have {{ $blocks->sum('units') }} units total stock.</p>
+            </div>
+        </div>
+    </div>
+
     @foreach($blocks as $block)
-        <div class="col-xs-3">
+        <div class="col-xs-4">
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">{{ $block->typefoam->foamtype }}</div>
@@ -55,6 +67,7 @@
                                 <tr>
                                     <th>Length</th>
                                     <th>Units</th>
+                                    <th>Cubic meters</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -62,6 +75,11 @@
                                     <td>4m</td>
                                     @if ($block->length == 4000)
                                         <td>{{ $block->units }}</td>
+                                    @else
+                                        <td>0</td>
+                                    @endif
+                                    @if ($block->length == 4000)
+                                        <td>{{ 4 * 1.030 * 1.290 * 4 }}m³</td>
                                     @else
                                         <td>0</td>
                                     @endif
@@ -73,11 +91,21 @@
                                     @else
                                         <td>0</td>
                                     @endif
+                                    @if ($block->length == 6000)
+                                        <td>{{ 6 * 1.030 * 1.290 * 6 }}m³</td>
+                                    @else
+                                        <td>0</td>
+                                    @endif
                                 </tr>
                                 <tr>
                                     <td>8m</td>
                                     @if ($block->length == 8000)
                                         <td>{{ $block->units }}</td>
+                                    @else
+                                        <td>0</td>
+                                    @endif
+                                    @if ($block->length == 8000)
+                                        <td>{{ 8 * 1.030 * 1.290 * 8 }}m³</td>
                                     @else
                                         <td>0</td>
                                     @endif
@@ -90,7 +118,7 @@
         </div>
     @endforeach
 
-<<<<<<< HEAD
+    @if(Auth::user()->manage_stock)
     <div class="btn-floating" id="help-actions">
         <div class="btn-bg"></div>
         <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
@@ -104,50 +132,6 @@
             </ul>
         </div>
     </div>
-=======
-    <!--<div class="col-xs-12">
-        <div class="card">
-            <div class="card-header">Titel</div>
-            <div class="card-body no-padding">
-                <table class="datatable table table-striped primary" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>4m</th>
-                            <th>6m</th>
-                            <th>8m</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($blocks as $block)
-                        <tr>
-                            <td scope="row"><span>{{ $block->typefoam->foamtype }}</span></td>
-                            <td scope="row"><span>{{ $block->units }}</span></td>
-                            <td scope="row"><span>{{ $block->units }}</span></td>
-                            <td scope="row"><span>{{ $block->units }}</span></td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>-->
-
-        @if(Auth::user()->manage_stock)
-        <div class="btn-floating" id="help-actions">
-            <div class="btn-bg"></div>
-            <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
-                <i class="icon fa fa-plus"></i>
-                <span class="help-text">Add items</span>
-            </button>
-            <div class="toggle-content">
-                <ul class="actions">
-                    <li><a href="#">Add block</a></li>
-                    <li><a href="#">Add foam type</a></li>
-                </ul>
-            </div>
-        </div>
-        @endif
->>>>>>> 7d1b5839fdcc6218fa6e8ffa0ae848b335de3a6c
+    @endif
 
 @stop
