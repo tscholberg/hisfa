@@ -1,34 +1,50 @@
 Vue.component('primesilos', {
     template: '#primesilos-template',
+    props: ['silo'],
     data: function () {
         return {
-            primesilos: []
-        }
+            primesilos: [],
+        };
     },
     created: function () {
-        var resource = this.$resource("api/v1/primesilos/:id");
+        //var resource = this.$resource("api/v1/primesilos/:id");
         this.getPrimesilos();
     },
     methods: {
-        getPrimesilos: function() {
-
-            resource.get('api/v1/primesilos').then((response) => {
-                this.primesilos = response.body;
-                this.primesilos.forEach(function (silo) {
-                    silo.capacity = silo.capacity * 100;
+        getPrimesilos: function () {
+            axios.get('/api/v1/primesilos')
+                .then(function (response) {
+                    var silos = response.data;
+                    silos.forEach(function (silo) {
+                        silo.capacity = silo.capacity * 100;
+                    });
+                    this.primesilos = silos;
+                }.bind(this))
+                .catch(function (error) {
+                    console.log(error);
                 });
-            }, (response) => {
-                console.log('Error fetching silos');
-            });
-
         },
-
-        delete: function(silo){
-            this.primesilos.$remove(silo);
+        update: function(silo){
+            console.log(silo);
+            axios.put('/api/v1/primesilos/' + silo.id , {
+                    silo: silo.id,
+                    capacity: silo.capacity
+                })
+                .then(function (response) {
+                    console.log(silo);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
         }
     }
+
+
+
 });
+
 
 new Vue({
     el: '#vue-primesilos'
+
 });
