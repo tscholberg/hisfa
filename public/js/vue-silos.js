@@ -1,6 +1,26 @@
-Vue.component('primesilos', {
-    template: '#primesilos-template',
-    props: ['silo'],
+Vue.component('silo-component', {
+    template: '#silocomponent-template',
+    props: ["siloC"],
+    methods: {
+        update: function(silo){
+            console.log(silo);
+            axios.put('/api/v1/primesilos/' + silo.id , {
+                    silo: silo.id,
+                    capacity: silo.capacity
+                })
+                .then(function (response) {
+                    console.log(silo);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+    }
+});
+
+
+new Vue({
+    el: '#vue-primesilos',
     data: function () {
         return {
             primesilos: [],
@@ -23,28 +43,6 @@ Vue.component('primesilos', {
                 .catch(function (error) {
                     console.log(error);
                 });
-        },
-        update: function(silo){
-            console.log(silo);
-            axios.put('/api/v1/primesilos/' + silo.id , {
-                    silo: silo.id,
-                    capacity: silo.capacity
-                })
-                .then(function (response) {
-                    console.log(silo);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
         }
     }
-
-
-
-});
-
-
-new Vue({
-    el: '#vue-primesilos'
-
 });
