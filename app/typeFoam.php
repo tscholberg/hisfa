@@ -14,6 +14,6 @@ class typeFoam extends Model
     protected $fillable = ['name', '', ''];
 
     public function blocks(){
-        return $this->hasMany('App\Block');
+        return $this->hasMany('App\Block', 'typefoam_id');
     }
 }
