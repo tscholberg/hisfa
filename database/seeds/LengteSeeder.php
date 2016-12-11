@@ -12,9 +12,11 @@ class LengteSeeder extends Seeder
     public function run()
     {
         DB::table('lengtes')->insert([
-            ['foamlength' => 4],
-            ['foamlength' => 6],
-            ['foamlength' => 8]
+            ['length' => 4],
+            ['length' => 6],
+            ['length' => 8],
+            ['length' => 3.45]
+
         ]);
     }
 }

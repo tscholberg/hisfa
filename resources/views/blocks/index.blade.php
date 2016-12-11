@@ -21,15 +21,16 @@
         </div>
     @endif
 
-    @foreach($blocks as $block)
-        <div class="col-xs-3">
+    @foreach($typeFoams as $typefoam)
+        @if( !$typefoam->blocks->isEmpty() )
+            <div class="col-xs-3">
             <div class="card">
                 <div class="card-header">
-                    <div class="card-title">{{ $block->typefoam->foamtype }}</div>
+                    <div class="card-title">{{ $typefoam->foamtype }}</div>
                     <ul class="card-action">
                         <li style="float: left">
-                            <form action="/blocks/update/{{ $block->typefoam->id }}" method="POST" style="margin-right: 15px">
-                                <input type="hidden" name="block_id" value="{{ $block->id }}">
+                            <form action="/blocks/update/TODO" method="POST" style="margin-right: 15px">
+                                <input type="hidden" name="block_id" value="TODO">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-success" style="padding: 3px 8px; outline: none">
                                     <i class="fa fa-pencil"></i>
@@ -38,7 +39,7 @@
                         </li>
                         <li style="float: left">
                             <form action="/foam/delete" method="POST">
-                                <input type="hidden" name="block_id" value="{{ $block->id }}">
+                                <input type="hidden" name="block_id" value="TODO">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-danger" style="padding: 3px 8px; outline: none">
@@ -52,77 +53,32 @@
                     <div class="table-responsive">
                         <table class="table card-table">
                             <thead>
-                                <tr>
-                                    <th>Length</th>
-                                    <th>Units</th>
-                                </tr>
+                            <tr>
+                                <th>Length</th>
+                                <th>Units</th>
+                            </tr>
                             </thead>
                             <tbody>
 
-                                <tr>
-                                    <td>e</td>
-                                    <td>0</td>
-                                </tr>
 
-                                <!--<tr>
-                                    <td>4m</td>
-                                    @if ($block->length == 4000)
-                                        <td>{{ $block->units }}</td>
-                                    @else
-                                        <td>0</td>
-                                    @endif
-                                </tr>
+                            @foreach($typefoam->blocks as $block)
                                 <tr>
-                                    <td>6m</td>
-                                    @if ($block->length == 6000)
-                                        <td>{{ $block->units }}</td>
-                                    @else
-                                        <td>0</td>
-                                    @endif
+                                    <td>{{ $block->lengthFoam->length }} m</td>
+                                    <td>{{ $block->units }}</td>
                                 </tr>
-                                <tr>
-                                    <td>8m</td>
-                                    @if ($block->length == 8000)
-                                        <td>{{ $block->units }}</td>
-                                    @else
-                                        <td>0</td>
-                                    @endif
-                                </tr>-->
+                            @endforeach
+                            <tr>
+                                <td>totaal</td>
+                                <td>{{ $typefoam->blocks->sum("lengthFoam.length") }}</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
+        @endif
     @endforeach
-
-    <!--<div class="col-xs-12">
-        <div class="card">
-            <div class="card-header">Titel</div>
-            <div class="card-body no-padding">
-                <table class="datatable table table-striped primary" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Type</th>
-                            <th>4m</th>
-                            <th>6m</th>
-                            <th>8m</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($blocks as $block)
-                        <tr>
-                            <td scope="row"><span>{{ $block->typefoam->foamtype }}</span></td>
-                            <td scope="row"><span>{{ $block->units }}</span></td>
-                            <td scope="row"><span>{{ $block->units }}</span></td>
-                            <td scope="row"><span>{{ $block->units }}</span></td>
-                        </tr>
-                    @endforeach
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>-->
 
         @if(Auth::user()->manage_stock)
         <div class="btn-floating" id="help-actions">

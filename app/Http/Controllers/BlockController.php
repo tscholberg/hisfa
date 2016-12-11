@@ -21,8 +21,10 @@ class BlockController extends Controller
     public function index()
     {
         $blocks = Block::all();
+        $groupedTypeFoams = Block::all()->groupBy('typefoam_id');
         $typeFoams = typeFoam::all();
-        return view('blocks.index')->with(['blocks' => $blocks, 'typeFoams' => $typeFoams]);
+//        $usedTypeFoams = Block::
+        return view('blocks.index')->with(['blocks' => $blocks, 'groupedBlocksByTypefoam' => $groupedTypeFoams, 'typeFoams' => $typeFoams]);
     }
 
     public function routeAdd()
