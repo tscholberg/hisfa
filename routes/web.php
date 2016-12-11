@@ -11,7 +11,6 @@
 |
 */
 
-
 // Dashboard
 Route::get('/', 'homeController@index');
 Route::get('/dashboard', 'homeController@index');
@@ -30,7 +29,6 @@ Route::get('/primesilos/{id}/delete', 'PrimeSiloController@deletePrimeSilo')->mi
 Route::put('/primesilos/updatecapacity', 'PrimeSiloController@updateCapacityPrimeSilo')->middleware('permission:manage_prime_silos');
 Route::put('/primesilos/updateresource', 'PrimeSiloController@updateResourcePrimeSilo')->middleware('permission:manage_prime_silos');
 
-
 // Wastesilos
 Route::get('/wastesilos', 'WasteSiloController@index')->middleware('permission:view_waste_silos');
 Route::get('/wastesilos/add', 'WasteSiloController@add')->middleware('permission:manage_waste_silos');
@@ -38,24 +36,18 @@ Route::post('/wastesilos/create', 'WasteSiloController@create')->middleware('per
 Route::get('/wastesilos/{id}/delete', 'WasteSiloController@delete')->middleware('permission:manage_waste_silos');
 Route::put('/wastesilos/updatecapacity', 'WasteSiloController@update')->middleware('permission:manage_waste_silos');
 
-
 // Foam
-Route::get('/foam/add', 'typeFoamController@routeAdd');
-Route::post('/foam/add', 'typeFoamController@add');
+Route::get('/foam/addType', 'typeFoamController@routeAddType');
+Route::post('/foam/addType', 'typeFoamController@addType');
+Route::get('/foam/addLength', 'typeFoamController@routeAddLength');
+Route::post('/foam/addLength', 'typeFoamController@addLength');
 Route::delete('/foam/delete', 'typeFoamController@delete');
+Route::delete('/foam/deleteLength', 'typeFoamController@deleteLength');
+Route::put('/foam/increment', 'typeFoamController@increment');
+Route::put('/foam/decrement', 'typeFoamController@decrement');
 
 // Blocks
-Route::get('/blocks', 'BlockController@index');
-Route::get('/blocks/add', 'BlockController@routeAdd');
-Route::post('/blocks/add', 'BlockController@add');
-Route::post('/blocks/update/{id}', 'BlockController@routeUpdate');
-Route::post('/blocks/update', 'BlockController@update');
-
-/*
 Route::get('/blocks', 'BlockController@index')->middleware('permission:view_stock');
-Route::post('/blocks/addBlock', 'BlockController@addBlock')->middleware('permission:manage_stock');
-Route::post('/blocks/updateBlock/{id}', 'BlockController@updateBlock')->middleware('permission:manage_stock');
-Route::post('/blocks', 'BlockController@update')->middleware('permission:manage_stock');*/
 
 // Users
 Route::get('/users', 'UserController@index');
@@ -79,4 +71,3 @@ Route::post('/resources/{id}/edit', 'ResourceController@edit')->middleware('perm
 
 // Login, reset account, ...
 Auth::routes();
-

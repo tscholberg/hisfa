@@ -22,24 +22,14 @@
     @endif
 
     @foreach($typeFoams as $typefoam)
-        @if( !$typefoam->blocks->isEmpty() )
-            <div class="col-xs-3">
+        <div class="col-xs-4">
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">{{ $typefoam->foamtype }}</div>
                     <ul class="card-action">
-                        <li style="float: left">
-                            <form action="/blocks/update/TODO" method="POST" style="margin-right: 15px">
-                                <input type="hidden" name="block_id" value="TODO">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-success" style="padding: 3px 8px; outline: none">
-                                    <i class="fa fa-pencil"></i>
-                                </button>
-                            </form>
-                        </li>
-                        <li style="float: left">
+                        <li>
                             <form action="/foam/delete" method="POST">
-                                <input type="hidden" name="block_id" value="TODO">
+                                <input type="hidden" name="typeFoam_id" value="{{ $typefoam->id }}">
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                 <button type="submit" class="btn btn-danger" style="padding: 3px 8px; outline: none">
@@ -56,44 +46,71 @@
                             <tr>
                                 <th>Length</th>
                                 <th>Units</th>
+                                <th>Cubic metres</th>
                             </tr>
                             </thead>
                             <tbody>
-
-
                             @foreach($typefoam->blocks as $block)
                                 <tr>
-                                    <td>{{ $block->lengthFoam->length }} m</td>
-                                    <td>{{ $block->units }}</td>
+                                    <td>
+                                        <div style="display: flex">
+                                            <form action="/foam/deleteLength" method="POST">
+                                                <input type="hidden" name="length_id" value="{{ $block->id }}">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <button type="submit" class="btn btn-danger" style="padding: 0 2px; outline: none; margin-right: 5px; background-color: transparent; border: none; box-shadow: none">
+                                                    <i class="fa fa-trash" aria-hidden="true" style="color: #e54d42"></i>
+                                                </button>
+                                            </form>
+                                            {{ $block->lengthFoam->length }} m
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div style="display: flex">
+                                            <form action="/foam/decrement" method="POST">
+                                                <input type="hidden" name="units_id" value="{{ $block->id }}">
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <button type="submit" class="btn btn-danger" style="padding: 0 2px; outline: none; margin-right: 5px; background-color: transparent; border: none; box-shadow: none">
+                                                    <i class="fa fa-minus-circle" aria-hidden="true" style="color: #e54d42"></i>
+                                                </button>
+                                            </form>
+                                            {{ $block->units }}
+                                            <form action="/foam/increment" method="POST">
+                                                <input type="hidden" name="units_id" value="{{ $block->id }}">
+                                                <input type="hidden" name="_method" value="PUT">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <button type="submit" class="btn btn-success" style="padding: 0 2px; outline: none; margin-left: 5px; background-color: transparent; border: none; box-shadow: none">
+                                                    <i class="fa fa-plus-circle" aria-hidden="true" style="color: #34c564"></i>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </td>
+                                    <td>{{number_format($block->lengthFoam->length * 1.030 * 1.290 * $block->lengthFoam->length, 2, '.', ',')}} m³</td>
                                 </tr>
                             @endforeach
-                            <tr>
-                                <td>totaal</td>
-                                <td>{{ $typefoam->blocks->sum("lengthFoam.length") }}</td>
-                            </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-        @endif
     @endforeach
 
-        @if(Auth::user()->manage_stock)
-        <div class="btn-floating" id="help-actions">
-            <div class="btn-bg"></div>
-            <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
-                <i class="icon fa fa-plus"></i>
-                <span class="help-text">Add items</span>
-            </button>
-            <div class="toggle-content">
-                <ul class="actions">
-                    <li><a href="/blocks/add">Add block</a></li>
-                    <li><a href="/foam/add">Add foam type</a></li>
-                </ul>
-            </div>
+    @if(Auth::user()->manage_stock)
+    <div class="btn-floating" id="help-actions">
+        <div class="btn-bg"></div>
+        <button type="button" class="btn btn-default btn-toggle" data-toggle="toggle" data-target="#help-actions">
+            <i class="icon fa fa-plus"></i>
+            <span class="help-text">Add items</span>
+        </button>
+        <div class="toggle-content">
+            <ul class="actions">
+                <li><a href="/foam/addType">Add foam type</a></li>
+                <li><a href="/foam/addLength">Add foam length</a></li>
+            </ul>
         </div>
-        @endif
+    </div>
+    @endif
 
 @stop
