@@ -48,17 +48,6 @@ Route::put('/foam/decrement', 'typeFoamController@decrement');
 
 // Blocks
 Route::get('/blocks', 'BlockController@index')->middleware('permission:view_stock');
-<<<<<<< HEAD
-Route::get('/blocks/add', 'BlockController@routeAdd')->middleware('permission:manage_stock');
-Route::post('/blocks/add', 'BlockController@add')->middleware('permission:manage_stock');
-Route::post('/blocks/update/{id}', 'BlockController@routeUpdate')->middleware('permission:manage_stock');
-Route::post('/blocks/update', 'BlockController@update')->middleware('permission:manage_stock');
-//other part of clocks
-/*Route::post('/blocks/addBlock', 'BlockController@addBlock')->middleware('permission:manage_stock');
-Route::post('/blocks/updateBlock/{id}', 'BlockController@updateBlock')->middleware('permission:manage_stock');
-Route::post('/blocks', 'BlockController@update')->middleware('permission:manage_stock');*/
-=======
->>>>>>> vincent-arno-blocks
 
 // Users
 Route::get('/users', 'UserController@index');
