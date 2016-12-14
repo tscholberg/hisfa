@@ -17,8 +17,8 @@ class CreateLogsTable extends Migration
             $table->increments('id');
             $table->string('function', 50);
             $table->string('user', 50);
-            $table->string('description', 50);
-            $table->integer('object_id');
+            $table->string('description', 50)->nullable();;
+            $table->integer('object_id')->nullable();
             $table->integer('foreign_id')->nullable();
             $table->timestamps();
         });

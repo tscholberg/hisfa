@@ -39,6 +39,8 @@ class typeFoamController extends Controller
         $type = new typeFoam();
         $type->foamtype = Input::get('foamType_name');
         $type->save();
+        $user = Auth::user();
+        $type->addLog( 'Added type', $user->name, $type->foamtype, $type->id);
 
         return redirect('blocks')->with('success', 'The type is added!');
     }
@@ -57,16 +59,22 @@ class typeFoamController extends Controller
             'foamType_length' => 'required',
             'foamType_units' => 'required'
         ]);
+        $user = Auth::user();
+
 
         $length = new lengthFoam();
         $length->length = Input::get('foamType_length');
         $length->save();
         $length_id = $length->id;
+        $length->addLog( 'Added length', $user->name, $length->length, $length->id);
+
 
         $block = new Block();
         $block->typefoam_id = Input::get('foamType_id');
         $block->lengthfoam_id = $length_id;
         $block->units = Input::get('foamType_units');
+
+        $block->addLog( 'Added block', $user->name, $block->typefoam->foamtype, $block->id);
         $block->save();
 
         return redirect('blocks')->with('success', 'The type is added!');
@@ -74,11 +82,13 @@ class typeFoamController extends Controller
 
     public function increment()
     {
-        $id = \App\Block::findOrFail(Input::get('units_id'));
+        $block = \App\Block::findOrFail(Input::get('units_id'));
 
-        if ( $id )
+        if ( $block )
         {
-            $id->increment('units');
+            $block->increment('units');
+            $user = Auth::user();
+            $block->addLog( 'Incremented blocks', $user->name, $block->units, $block->id);
         }
 
         return redirect('blocks')->with('success', 'The units are incremented!');
@@ -86,11 +96,14 @@ class typeFoamController extends Controller
 
     /*public function decrement()
     {
-        $id = \App\Block::findOrFail(Input::get('units_id'));
+        $block = \App\Block::findOrFail(Input::get('units_id'));
 
-        if ( $id )
+        if ( $block )
         {
-            $id->decrement('units');
+            $block->decrement('units');
+            $user = Auth::user();
+            $block->addLog( 'Decremented blocks', $user->name, $block->units, $block->id);
+
         }
 
         return redirect('blocks')->with('success', 'The units are decremented!');
@@ -110,15 +123,19 @@ class typeFoamController extends Controller
 
     public function deleteLength()
     {
-        \App\Block::findOrFail(Input::get('length_id'))->delete();
-
+        $length = \App\Block::findOrFail(Input::get('length_id'));
+        $user = Auth::user();
+        $length->addLog( 'Deleted length', $user->name, $length->length, $length->id);
+        $length->delete();
         return redirect('blocks')->with('success', 'The length is deleted!');
     }
 
     public function delete()
     {
-        \App\typeFoam::findOrFail(Input::get('typeFoam_id'))->delete();
-
+        $type = \App\typeFoam::findOrFail(Input::get('typeFoam_id'));
+        $user = Auth::user();
+        $type->addLog( 'Deleted type', $user->name, $type->foamtype, $type->id);
+        $type->delete();
         return redirect('blocks')->with('success', 'The type is deleted!');
     }
 }
