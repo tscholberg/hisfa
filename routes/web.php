@@ -37,14 +37,14 @@ Route::get('/wastesilos/{id}/delete', 'WasteSiloController@delete')->middleware(
 Route::put('/wastesilos/updatecapacity', 'WasteSiloController@update')->middleware('permission:manage_waste_silos');
 
 // Foam
-Route::get('/foam/addType', 'typeFoamController@routeAddType');
-Route::post('/foam/addType', 'typeFoamController@addType');
-Route::get('/foam/addLength', 'typeFoamController@routeAddLength');
-Route::post('/foam/addLength', 'typeFoamController@addLength');
-Route::delete('/foam/delete', 'typeFoamController@delete');
-Route::delete('/foam/deleteLength', 'typeFoamController@deleteLength');
-Route::put('/foam/increment', 'typeFoamController@increment');
-Route::put('/foam/decrement', 'typeFoamController@decrement');
+Route::get('/foam/addType', 'typeFoamController@routeAddType')->middleware('permission:manage_stock');
+Route::post('/foam/addType', 'typeFoamController@addType')->middleware('permission:manage_stock');
+Route::get('/foam/addLength', 'typeFoamController@routeAddLength')->middleware('permission:manage_stock');
+Route::post('/foam/addLength', 'typeFoamController@addLength')->middleware('permission:manage_stock');
+Route::delete('/foam/delete', 'typeFoamController@delete')->middleware('permission:manage_stock');
+Route::delete('/foam/deleteLength', 'typeFoamController@deleteLength')->middleware('permission:manage_stock');
+Route::put('/foam/increment', 'typeFoamController@increment')->middleware('permission:manage_stock');
+Route::put('/foam/decrement', 'typeFoamController@decrement')->middleware('permission:manage_stock');
 
 // Blocks
 Route::get('/blocks', 'BlockController@index')->middleware('permission:view_stock');
