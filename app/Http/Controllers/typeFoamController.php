@@ -94,7 +94,7 @@ class typeFoamController extends Controller
         return redirect('blocks')->with('success', 'The units are incremented!');
     }
 
-    /*public function decrement()
+    public function decrement()
     {
         $block = \App\Block::findOrFail(Input::get('units_id'));
 
@@ -107,18 +107,6 @@ class typeFoamController extends Controller
         }
 
         return redirect('blocks')->with('success', 'The units are decremented!');
-    }*/
-
-    public function decrement()
-    {
-        $id = \App\Block::findOrFail(Input::get('units_id'));
-
-        if ( $id )
-        {
-            $id->decrement('units');
-        }
-
-        //return redirect('blocks')->with('success', 'The units are decremented!');
     }
 
     public function deleteLength()
