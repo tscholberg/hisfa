@@ -12,8 +12,8 @@
 */
 
 // Dashboard
-Route::get('/', 'homeController@index');
-Route::get('/dashboard', 'homeController@index');
+Route::get('/', 'homeController@index')->middleware('permission:view_dashboard');
+Route::get('/dashboard', 'homeController@index')->middleware('permission:view_dashboard');
 
 // Profile
 Route::get('/profile', 'ProfileController@index');
