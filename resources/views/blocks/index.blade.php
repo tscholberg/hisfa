@@ -41,15 +41,15 @@
                     <ul class="card-action">
                         <li>
                             @if($typefoam->blocks->isEmpty())
-                            <form action="/foam/delete" method="POST">
-                                <input type="hidden" name="typeFoam_id" value="{{ $typefoam->id }}">
-                                <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <button type="submit" class="btn btn-danger" style="padding: 3px 8px; outline: none">
-                                    <i class="fa fa-trash-o"></i>
-                                </button>
-                            </form>
-                                @endif
+                                <form action="/foam/delete" method="POST">
+                                    <input type="hidden" name="typeFoam_id" value="{{ $typefoam->id }}">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <button type="submit" class="btn btn-danger" style="padding: 3px 8px; outline: none">
+                                        <i class="fa fa-trash-o"></i>
+                                    </button>
+                                </form>
+                            @endif
                         </li>
                     </ul>
                 </div>

@@ -63,39 +63,41 @@
         </div><!-- ./primes -->
 
         @foreach($typeFoams as $typefoam)
-            <div class="col-xs-12 col-md-6 col-lg-6">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="card-title">{{ $typefoam->foamtype }}</div>
-                    </div>
-                    <div class="card-body no-padding">
-                        <div class="table-responsive">
-                            <table class="table card-table">
-                                <thead>
-                                <tr>
-                                    <th>Length</th>
-                                    <th>Units</th>
-                                    <th>Cubic metres</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($typefoam->blocks as $block)
+            @if(!$typefoam->blocks->isEmpty())
+                <div class="col-xs-12 col-md-6 col-lg-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="card-title">{{ $typefoam->foamtype }}</div>
+                        </div>
+                        <div class="card-body no-padding">
+                            <div class="table-responsive">
+                                <table class="table card-table">
+                                    <thead>
                                     <tr>
-                                        <td>
-                                            {{ $block->lengthFoam->length }} m
-                                        </td>
-                                        <td>
-                                            {{ $block->units }}
-                                        </td>
-                                        <td>{{number_format($block->lengthFoam->length * 1.030 * 1.290 * $block->lengthFoam->length, 2, '.', ',')}} m³</td>
+                                        <th>Length</th>
+                                        <th>Units</th>
+                                        <th>Cubic metres</th>
                                     </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($typefoam->blocks as $block)
+                                        <tr>
+                                            <td>
+                                                {{ $block->lengthFoam->length }} m
+                                            </td>
+                                            <td>
+                                                {{ $block->units }}
+                                            </td>
+                                            <td>{{number_format($block->lengthFoam->length * 1.030 * 1.290 * $block->lengthFoam->length, 2, '.', ',')}} m³</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
         @endforeach
 
         <!-- resources -->
