@@ -60,43 +60,43 @@
                 @endforeach
                 <div class="clearfix"></div>
             </div><!-- ./waste -->
-
-            <!-- Blocks -->
-            <div class="col-xs-12">
-                <div class="card card-mini">
-                    <div class="card-header">
-                        <div class="card-title">Blocks</div>
-                        <ul class="card-action">
-                            <li><a href="/blocks">Types in stock</a></li>
-                        </ul>
-                    </div>
-                    <div class="card-body no-padding table-responsive">
-                        <table class="table card-table table-hover table-striped foam-type-home">
-                            <thead>
-                            <tr>
-                                <th>Height</th>
-                                <th>Type</th>
-                                <th>Length</th>
-                                <th>Units</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($blocks as $block)
-                                <tr>
-                                    <td>{{ $block->units }}</td>
-                                    <td>{{ $block->typefoam->foamtype }}</td>
-                                    <td>{{ $block->height }}</td>
-                                    <td>{{ $block->length }}</td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div><!-- ./END BLOCKS VIEW -->
         </div><!-- ./primes -->
 
-
+        @foreach($typeFoams as $typefoam)
+            <div class="col-xs-12 col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">{{ $typefoam->foamtype }}</div>
+                    </div>
+                    <div class="card-body no-padding">
+                        <div class="table-responsive">
+                            <table class="table card-table">
+                                <thead>
+                                <tr>
+                                    <th>Length</th>
+                                    <th>Units</th>
+                                    <th>Cubic metres</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($typefoam->blocks as $block)
+                                    <tr>
+                                        <td>
+                                            {{ $block->lengthFoam->length }} m
+                                        </td>
+                                        <td>
+                                            {{ $block->units }}
+                                        </td>
+                                        <td>{{number_format($block->lengthFoam->length * 1.030 * 1.290 * $block->lengthFoam->length, 2, '.', ',')}} m³</td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
 
         <!-- resources -->
         <div class="col-xs-12 col-lg-4 resources">
@@ -118,51 +118,6 @@
                 </div>
             @endforeach
         </div><!-- ./resources -->
-
-
-
-
-        <!-- Foam types -->
-        <div class="col-xs-12 col-lg-6">
-            <div class="card card-mini">
-                <div class="card-header">
-                    <div class="card-title">Foam Types</div>
-                    <ul class="card-action">
-                        <li><a href="/foam">Types in stock</a></li>
-                    </ul>
-                </div>
-                <div class="card-body no-padding table-responsive">
-                    <table class="table card-table table-hover table-striped foam-type-home">
-                        <thead>
-                        <tr>
-                            <th>Status</th>
-                            <th>Type</th>
-                            <th>Amount</th>
-                            <th>Available sizes</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($typeFoams as $foam)
-                            <tr>
-                                <td><span class="badge badge-success badge-icon"><i class="fa fa-check"
-                                                                                    aria-hidden="true"></i><span>In stock</span></span>
-                                </td>
-                                <td>{{ $foam->foamtype }}</td>
-                                <td class="right">10</td>
-                                <td>8, 8, 8, 4, 4, 4, 3</td>
-                                <!--
-                                <td><span class="badge badge-warning badge-icon"><i class="fa fa-clock-o" aria-hidden="true"></i><span>Running out</span></span></td>
-                            <td><span class="badge badge-danger badge-icon"><i class="fa fa-times" aria-hidden="true"></i><span>Not available</span></span></td>
-                                -->
-                            </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div><!-- ./END FOAM TYPES VIEW -->
-
-
 
         @if($user->admin == 1)
 
@@ -204,7 +159,5 @@
     @else
         @include('errors.noaccess-dashboard')
     @endif
-
-
 
 @stop
