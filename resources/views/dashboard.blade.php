@@ -62,6 +62,27 @@
             </div><!-- ./waste -->
         </div><!-- ./primes -->
 
+        <!-- resources -->
+        <div class="col-xs-12 col-lg-4 resources">
+            <h2>Resources</h2>
+            @foreach($resources as $key=>$resource)
+                <div class="col-xs-6">
+                    <a href="/resources/{{$resource->id}}" class="card card-banner card-green-light resource-card">
+                        <div class="card-body">
+                            <div class="resource-img"
+                                 style="background: url('img/resources/{{$resource->image}}') no-repeat;">
+                            </div>
+                            <div class="content">
+                                <div class="title">{{ $resource->name }}</div>
+                                <div class="value">{{ $resource->capacity }}<span class="sign"> ton</span></div>
+                            </div>
+                        <!-- <p class="silo">{{ $primesilo->name }}</p> -->
+                        </div>
+                    </a>
+                </div>
+            @endforeach
+        </div><!-- ./resources -->
+
         @foreach($typeFoams as $typefoam)
             @if(!$typefoam->blocks->isEmpty())
                 <div class="col-xs-12 col-md-6 col-lg-6">
@@ -99,27 +120,6 @@
                 </div>
             @endif
         @endforeach
-
-        <!-- resources -->
-        <div class="col-xs-12 col-lg-4 resources">
-            <h2>Resources</h2>
-            @foreach($resources as $key=>$resource)
-                <div class="col-xs-6">
-                    <a href="/resources/{{$resource->id}}" class="card card-banner card-green-light resource-card">
-                        <div class="card-body">
-                            <div class="resource-img"
-                                 style="background: url('img/resources/{{$resource->image}}') no-repeat;">
-                            </div>
-                            <div class="content">
-                                <div class="title">{{ $resource->name }}</div>
-                                <div class="value">{{ $resource->capacity }}<span class="sign"> ton</span></div>
-                            </div>
-                            <!-- <p class="silo">{{ $primesilo->name }}</p> -->
-                        </div>
-                    </a>
-                </div>
-            @endforeach
-        </div><!-- ./resources -->
 
         @if($user->admin == 1)
 
