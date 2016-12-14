@@ -22,7 +22,7 @@
     @endif
 
     @foreach($typeFoams as $typefoam)
-        <div class="col-xs-4">
+        <div class="col-xs-12 col-md-6 col-lg-6">
             <div class="card">
                 <div class="card-header">
                     <div class="card-title">{{ $typefoam->foamtype }}</div>
@@ -58,7 +58,7 @@
                                                 <input type="hidden" name="length_id" value="{{ $block->id }}">
                                                 <input type="hidden" name="_method" value="DELETE">
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <button type="submit" class="btn btn-danger" style="padding: 0 2px; outline: none; margin-right: 5px; background-color: transparent; border: none; box-shadow: none">
+                                                <button type="submit" class="btn btn-danger btn-delete" style="padding: 0 2px; outline: none; margin-right: 5px; background-color: transparent; border: none; box-shadow: none">
                                                     <i class="fa fa-trash" aria-hidden="true" style="color: #e54d42"></i>
                                                 </button>
                                             </form>

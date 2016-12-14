@@ -49,7 +49,7 @@
                             <span class="input-group-addon" id="basic-addon2">
                                 <i class="fa fa-plus" aria-hidden="true"></i>
                             </span>
-                        <input type="number" name="foamType_length" class="form-control" required autofocus>
+                        <input type="number" step="any" name="foamType_length" class="form-control" required autofocus>
                     </div>
                     <label class="col-md-2 control-label">Units</label>
                     <div class="input-group-inapp input-group{{ $errors->has('foamType_units') ? ' has-error' : '' }}">

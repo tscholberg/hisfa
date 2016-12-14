@@ -125,7 +125,7 @@ $user = Auth::user();
                         <li class="dropdown profile">
 
     <a href="/profile">
-                                <img class="profile-img prifile-img-burger" src="img/profile-pictures//{{ $user->avatar }}">
+                                <img class="profile-img prifile-img-burger" src="/img/profile-pictures/{{ $user->avatar }}">
                                 <div class="title">Profile settings</div>
                             </a>                    </a>
 
